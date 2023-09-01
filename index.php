@@ -11,7 +11,11 @@ use Blog\Controller\Article\ArticleController;
  **/
 
 if(isset($_GET['controller']) && !empty($_GET['controller'])){
-  echo 'Controller existant';
+  if($_GET['controller'] === 'article'){
+    if($_GET['action'] === 'addArticle'){
+      echo 'article';die;
+    }
+  }
 }
 else{
   ArticleController::index();

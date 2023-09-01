@@ -1,0 +1,438 @@
+/* line 5, ../../../../../Ruby31-x64/lib/ruby/gems/3.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../Ruby31-x64/lib/ruby/gems/3.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../Ruby31-x64/lib/ruby/gems/3.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../Ruby31-x64/lib/ruby/gems/3.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../Ruby31-x64/lib/ruby/gems/3.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../Ruby31-x64/lib/ruby/gems/3.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../Ruby31-x64/lib/ruby/gems/3.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../Ruby31-x64/lib/ruby/gems/3.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../Ruby31-x64/lib/ruby/gems/3.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* Declaration des variables */
+/* Devices */
+/* line 5, ../scss/stylesdashboard.scss */
+*, ::after, ::before {
+  box-sizing: border-box;
+  letter-spacing: 0.1rem;
+  outline: none;
+  border: none;
+  color: inherit;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+/* line 14, ../scss/stylesdashboard.scss */
+html {
+  font-size: 62.5%;
+}
+
+/* line 17, ../scss/stylesdashboard.scss */
+body {
+  font-size: 1.6rem;
+  font-family: nunito, sans-serif;
+}
+
+/* Wrapper */
+/* line 22, ../scss/stylesdashboard.scss */
+#wrapper {
+  min-width: 36rem;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  background-color: #f2f2f2;
+  position: relative;
+}
+
+/* Fin Wrapper*/
+/*Header*/
+/* line 32, ../scss/stylesdashboard.scss */
+#header {
+  width: 8rem;
+  padding: 0 2rem;
+  background-color: #011d26;
+  height: 100%;
+}
+
+/* line 38, ../scss/stylesdashboard.scss */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+/*Fin Header*/
+/* Logo */
+/* line 47, ../scss/stylesdashboard.scss */
+.logo p {
+  font-weight: bold;
+  font-size: 3.2rem;
+  margin-top: 2rem;
+}
+/* line 52, ../scss/stylesdashboard.scss */
+.logo p a {
+  color: #3ffba6;
+}
+
+/*Fin Logo*/
+/* Account */
+/* line 59, ../scss/stylesdashboard.scss */
+.account {
+  margin-top: auto;
+  font-size: 1.8rem;
+  color: #3ffba6;
+  position: relative;
+}
+/* line 65, ../scss/stylesdashboard.scss */
+.account .sous-menu {
+  position: absolute;
+  top: -8rem;
+  left: -200rem;
+  display: flex;
+  gap: 1rem;
+  background-color: #000000;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  transition: left 0.3s ease-in-out;
+}
+/* line 77, ../scss/stylesdashboard.scss */
+.account .sous-menu.active {
+  left: -2rem;
+}
+
+/* line 81, ../scss/stylesdashboard.scss */
+.sous-menu::after {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  background-color: #000000;
+  border-right: 0.1rem solid rgba(0, 0, 0, 0.04);
+  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.04);
+  position: absolute;
+  transform: rotate(45deg);
+  top: 5.6rem;
+  left: 1.8rem;
+}
+
+/* Main */
+/* line 95, ../scss/stylesdashboard.scss */
+#main {
+  width: calc(100% - 8rem);
+  padding: 3rem;
+  overflow-y: scroll;
+}
+/* line 99, ../scss/stylesdashboard.scss */
+#main .main {
+  display: flex;
+  flex-direction: column;
+}
+/* line 103, ../scss/stylesdashboard.scss */
+#main h1 {
+  font-size: 2.4rem;
+  color: #011d26;
+  font-weight: bold;
+  font-family: 'lobster two';
+}
+
+/* line 110, ../scss/stylesdashboard.scss */
+.header-bloc {
+  margin-top: 3rem;
+  display: flex;
+  gap: 3rem;
+  flex-direction: column;
+}
+
+/* line 116, ../scss/stylesdashboard.scss */
+.header-bloc-group {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 30rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+}
+/* line 127, ../scss/stylesdashboard.scss */
+.header-bloc-group > span:first-of-type {
+  margin-top: 2rem;
+  font-size: 6.2rem;
+  color: #011d26;
+  opacity: 0.1;
+}
+/* line 133, ../scss/stylesdashboard.scss */
+.header-bloc-group b {
+  font-size: 3.2rem;
+  color: #E55812;
+  margin-bottom: 1rem;
+}
+/* line 138, ../scss/stylesdashboard.scss */
+.header-bloc-group p {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #E55812;
+}
+/* line 144, ../scss/stylesdashboard.scss */
+.header-bloc-group strong {
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+/* line 149, ../scss/stylesdashboard.scss */
+.header-bloc-group .header-bloc-group-actions {
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  gap: 1.5rem;
+  color: #3ffba6;
+  background-color: #011d26;
+  width: 100%;
+}
+/* line 161, ../scss/stylesdashboard.scss */
+.header-bloc-group .header-bloc-group-actions span {
+  cursor: pointer;
+}
+
+/* Section : list */
+/* line 168, ../scss/stylesdashboard.scss */
+#list {
+  margin-top: 6rem;
+  padding: 3rem;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+}
+/* line 175, ../scss/stylesdashboard.scss */
+#list h2 {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #011d26;
+}
+/* line 180, ../scss/stylesdashboard.scss */
+#list table {
+  width: 100%;
+  margin: 3rem 0;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+/* line 185, ../scss/stylesdashboard.scss */
+#list table thead th {
+  font-weight: bold;
+}
+/* line 189, ../scss/stylesdashboard.scss */
+#list thead {
+  background-color: #3ffba6;
+  color: #011d26;
+  border-radius: 0.5rem;
+}
+/* line 194, ../scss/stylesdashboard.scss */
+#list tr {
+  width: 100%;
+}
+/* line 197, ../scss/stylesdashboard.scss */
+#list tr:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+/* line 200, ../scss/stylesdashboard.scss */
+#list th, #list td {
+  height: 5rem;
+  padding: 0.5rem;
+}
+/* line 204, ../scss/stylesdashboard.scss */
+#list .list-group-table .list-group-table-check {
+  width: 5%;
+}
+/* line 207, ../scss/stylesdashboard.scss */
+#list .list-group-table .list-group-table-image {
+  width: 15%;
+}
+
+/* Fin Main */
+/* Article */
+/* line 213, ../scss/stylesdashboard.scss */
+#article {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, z-index 0.3s ease-in-out;
+}
+/* line 229, ../scss/stylesdashboard.scss */
+#article.active {
+  z-index: 1;
+  opacity: 1;
+}
+/* line 235, ../scss/stylesdashboard.scss */
+#article .ajouter-article {
+  min-width: 32rem;
+  max-width: 54rem;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  padding: 3rem 2rem;
+  position: relative;
+}
+/* line 243, ../scss/stylesdashboard.scss */
+#article .ajouter-article-input-control {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+/* line 250, ../scss/stylesdashboard.scss */
+#article legend {
+  margin-bottom: 3rem;
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #011d26;
+}
+/* line 256, ../scss/stylesdashboard.scss */
+#article input[type="text"] {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.2);
+}
+/* line 261, ../scss/stylesdashboard.scss */
+#article input[type="text"].error {
+  border: 0.1rem solid red;
+}
+/* line 265, ../scss/stylesdashboard.scss */
+#article textarea {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  height: 16rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.2);
+}
+/* line 271, ../scss/stylesdashboard.scss */
+#article textarea.error {
+  border: 0.1rem solid red;
+}
+/* line 276, ../scss/stylesdashboard.scss */
+#article input[type="submit"] {
+  width: 100%;
+  padding: 1rem;
+  background-color: #3ffba6;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* line 285, ../scss/stylesdashboard.scss */
+#article .fa-close {
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #3ffba6;
+  position: absolute;
+  right: -1.5rem;
+  top: -1.5rem;
+  cursor: pointer;
+}
+
+/* Footer */
+/* line 302, ../scss/stylesdashboard.scss */
+#footer {
+  margin-top: auto;
+}
+/* line 305, ../scss/stylesdashboard.scss */
+#footer .footer {
+  padding: 2rem 0;
+  text-align: center;
+  color: #011d26;
+}
+
+@media screen and (min-width: 540px) {
+  /* line 315, ../scss/stylesdashboard.scss */
+  #main h1 {
+    font-size: 3.2rem;
+  }
+
+  /* line 320, ../scss/stylesdashboard.scss */
+  .header-bloc {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  /* line 325, ../scss/stylesdashboard.scss */
+  .header-bloc-group {
+    width: calc(50% - 1rem);
+    margin-bottom: 3rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  /* line 331, ../scss/stylesdashboard.scss */
+  .header-bloc-group {
+    width: calc(25% - 1.5rem);
+  }
+}
