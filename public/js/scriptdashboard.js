@@ -7,8 +7,8 @@ $(function(){
   $('.addArticleBlog').on('click', function(){
     $('#article').addClass('active');
   });
-  /** Evenement quand on clique en dehors du popup "Ajouter Article" */
-  $('#article .fa-close').on('click', function(){
+  /** Evenement quand on clique sur l'icon de fermeture (close) */
+  $('.closeArticle').on('click', function(){
     $('#article').removeClass('active');
   });
   
@@ -22,18 +22,18 @@ $(function(){
     var invalid = false;
     $.each(dataArticle, function(index, element){
       if(!element.val()){
-        invalid = true;
+        invalid = false;
         element.addClass('error');
       }
     });
     if(!invalid){
-      var url = '../index.php?controller=article&action=addArticle';
+      var url = '../index.php?controller=article&action=addArticle&titre='+titre.val()+'&tags='+tags.val()+'&description='+desc.val();
       $.ajax({
         url : url,
         method : "GET",
         success : function(data){
-            console.log(data);
-        }
+            $('.ajouter-article-message').html(data);
+          }
       })
     }
   });
@@ -47,4 +47,56 @@ $(function(){
   $("#desc").on('input', function(){
     $(this).removeClass('error');
   });
+  /* ------------------------------------------------------------------------------- */
+  /** Categories */
+  /** Evenement quand on clique sur le bouton plus  */
+   $('.addCategorieBlog').on('click', function(){
+    $('#categorie').addClass('active');
+  });
+  /** Evenement quand on clique sur l'icon de fermeture (close) */
+  $('.closeCategorie').on('click', function(){
+    $('#categorie').removeClass('active');
+  });
+  /* Evenement pour le formulaire d'ajout d'une categorie */
+  $("#form-ajouter-categorie").on('submit',function(e){
+    e.preventDefault();
+    var nomCategorie = $('#nomCategorie');
+    var invalid = false;
+    var descriptionCategorie = $('#descriptionCategorie');
+    if(!nomCategorie.val()){
+      invalid = false;
+    }
+    if(invalid){
+      nomCategorie.addClass('error');
+    }
+    else{
+      var url = '../index.php?controller=categorie&action=addCategorie&nomCategorie='+nomCategorie.val()+'&descriptionCategorie='+descriptionCategorie.val();
+      $.ajax({
+        url : url,
+        method : "GET",
+        success : function(data){
+            $('.ajouter-categorie-message').html(data);
+          }
+      })
+    }
+  });
+  /** Pour enlever la bordure quand on edite l'input' */
+  $("#nomCategorie").on('input', function(){
+    $(this).removeClass('error');
+  });
+  /** Evenement lors du clic sur le bouton liste Categorie */
+$('.viewListCategorie').on('click', function(){
+  $(this).addClass('active');
+  var url = '../index.php?controller=categorie&action=listCategorie';
+  $.ajax({
+    url: url,
+    method: "GET",
+    success: function(data){
+      $('.list-group').html(data);
+    }
+  });
+})
+
+
+  /* -------------------Fin Categorie -------------------------- */
 });

@@ -1,7 +1,10 @@
 @import 'compass/reset';
 @import 'compass/css3';
 @import 'partials/variables';
+@import 'partials/mixins';
 
+
+/* Reset personnalise et configuration */
 *,::after,::before{
   box-sizing: border-box;
   letter-spacing: 0.1rem;
@@ -18,6 +21,13 @@ body{
   font-size: 1.6rem;
   font-family: nunito, sans-serif;
 }
+.message--erreur{
+  @include messageerreur;
+}
+.message--succes{
+  @include messagesuccess;
+}
+/* Fin */
 /* Wrapper */
 #wrapper{
   min-width: 36rem;
@@ -128,7 +138,7 @@ body{
     margin-top: 2rem;
     font-size: 6.2rem;
     color: $couleur--primaire;
-    opacity: 0.1;
+    opacity: 0.3;
   }
   & b{
     font-size: 3.2rem;
@@ -143,8 +153,6 @@ body{
   
   & strong{
     font-size: 2.4rem;
-    font-weight: bold;
-
   }
   & .header-bloc-group-actions{
     padding: 0.25rem;
@@ -187,8 +195,8 @@ body{
     }
   }
   & thead{
-    background-color: $couleur--secondaire;
-    color: $couleur--primaire;
+    background-color: $couleur--primaire;
+    color: $couleur--blanc;
     border-radius: 0.5rem;
   }
   & tr {
@@ -210,13 +218,12 @@ body{
 }
 /* Fin Main */
 /* Article */
-#article{
+#article, #categorie{
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  width: 100%;
   background-color: rgba(0, 0, 0, 0.95);
   display: flex;
   align-items: center;
@@ -232,7 +239,8 @@ body{
     
   }
 
-  & .ajouter-article{
+  & .ajouter{
+    width: 90%;
     min-width: 32rem;
     max-width: 54rem;
     background-color: $couleur--blanc;
@@ -255,21 +263,21 @@ body{
   }
   & input[type="text"]{
     width: 100%;
-    padding: 1rem 1.5rem;
+    padding: 1rem;
     border: 0.1rem solid rgba(0, 0, 0, 0.2);
 
     &.error{
-      border: 0.1rem solid $couleur--error;
+      border: 0.1rem solid $couleur--message--erreur;
     }
   }
   & textarea{
     width: 100%;
-    padding: 1rem 1.5rem;
+    padding: 1rem;
     height: 16rem;
     border: 0.1rem solid rgba(0, 0, 0, 0.2);
 
     &.error{
-      border: 0.1rem solid $couleur--error;
+      border: 0.1rem solid $couleur--message--erreur;
     }
   }
 
@@ -298,6 +306,13 @@ body{
     cursor: pointer;
   }
 }
+/* Fin Article */
+/* Categorie */
+
+  .viewListCategorie.active{
+    color: $couleur--blanc;
+}
+/* Fin Categorie */
 /* Footer */
 #footer{
   margin-top: auto;
@@ -320,7 +335,7 @@ body{
   .header-bloc{
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 4rem;
   }
   .header-bloc-group{
     width: calc(50% - 1rem);
@@ -329,6 +344,7 @@ body{
 }
 @media screen and (min-width:#{$large-device * 1px }){
   .header-bloc-group{
-    width: calc(25% - 1.5rem);
+    width: calc(25% - 3rem);
+    max-width: none;
   }
 }

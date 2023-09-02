@@ -1,0 +1,21 @@
+@mixin messageerreur{
+  background-color:rgba(0,0,0,0.02);
+  @include border-radius(0.4rem);
+  padding: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: $couleur--message--erreur;
+  border: 0.1rem solid rgba(0,0,0,0.1);
+}
+
+@mixin messagesuccess{
+  background-color:rgba(0,0,0,0.02);
+  @include border-radius(0.4rem);
+  padding: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: $couleur--message--success;
+  border: 0.1rem solid rgba(0,0,0,0.1);
+}

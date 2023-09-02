@@ -65,7 +65,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* Declaration des variables */
 /* Devices */
-/* line 5, ../scss/stylesdashboard.scss */
+/* Reset personnalise et configuration */
+/* line 8, ../scss/stylesdashboard.scss */
 *, ::after, ::before {
   box-sizing: border-box;
   letter-spacing: 0.1rem;
@@ -76,19 +77,48 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   line-height: 1.5;
 }
 
-/* line 14, ../scss/stylesdashboard.scss */
+/* line 17, ../scss/stylesdashboard.scss */
 html {
   font-size: 62.5%;
 }
 
-/* line 17, ../scss/stylesdashboard.scss */
+/* line 20, ../scss/stylesdashboard.scss */
 body {
   font-size: 1.6rem;
   font-family: nunito, sans-serif;
 }
 
+/* line 24, ../scss/stylesdashboard.scss */
+.message--erreur {
+  background-color: rgba(0, 0, 0, 0.02);
+  -moz-border-radius: 0.4rem;
+  -webkit-border-radius: 0.4rem;
+  border-radius: 0.4rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #dc3545;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+}
+
+/* line 27, ../scss/stylesdashboard.scss */
+.message--succes {
+  background-color: rgba(0, 0, 0, 0.02);
+  -moz-border-radius: 0.4rem;
+  -webkit-border-radius: 0.4rem;
+  border-radius: 0.4rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #198754;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+}
+
+/* Fin */
 /* Wrapper */
-/* line 22, ../scss/stylesdashboard.scss */
+/* line 32, ../scss/stylesdashboard.scss */
 #wrapper {
   min-width: 36rem;
   height: 100vh;
@@ -100,7 +130,7 @@ body {
 
 /* Fin Wrapper*/
 /*Header*/
-/* line 32, ../scss/stylesdashboard.scss */
+/* line 42, ../scss/stylesdashboard.scss */
 #header {
   width: 8rem;
   padding: 0 2rem;
@@ -108,7 +138,7 @@ body {
   height: 100%;
 }
 
-/* line 38, ../scss/stylesdashboard.scss */
+/* line 48, ../scss/stylesdashboard.scss */
 .header {
   display: flex;
   flex-direction: column;
@@ -118,27 +148,27 @@ body {
 
 /*Fin Header*/
 /* Logo */
-/* line 47, ../scss/stylesdashboard.scss */
+/* line 57, ../scss/stylesdashboard.scss */
 .logo p {
   font-weight: bold;
   font-size: 3.2rem;
   margin-top: 2rem;
 }
-/* line 52, ../scss/stylesdashboard.scss */
+/* line 62, ../scss/stylesdashboard.scss */
 .logo p a {
   color: #3ffba6;
 }
 
 /*Fin Logo*/
 /* Account */
-/* line 59, ../scss/stylesdashboard.scss */
+/* line 69, ../scss/stylesdashboard.scss */
 .account {
   margin-top: auto;
   font-size: 1.8rem;
   color: #3ffba6;
   position: relative;
 }
-/* line 65, ../scss/stylesdashboard.scss */
+/* line 75, ../scss/stylesdashboard.scss */
 .account .sous-menu {
   position: absolute;
   top: -8rem;
@@ -150,12 +180,12 @@ body {
   padding: 2rem;
   transition: left 0.3s ease-in-out;
 }
-/* line 77, ../scss/stylesdashboard.scss */
+/* line 87, ../scss/stylesdashboard.scss */
 .account .sous-menu.active {
   left: -2rem;
 }
 
-/* line 81, ../scss/stylesdashboard.scss */
+/* line 91, ../scss/stylesdashboard.scss */
 .sous-menu::after {
   content: '';
   display: block;
@@ -171,18 +201,18 @@ body {
 }
 
 /* Main */
-/* line 95, ../scss/stylesdashboard.scss */
+/* line 105, ../scss/stylesdashboard.scss */
 #main {
   width: calc(100% - 8rem);
   padding: 3rem;
   overflow-y: scroll;
 }
-/* line 99, ../scss/stylesdashboard.scss */
+/* line 109, ../scss/stylesdashboard.scss */
 #main .main {
   display: flex;
   flex-direction: column;
 }
-/* line 103, ../scss/stylesdashboard.scss */
+/* line 113, ../scss/stylesdashboard.scss */
 #main h1 {
   font-size: 2.4rem;
   color: #011d26;
@@ -190,7 +220,7 @@ body {
   font-family: 'lobster two';
 }
 
-/* line 110, ../scss/stylesdashboard.scss */
+/* line 120, ../scss/stylesdashboard.scss */
 .header-bloc {
   margin-top: 3rem;
   display: flex;
@@ -198,7 +228,7 @@ body {
   flex-direction: column;
 }
 
-/* line 116, ../scss/stylesdashboard.scss */
+/* line 126, ../scss/stylesdashboard.scss */
 .header-bloc-group {
   background-color: #ffffff;
   border-radius: 0.5rem;
@@ -209,31 +239,30 @@ body {
   max-width: 30rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.1);
 }
-/* line 127, ../scss/stylesdashboard.scss */
+/* line 137, ../scss/stylesdashboard.scss */
 .header-bloc-group > span:first-of-type {
   margin-top: 2rem;
   font-size: 6.2rem;
   color: #011d26;
-  opacity: 0.1;
+  opacity: 0.3;
 }
-/* line 133, ../scss/stylesdashboard.scss */
+/* line 143, ../scss/stylesdashboard.scss */
 .header-bloc-group b {
   font-size: 3.2rem;
   color: #E55812;
   margin-bottom: 1rem;
 }
-/* line 138, ../scss/stylesdashboard.scss */
+/* line 148, ../scss/stylesdashboard.scss */
 .header-bloc-group p {
   font-weight: bold;
   font-size: 1.2rem;
   color: #E55812;
 }
-/* line 144, ../scss/stylesdashboard.scss */
+/* line 154, ../scss/stylesdashboard.scss */
 .header-bloc-group strong {
   font-size: 2.4rem;
-  font-weight: bold;
 }
-/* line 149, ../scss/stylesdashboard.scss */
+/* line 157, ../scss/stylesdashboard.scss */
 .header-bloc-group .header-bloc-group-actions {
   padding: 0.25rem;
   display: flex;
@@ -246,13 +275,13 @@ body {
   background-color: #011d26;
   width: 100%;
 }
-/* line 161, ../scss/stylesdashboard.scss */
+/* line 169, ../scss/stylesdashboard.scss */
 .header-bloc-group .header-bloc-group-actions span {
   cursor: pointer;
 }
 
 /* Section : list */
-/* line 168, ../scss/stylesdashboard.scss */
+/* line 176, ../scss/stylesdashboard.scss */
 #list {
   margin-top: 6rem;
   padding: 3rem;
@@ -260,61 +289,60 @@ body {
   background-color: #ffffff;
   border: 0.1rem solid rgba(0, 0, 0, 0.1);
 }
-/* line 175, ../scss/stylesdashboard.scss */
+/* line 183, ../scss/stylesdashboard.scss */
 #list h2 {
   font-size: 2.4rem;
   font-weight: bold;
   color: #011d26;
 }
-/* line 180, ../scss/stylesdashboard.scss */
+/* line 188, ../scss/stylesdashboard.scss */
 #list table {
   width: 100%;
   margin: 3rem 0;
   border: 0.1rem solid rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
 }
-/* line 185, ../scss/stylesdashboard.scss */
+/* line 193, ../scss/stylesdashboard.scss */
 #list table thead th {
   font-weight: bold;
 }
-/* line 189, ../scss/stylesdashboard.scss */
+/* line 197, ../scss/stylesdashboard.scss */
 #list thead {
-  background-color: #3ffba6;
-  color: #011d26;
+  background-color: #011d26;
+  color: #ffffff;
   border-radius: 0.5rem;
 }
-/* line 194, ../scss/stylesdashboard.scss */
+/* line 202, ../scss/stylesdashboard.scss */
 #list tr {
   width: 100%;
 }
-/* line 197, ../scss/stylesdashboard.scss */
+/* line 205, ../scss/stylesdashboard.scss */
 #list tr:nth-child(odd) {
   background-color: rgba(0, 0, 0, 0.02);
 }
-/* line 200, ../scss/stylesdashboard.scss */
+/* line 208, ../scss/stylesdashboard.scss */
 #list th, #list td {
   height: 5rem;
   padding: 0.5rem;
 }
-/* line 204, ../scss/stylesdashboard.scss */
+/* line 212, ../scss/stylesdashboard.scss */
 #list .list-group-table .list-group-table-check {
   width: 5%;
 }
-/* line 207, ../scss/stylesdashboard.scss */
+/* line 215, ../scss/stylesdashboard.scss */
 #list .list-group-table .list-group-table-image {
   width: 15%;
 }
 
 /* Fin Main */
 /* Article */
-/* line 213, ../scss/stylesdashboard.scss */
-#article {
+/* line 221, ../scss/stylesdashboard.scss */
+#article, #categorie {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  width: 100%;
   background-color: rgba(0, 0, 0, 0.95);
   display: flex;
   align-items: center;
@@ -323,13 +351,14 @@ body {
   opacity: 0;
   transition: opacity 0.3s ease-in-out, z-index 0.3s ease-in-out;
 }
-/* line 229, ../scss/stylesdashboard.scss */
-#article.active {
+/* line 236, ../scss/stylesdashboard.scss */
+#article.active, #categorie.active {
   z-index: 1;
   opacity: 1;
 }
-/* line 235, ../scss/stylesdashboard.scss */
-#article .ajouter-article {
+/* line 242, ../scss/stylesdashboard.scss */
+#article .ajouter, #categorie .ajouter {
+  width: 90%;
   min-width: 32rem;
   max-width: 54rem;
   background-color: #ffffff;
@@ -337,44 +366,44 @@ body {
   padding: 3rem 2rem;
   position: relative;
 }
-/* line 243, ../scss/stylesdashboard.scss */
-#article .ajouter-article-input-control {
+/* line 251, ../scss/stylesdashboard.scss */
+#article .ajouter-article-input-control, #categorie .ajouter-article-input-control {
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   width: 100%;
 }
-/* line 250, ../scss/stylesdashboard.scss */
-#article legend {
+/* line 258, ../scss/stylesdashboard.scss */
+#article legend, #categorie legend {
   margin-bottom: 3rem;
   font-size: 2.4rem;
   font-weight: bold;
   color: #011d26;
 }
-/* line 256, ../scss/stylesdashboard.scss */
-#article input[type="text"] {
+/* line 264, ../scss/stylesdashboard.scss */
+#article input[type="text"], #categorie input[type="text"] {
   width: 100%;
-  padding: 1rem 1.5rem;
+  padding: 1rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.2);
 }
-/* line 261, ../scss/stylesdashboard.scss */
-#article input[type="text"].error {
-  border: 0.1rem solid red;
+/* line 269, ../scss/stylesdashboard.scss */
+#article input[type="text"].error, #categorie input[type="text"].error {
+  border: 0.1rem solid #dc3545;
 }
-/* line 265, ../scss/stylesdashboard.scss */
-#article textarea {
+/* line 273, ../scss/stylesdashboard.scss */
+#article textarea, #categorie textarea {
   width: 100%;
-  padding: 1rem 1.5rem;
+  padding: 1rem;
   height: 16rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.2);
 }
-/* line 271, ../scss/stylesdashboard.scss */
-#article textarea.error {
-  border: 0.1rem solid red;
+/* line 279, ../scss/stylesdashboard.scss */
+#article textarea.error, #categorie textarea.error {
+  border: 0.1rem solid #dc3545;
 }
-/* line 276, ../scss/stylesdashboard.scss */
-#article input[type="submit"] {
+/* line 284, ../scss/stylesdashboard.scss */
+#article input[type="submit"], #categorie input[type="submit"] {
   width: 100%;
   padding: 1rem;
   background-color: #3ffba6;
@@ -382,8 +411,8 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
-/* line 285, ../scss/stylesdashboard.scss */
-#article .fa-close {
+/* line 293, ../scss/stylesdashboard.scss */
+#article .fa-close, #categorie .fa-close {
   display: inline-block;
   width: 3rem;
   height: 3rem;
@@ -399,12 +428,20 @@ body {
   cursor: pointer;
 }
 
+/* Fin Article */
+/* Categorie */
+/* line 312, ../scss/stylesdashboard.scss */
+.viewListCategorie.active {
+  color: #ffffff;
+}
+
+/* Fin Categorie */
 /* Footer */
-/* line 302, ../scss/stylesdashboard.scss */
+/* line 317, ../scss/stylesdashboard.scss */
 #footer {
   margin-top: auto;
 }
-/* line 305, ../scss/stylesdashboard.scss */
+/* line 320, ../scss/stylesdashboard.scss */
 #footer .footer {
   padding: 2rem 0;
   text-align: center;
@@ -412,27 +449,28 @@ body {
 }
 
 @media screen and (min-width: 540px) {
-  /* line 315, ../scss/stylesdashboard.scss */
+  /* line 330, ../scss/stylesdashboard.scss */
   #main h1 {
     font-size: 3.2rem;
   }
 
-  /* line 320, ../scss/stylesdashboard.scss */
+  /* line 335, ../scss/stylesdashboard.scss */
   .header-bloc {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 4rem;
   }
 
-  /* line 325, ../scss/stylesdashboard.scss */
+  /* line 340, ../scss/stylesdashboard.scss */
   .header-bloc-group {
     width: calc(50% - 1rem);
     margin-bottom: 3rem;
   }
 }
 @media screen and (min-width: 1024px) {
-  /* line 331, ../scss/stylesdashboard.scss */
+  /* line 346, ../scss/stylesdashboard.scss */
   .header-bloc-group {
-    width: calc(25% - 1.5rem);
+    width: calc(25% - 3rem);
+    max-width: none;
   }
 }
