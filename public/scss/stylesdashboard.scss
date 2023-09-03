@@ -106,6 +106,17 @@ body{
   width: calc(100% - 8rem);
   padding: 3rem;
   overflow-y: scroll;
+  position: relative;
+
+  /* loadingprofil */
+& .loadingprofil{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  transform: translate(-50%);
+  opacity: 0;
+}
 & .main{
   display: flex;
   flex-direction: column;
@@ -133,7 +144,6 @@ body{
   gap: 0.5rem;
   max-width: 30rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.1);
-
   & > span:first-of-type{
     margin-top: 2rem;
     font-size: 6.2rem;
@@ -171,6 +181,20 @@ body{
     }
   }
 }
+.header-bloc-group{
+  &.active{
+    background-color: $couleur--primaire;
+    color: $couleur--blanc;
+    transition: all 0.3s ease-in-out;
+  }
+  &.active .header-bloc-group-actions{
+    border-top:0.3rem solid $couleur--blanc;
+  }
+  &.active > span:first-of-type{
+    color: $couleur--blanc;
+    opacity: 1;
+  }
+}
 
 /* Section : list */
 #list{
@@ -182,6 +206,7 @@ body{
 
   & h2{
     font-size: 2.4rem;
+    margin-bottom: 1rem;
     font-weight: bold;
     color: $couleur--primaire;
   }
@@ -216,9 +241,42 @@ body{
     width: 15%;
   }
 }
+tfoot tr{   
+  text-transform: capitalize;
+  & td{
+    background-color: $couleur--blanc;
+    color: $couleur--tertiaire;
+    & p{
+      display: inline-block;
+      margin-right: 2rem;
+    }
+  }
+  span{
+    text-transform: capitalize;
+  }
+  label[for="allChecked"], input[type="checkbox"]{
+    cursor: pointer;
+  }
+}
+/* Actions */
+.list-group-table-actions {
+  width: 10rem;
+}
+.actions {
+  display: flex;
+  gap: 1rem;
+
+  & a{
+    padding: 0.25rem 0.75rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    color: $couleur--tertiaire;
+  }
+
+}
 /* Fin Main */
 /* Article */
-#article, #categorie{
+#article, #categorie, .form-updatecategorie{
   position: absolute;
   top: 0;
   left: 0;
@@ -241,7 +299,7 @@ body{
 
   & .ajouter{
     width: 90%;
-    min-width: 32rem;
+    min-width: 36rem;
     max-width: 54rem;
     background-color: $couleur--blanc;
     border-radius: 0.5rem;
@@ -261,7 +319,7 @@ body{
     font-weight: bold;
     color: $couleur--primaire;
   }
-  & input[type="text"]{
+  & input[type="text"], select{
     width: 100%;
     padding: 1rem;
     border: 0.1rem solid rgba(0, 0, 0, 0.2);
@@ -288,6 +346,11 @@ body{
     text-align: center;
     font-weight: bold;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  & input[type="submit"]:hover{
+    background: $couleur--primaire;
+    color: $couleur--blanc;
   }
 
   & .fa-close{
@@ -308,10 +371,55 @@ body{
 }
 /* Fin Article */
 /* Categorie */
-
   .viewListCategorie.active{
     color: $couleur--blanc;
 }
+.form-updatecategorie{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out,
+              z-index 0.3s ease-in-out;
+
+  &.active{
+    z-index: 1;
+    opacity: 1;
+  }
+
+  & form{
+    min-width: 28rem;
+    max-width: 54rem;
+    background-color: $couleur--blanc;
+    border-radius: 0.5rem;
+    padding: 3rem 2rem;
+    position: relative;
+  }
+
+  .closeModifierCategorie{
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: $couleur--secondaire;
+    position: absolute;
+    right: -1.5rem;
+    top: -1.5rem;
+    cursor: pointer;
+  }
+}
+
 /* Fin Categorie */
 /* Footer */
 #footer{

@@ -35,6 +35,23 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
     if($_GET['action'] === 'listCategorie'){
       CategorieController::listCategorie();
     }
+    if($_GET['action'] === 'deleteCategorie'){
+      $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      if(isset($_GET['idCategorie'])){
+        CategorieController::deleteCategorie($_GET['idCategorie']);
+      }
+      else{
+        CategorieController::deleteCategories();
+      }
+    }
+    if($_GET['action'] === 'viewCategorie'){
+      $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      CategorieController::viewCategorie($_GET["idCategorie"]);
+    }
+    if($_GET['action'] === 'updateCategorie'){
+      $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      CategorieController::updateCategorie($_GET);
+    }
   }
 }
 else{

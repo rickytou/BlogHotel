@@ -1,4 +1,14 @@
 $(function(){
+  /** Fonction loading */
+  let loadingfunc = (className,data) => {
+    $('.loadingprofil').css({'opacity':'1','z-index':'1'});
+        /* Timer pour l'animation du gif loading */
+        setTimeout(function(){
+          $('.loadingprofil').css({'opacity':'0','z-index':'-1'});
+          $(className).html(data);
+        },500);
+  }
+  /** Fin */
   /** Evenement sur l'icon de l'utilisateur */
   $('.account .fa-circle-user').on('click', function(){
    $('.sous-menu').toggleClass('active');
@@ -64,7 +74,7 @@ $(function(){
     var invalid = false;
     var descriptionCategorie = $('#descriptionCategorie');
     if(!nomCategorie.val()){
-      invalid = false;
+      invalid = true;
     }
     if(invalid){
       nomCategorie.addClass('error');
@@ -86,16 +96,18 @@ $(function(){
   });
   /** Evenement lors du clic sur le bouton liste Categorie */
 $('.viewListCategorie').on('click', function(){
-  $(this).addClass('active');
-  var url = '../index.php?controller=categorie&action=listCategorie';
-  $.ajax({
-    url: url,
-    method: "GET",
-    success: function(data){
-      $('.list-group').html(data);
-    }
-  });
-})
+  $('.header-bloc-group-2').addClass('active');
+    $(this).addClass('active');
+    var url = '../index.php?controller=categorie&action=listCategorie';
+    $.ajax({
+      url: url,
+      method: "GET",
+      success: function(data){
+        loadingfunc('.list-group', data);
+      }
+    });
+  })
+  /** Fin */
 
 
   /* -------------------Fin Categorie -------------------------- */

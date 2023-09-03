@@ -206,13 +206,24 @@ body {
   width: calc(100% - 8rem);
   padding: 3rem;
   overflow-y: scroll;
+  position: relative;
+  /* loadingprofil */
 }
-/* line 109, ../scss/stylesdashboard.scss */
+/* line 112, ../scss/stylesdashboard.scss */
+#main .loadingprofil {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  transform: translate(-50%);
+  opacity: 0;
+}
+/* line 120, ../scss/stylesdashboard.scss */
 #main .main {
   display: flex;
   flex-direction: column;
 }
-/* line 113, ../scss/stylesdashboard.scss */
+/* line 124, ../scss/stylesdashboard.scss */
 #main h1 {
   font-size: 2.4rem;
   color: #011d26;
@@ -220,7 +231,7 @@ body {
   font-family: 'lobster two';
 }
 
-/* line 120, ../scss/stylesdashboard.scss */
+/* line 131, ../scss/stylesdashboard.scss */
 .header-bloc {
   margin-top: 3rem;
   display: flex;
@@ -228,7 +239,7 @@ body {
   flex-direction: column;
 }
 
-/* line 126, ../scss/stylesdashboard.scss */
+/* line 137, ../scss/stylesdashboard.scss */
 .header-bloc-group {
   background-color: #ffffff;
   border-radius: 0.5rem;
@@ -239,30 +250,30 @@ body {
   max-width: 30rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.1);
 }
-/* line 137, ../scss/stylesdashboard.scss */
+/* line 147, ../scss/stylesdashboard.scss */
 .header-bloc-group > span:first-of-type {
   margin-top: 2rem;
   font-size: 6.2rem;
   color: #011d26;
   opacity: 0.3;
 }
-/* line 143, ../scss/stylesdashboard.scss */
+/* line 153, ../scss/stylesdashboard.scss */
 .header-bloc-group b {
   font-size: 3.2rem;
   color: #E55812;
   margin-bottom: 1rem;
 }
-/* line 148, ../scss/stylesdashboard.scss */
+/* line 158, ../scss/stylesdashboard.scss */
 .header-bloc-group p {
   font-weight: bold;
   font-size: 1.2rem;
   color: #E55812;
 }
-/* line 154, ../scss/stylesdashboard.scss */
+/* line 164, ../scss/stylesdashboard.scss */
 .header-bloc-group strong {
   font-size: 2.4rem;
 }
-/* line 157, ../scss/stylesdashboard.scss */
+/* line 167, ../scss/stylesdashboard.scss */
 .header-bloc-group .header-bloc-group-actions {
   padding: 0.25rem;
   display: flex;
@@ -275,13 +286,29 @@ body {
   background-color: #011d26;
   width: 100%;
 }
-/* line 169, ../scss/stylesdashboard.scss */
+/* line 179, ../scss/stylesdashboard.scss */
 .header-bloc-group .header-bloc-group-actions span {
   cursor: pointer;
 }
 
+/* line 185, ../scss/stylesdashboard.scss */
+.header-bloc-group.active {
+  background-color: #011d26;
+  color: #ffffff;
+  transition: all 0.3s ease-in-out;
+}
+/* line 190, ../scss/stylesdashboard.scss */
+.header-bloc-group.active .header-bloc-group-actions {
+  border-top: 0.3rem solid #ffffff;
+}
+/* line 193, ../scss/stylesdashboard.scss */
+.header-bloc-group.active > span:first-of-type {
+  color: #ffffff;
+  opacity: 1;
+}
+
 /* Section : list */
-/* line 176, ../scss/stylesdashboard.scss */
+/* line 200, ../scss/stylesdashboard.scss */
 #list {
   margin-top: 6rem;
   padding: 3rem;
@@ -289,55 +316,98 @@ body {
   background-color: #ffffff;
   border: 0.1rem solid rgba(0, 0, 0, 0.1);
 }
-/* line 183, ../scss/stylesdashboard.scss */
+/* line 207, ../scss/stylesdashboard.scss */
 #list h2 {
   font-size: 2.4rem;
+  margin-bottom: 1rem;
   font-weight: bold;
   color: #011d26;
 }
-/* line 188, ../scss/stylesdashboard.scss */
+/* line 213, ../scss/stylesdashboard.scss */
 #list table {
   width: 100%;
   margin: 3rem 0;
   border: 0.1rem solid rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
 }
-/* line 193, ../scss/stylesdashboard.scss */
+/* line 218, ../scss/stylesdashboard.scss */
 #list table thead th {
   font-weight: bold;
 }
-/* line 197, ../scss/stylesdashboard.scss */
+/* line 222, ../scss/stylesdashboard.scss */
 #list thead {
   background-color: #011d26;
   color: #ffffff;
   border-radius: 0.5rem;
 }
-/* line 202, ../scss/stylesdashboard.scss */
+/* line 227, ../scss/stylesdashboard.scss */
 #list tr {
   width: 100%;
 }
-/* line 205, ../scss/stylesdashboard.scss */
+/* line 230, ../scss/stylesdashboard.scss */
 #list tr:nth-child(odd) {
   background-color: rgba(0, 0, 0, 0.02);
 }
-/* line 208, ../scss/stylesdashboard.scss */
+/* line 233, ../scss/stylesdashboard.scss */
 #list th, #list td {
   height: 5rem;
   padding: 0.5rem;
 }
-/* line 212, ../scss/stylesdashboard.scss */
+/* line 237, ../scss/stylesdashboard.scss */
 #list .list-group-table .list-group-table-check {
   width: 5%;
 }
-/* line 215, ../scss/stylesdashboard.scss */
+/* line 240, ../scss/stylesdashboard.scss */
 #list .list-group-table .list-group-table-image {
   width: 15%;
 }
 
+/* line 244, ../scss/stylesdashboard.scss */
+tfoot tr {
+  text-transform: capitalize;
+}
+/* line 246, ../scss/stylesdashboard.scss */
+tfoot tr td {
+  background-color: #ffffff;
+  color: #E55812;
+}
+/* line 249, ../scss/stylesdashboard.scss */
+tfoot tr td p {
+  display: inline-block;
+  margin-right: 2rem;
+}
+/* line 254, ../scss/stylesdashboard.scss */
+tfoot tr span {
+  text-transform: capitalize;
+}
+/* line 257, ../scss/stylesdashboard.scss */
+tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
+  cursor: pointer;
+}
+
+/* Actions */
+/* line 262, ../scss/stylesdashboard.scss */
+.list-group-table-actions {
+  width: 10rem;
+}
+
+/* line 265, ../scss/stylesdashboard.scss */
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+/* line 269, ../scss/stylesdashboard.scss */
+.actions a {
+  padding: 0.25rem 0.75rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  color: #E55812;
+}
+
 /* Fin Main */
 /* Article */
-/* line 221, ../scss/stylesdashboard.scss */
-#article, #categorie {
+/* line 279, ../scss/stylesdashboard.scss */
+#article, #categorie, .form-updatecategorie {
   position: absolute;
   top: 0;
   left: 0;
@@ -351,68 +421,74 @@ body {
   opacity: 0;
   transition: opacity 0.3s ease-in-out, z-index 0.3s ease-in-out;
 }
-/* line 236, ../scss/stylesdashboard.scss */
-#article.active, #categorie.active {
+/* line 294, ../scss/stylesdashboard.scss */
+#article.active, #categorie.active, .form-updatecategorie.active {
   z-index: 1;
   opacity: 1;
 }
-/* line 242, ../scss/stylesdashboard.scss */
-#article .ajouter, #categorie .ajouter {
+/* line 300, ../scss/stylesdashboard.scss */
+#article .ajouter, #categorie .ajouter, .form-updatecategorie .ajouter {
   width: 90%;
-  min-width: 32rem;
+  min-width: 36rem;
   max-width: 54rem;
   background-color: #ffffff;
   border-radius: 0.5rem;
   padding: 3rem 2rem;
   position: relative;
 }
-/* line 251, ../scss/stylesdashboard.scss */
-#article .ajouter-article-input-control, #categorie .ajouter-article-input-control {
+/* line 309, ../scss/stylesdashboard.scss */
+#article .ajouter-article-input-control, #categorie .ajouter-article-input-control, .form-updatecategorie .ajouter-article-input-control {
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   width: 100%;
 }
-/* line 258, ../scss/stylesdashboard.scss */
-#article legend, #categorie legend {
+/* line 316, ../scss/stylesdashboard.scss */
+#article legend, #categorie legend, .form-updatecategorie legend {
   margin-bottom: 3rem;
   font-size: 2.4rem;
   font-weight: bold;
   color: #011d26;
 }
-/* line 264, ../scss/stylesdashboard.scss */
-#article input[type="text"], #categorie input[type="text"] {
+/* line 322, ../scss/stylesdashboard.scss */
+#article input[type="text"], #article select, #categorie input[type="text"], #categorie select, .form-updatecategorie input[type="text"], .form-updatecategorie select {
   width: 100%;
   padding: 1rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.2);
 }
-/* line 269, ../scss/stylesdashboard.scss */
-#article input[type="text"].error, #categorie input[type="text"].error {
+/* line 327, ../scss/stylesdashboard.scss */
+#article input[type="text"].error, #article select.error, #categorie input[type="text"].error, #categorie select.error, .form-updatecategorie input[type="text"].error, .form-updatecategorie select.error {
   border: 0.1rem solid #dc3545;
 }
-/* line 273, ../scss/stylesdashboard.scss */
-#article textarea, #categorie textarea {
+/* line 331, ../scss/stylesdashboard.scss */
+#article textarea, #categorie textarea, .form-updatecategorie textarea {
   width: 100%;
   padding: 1rem;
   height: 16rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.2);
 }
-/* line 279, ../scss/stylesdashboard.scss */
-#article textarea.error, #categorie textarea.error {
+/* line 337, ../scss/stylesdashboard.scss */
+#article textarea.error, #categorie textarea.error, .form-updatecategorie textarea.error {
   border: 0.1rem solid #dc3545;
 }
-/* line 284, ../scss/stylesdashboard.scss */
-#article input[type="submit"], #categorie input[type="submit"] {
+/* line 342, ../scss/stylesdashboard.scss */
+#article input[type="submit"], #categorie input[type="submit"], .form-updatecategorie input[type="submit"] {
   width: 100%;
   padding: 1rem;
   background-color: #3ffba6;
   text-align: center;
   font-weight: bold;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
-/* line 293, ../scss/stylesdashboard.scss */
-#article .fa-close, #categorie .fa-close {
+/* line 351, ../scss/stylesdashboard.scss */
+#article input[type="submit"]:hover, #categorie input[type="submit"]:hover, .form-updatecategorie input[type="submit"]:hover {
+  background: #011d26;
+  color: #ffffff;
+}
+/* line 356, ../scss/stylesdashboard.scss */
+#article .fa-close, #categorie .fa-close, .form-updatecategorie .fa-close {
   display: inline-block;
   width: 3rem;
   height: 3rem;
@@ -430,18 +506,64 @@ body {
 
 /* Fin Article */
 /* Categorie */
-/* line 312, ../scss/stylesdashboard.scss */
+/* line 374, ../scss/stylesdashboard.scss */
 .viewListCategorie.active {
   color: #ffffff;
 }
 
+/* line 377, ../scss/stylesdashboard.scss */
+.form-updatecategorie {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, z-index 0.3s ease-in-out;
+}
+/* line 392, ../scss/stylesdashboard.scss */
+.form-updatecategorie.active {
+  z-index: 1;
+  opacity: 1;
+}
+/* line 397, ../scss/stylesdashboard.scss */
+.form-updatecategorie form {
+  min-width: 28rem;
+  max-width: 54rem;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  padding: 3rem 2rem;
+  position: relative;
+}
+/* line 406, ../scss/stylesdashboard.scss */
+.form-updatecategorie .closeModifierCategorie {
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #3ffba6;
+  position: absolute;
+  right: -1.5rem;
+  top: -1.5rem;
+  cursor: pointer;
+}
+
 /* Fin Categorie */
 /* Footer */
-/* line 317, ../scss/stylesdashboard.scss */
+/* line 425, ../scss/stylesdashboard.scss */
 #footer {
   margin-top: auto;
 }
-/* line 320, ../scss/stylesdashboard.scss */
+/* line 428, ../scss/stylesdashboard.scss */
 #footer .footer {
   padding: 2rem 0;
   text-align: center;
@@ -449,26 +571,26 @@ body {
 }
 
 @media screen and (min-width: 540px) {
-  /* line 330, ../scss/stylesdashboard.scss */
+  /* line 438, ../scss/stylesdashboard.scss */
   #main h1 {
     font-size: 3.2rem;
   }
 
-  /* line 335, ../scss/stylesdashboard.scss */
+  /* line 443, ../scss/stylesdashboard.scss */
   .header-bloc {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 4rem;
   }
 
-  /* line 340, ../scss/stylesdashboard.scss */
+  /* line 448, ../scss/stylesdashboard.scss */
   .header-bloc-group {
     width: calc(50% - 1rem);
     margin-bottom: 3rem;
   }
 }
 @media screen and (min-width: 1024px) {
-  /* line 346, ../scss/stylesdashboard.scss */
+  /* line 454, ../scss/stylesdashboard.scss */
   .header-bloc-group {
     width: calc(25% - 3rem);
     max-width: none;
