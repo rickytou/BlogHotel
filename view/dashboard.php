@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
-require_once('../includes/headdashboard.php');
+require_once('./includes/headdashboard.php');
+$nombre_de_categories = count($allCategories);
 ?>
   <main id="main">
     <div class="main">
@@ -16,7 +17,7 @@ require_once('../includes/headdashboard.php');
             </p>
             
             <p class="header-bloc-group-actions">
-            <span class="fa-regular fa-eye"></span>
+            <span class="fa-regular fa-eye viewListArticle" title="Liste article"></span>
             <span class="fa-solid fa-circle-plus addArticleBlog" title="ajouter article"></span>
             </p>
           </div>
@@ -26,7 +27,7 @@ require_once('../includes/headdashboard.php');
           <span class="fa-solid fa-layer-group"></span>
             <strong>Categories</strong>
             <p>
-              <b>25</b><span>cat&eacute;gories</span>
+              <b><?= $nombre_de_categories ?></b><span>cat&eacute;gories</span>
             </p>
             <p class="header-bloc-group-actions">
             <span class="fa-regular fa-eye viewListCategorie" title="Liste cat&eacute;gorie"></span>
@@ -123,10 +124,19 @@ require_once('../includes/headdashboard.php');
         <label for="titre">Titre</label>
         <input type="text" id="titre" name="titre">
       </div>
-      
       <div class="ajouter-article-input-control">
-        <label for="tags">Tags</label>
-        <input type="text" name="tags" id="tags">
+        <label for="idCategorieArticle">Cat&eacute;gorie</label>
+        <select name="idCategorieArticle" id="idCategorieArticle">
+          <?php foreach($allCategories as $categorie) : ?>
+          <option value="<?= $categorie['idCategorie'] ?>">
+            <?= $categorie['nomCategorie'] ?>
+          </option>
+          <?php endforeach; ?>
+        </select>
+        <div class="ajouter-article-input-control">
+        <label for="uploadimage">Telecharger une image</label>
+        <input type="file" name="uploadimage" id="uploadimage">
+      </div>
       </div>
       <div class="ajouter-article-input-control">
         <label for="desc">Description</label>
@@ -140,7 +150,7 @@ require_once('../includes/headdashboard.php');
   <!-- Fin Ajouter Categorie -->
   <div id="categorie">
     <div class="categorie-popup">
-    <form action="#" class="ajouter" method="POST" id="form-ajouter-categorie">
+    <form action="#" class="ajouter" method="POST" id="form-ajouter-categorie" enctype="multipart/form-data">
       <legend>Ajouter une cat&eacute;gorie</legend>
       <div class="ajouter-categorie-message"></div>
       <div class="ajouter-article-input-control">

@@ -29,20 +29,14 @@ use PDOException;
     /**
      * @var string tags : Tags de l'article
      */
-    private string $tags;
-
+    
     /** Constructeur */
-    public function __construct($titre, $tags, $description){
+    public function __construct($titre, $description){
       $this->titre = $titre;
-      $this->tags = $tags;
       $this->description = $description;
-    }
-    public function __toString() : string{
-      return $this->titre.' a ete ajoutee';
     }
     /** Les accesseurs et les mutateurs */
     public function getTitre(): string{ return $this->titre; }
-    public function getTags(): string { return $this->tags; }
     public function getDescription(): string { return $this->description; }
     /** Fonction permettant d'etablir la connexion
      * @return mixed $con : Retourne l'objet connection
@@ -54,7 +48,7 @@ use PDOException;
     /** Fonction permettant d'ajouter un nouveau article
      * 
      */
-    public static function addArticle(Article $article){
+    public static function addArticle(Article $article, array $uploadimage){
       $con = self::establishedConnection();
       try{
         $query = 'Insert into article(titreArticle, tagsArticle, descriptionArticle) 
@@ -74,6 +68,34 @@ use PDOException;
       catch(PDOException $e){
         echo $e->getMessage();
       }
+    }
+    private static function uploadImage(array $uploadimage){
+      echo "<pre>";
+      var_dump($uploadimage);
+      echo "</pre>";
+      die;
+      $arrayup = array();
+       $taillemaxfile = 1000000;
+       $newName = "";
+       $valid = true;       
+        /** ----------------------------------------------------------- */
+
+      if($uploadimage['uploadimage']["name"]){
+        $name = $uploadimage['uploadimage']['name'];
+        $tmpName = $uploadimage['uploadimage']['tmp_name'];
+        $size = $uploadimage['uploadimage']['size'];
+        $tabExtension = explode('.', $name);
+        $extension = strtolower(end($tabExtension));
+        $newName = $_SESSION["utilisateur"].".".$extension;
+        //Tableau des extensions que l'on accepte
+        $extensions = ['jpg', 'png', 'jpeg', 'svg'];
+        if(!in_array($extension, $extensions) && $size > $taillemaxfile){
+          $valid = false;
+        }   
+      }
+if(!$valid){
+  $messageUserUpdate ='<p class="message__panel__error">Impossible d\'upload l\'image [extension ou taille invalide]</p>';
+}
     }
   }
 

@@ -7,7 +7,7 @@
           </div>
           <div class="ajouter-article-input-control">
             <label for="updatedescriptionCategorie">Description</label>
-            <input type="text" id="updatedescriptionCategorie" value=<?= $viewCategorie[0]['descriptionCategorie']; ?>>
+            <input type="text" id="updatedescriptionCategorie" value=<?= trim($viewCategorie[0]['descriptionCategorie']); ?>>
           </div>
           <div class="ajouter-article-input-control">
             <label for="actif">Statut</label>

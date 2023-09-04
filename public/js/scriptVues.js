@@ -132,4 +132,30 @@ $('#updateModifierCategorie').on('submit', function(e){
   $('#nomCategorie').on('input', function(){
     $(this).removeClass('error');
   });
+  /** Desactive une categorie */
+  $('.desactivatedCategorie').on('click', function(e){
+    e.preventDefault();
+    var url = $(this).attr("href"); 
+    $.ajax({
+      url : url,
+      method : "GET",
+      success : function(data){
+        loadingfunc('.list-group', data);
+      }
+    });
+  });
+  /** Fin */
+   /** Desactive une categorie */
+   $('.activatedCategorie').on('click', function(e){
+      e.preventDefault();
+      var url = $(this).attr("href"); 
+      console.log(url);
+      $.ajax({
+        url : url,
+        method : "GET",
+        success : function(data){
+          loadingfunc('.list-group', data);
+        }
+      });
+  });
 });

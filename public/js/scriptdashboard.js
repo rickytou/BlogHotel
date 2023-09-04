@@ -26,32 +26,45 @@ $(function(){
   $('#form-ajouter-article').on('submit', function(e){
     e.preventDefault();
     var titre = $('#titre');
-    var tags = $('#tags');
     var desc = $('#desc');
-    var dataArticle = [titre,tags,desc];
-    var invalid = false;
-    $.each(dataArticle, function(index, element){
-      if(!element.val()){
-        invalid = false;
-        element.addClass('error');
-      }
-    });
-    if(!invalid){
-      var url = '../index.php?controller=article&action=addArticle&titre='+titre.val()+'&tags='+tags.val()+'&description='+desc.val();
-      $.ajax({
-        url : url,
-        method : "GET",
-        success : function(data){
+    var image = $("#uploadimage");
+    var idCategories = $("#idCategorieArticle");
+    var allInputs = [titre, desc, image];
+    var valid = true;
+
+  // $.each(allInputs, function (indexInArray, valueOfElement) { 
+  //    if(!$(valueOfElement).val()){
+  //     $(valueOfElement).addClass('error');
+  //     valid = false;
+  //    }
+  // });
+  // if(!valid){
+  //   $(".ajouter-article-message").html('<p class="message--erreur">Il faut remplir tous les champs</p>');
+  // }
+
+  // else{
+     var url = '../index.php?controller=article&action=addArticle&titre='+titre.val()+'&description='+desc.val()+'&idCategories='+idCategories.val();
+        var formData = new FormData(this);
+        $.ajax({
+          type: "POST",
+          url: url,
+          data: formData,
+          success: function(data){
             $('.ajouter-article-message').html(data);
-          }
-      })
-    }
+          },
+          error: function(err){
+            console.log('Erreur: '+err);
+          },
+          cache: false,
+          contentType: false,
+          processData: false
+        });
+      //}
+   
   });
+  
   /**  */
   $("#titre").on('input', function(){
-    $(this).removeClass('error');
-  });
-  $("#tags").on('input', function(){
     $(this).removeClass('error');
   });
   $("#desc").on('input', function(){
@@ -96,6 +109,8 @@ $(function(){
   });
   /** Evenement lors du clic sur le bouton liste Categorie */
 $('.viewListCategorie').on('click', function(){
+  $('.fa-eye').removeClass('active');
+  $('.header-bloc-group').removeClass('active');
   $('.header-bloc-group-2').addClass('active');
     $(this).addClass('active');
     var url = '../index.php?controller=categorie&action=listCategorie';
@@ -106,6 +121,22 @@ $('.viewListCategorie').on('click', function(){
         loadingfunc('.list-group', data);
       }
     });
+  })
+  /** Fin */
+    /** Evenement lors du clic sur le bouton liste Article */
+$('.viewListArticle').on('click', function(){
+  $('.fa-eye').removeClass('active');
+  $('.header-bloc-group').removeClass('active');
+  $('.header-bloc-group-1').addClass('active');
+    $(this).addClass('active');
+    // var url = '../index.php?controller=categorie&action=listArticle';
+    // $.ajax({
+    //   url: url,
+    //   method: "GET",
+    //   success: function(data){
+    //     loadingfunc('.list-group', data);
+    //   }
+    // });
   })
   /** Fin */
 

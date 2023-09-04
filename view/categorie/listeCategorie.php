@@ -1,5 +1,7 @@
 <h2>Liste de cat&eacute;gories</h2>
-<div class="afficher--message"></div>
+<div class="afficher--message">
+  <?= (isset($update) && !empty($update)) ? $update : '' ?>
+</div>
 <?php if(isset($message) && !empty($message) && count($listCategories) > 0){ echo $message; } ?>
 <?php if(isset($message) && !empty($message) && count($listCategories) == 0){ 
   echo '<p class="message--succes">Cat&eacute;gorie supprim&eacute;e avec succ&egrave;s, liste vide actuellement</p>';
@@ -28,7 +30,7 @@
             <p class="actions">
               <a href='../index.php?controller=categorie&action=viewCategorie&idCategorie=<?= $lscat["idCategorie"] ?>' class="fa-solid fa-pencil viewCategorie" title="modifier"></a> 
               <a href='../index.php?controller=categorie&action=deleteCategorie&idCategorie=<?= $lscat["idCategorie"] ?>' class="fa-regular fa-trash-can deleteCategorie" title="supprim&eacute;"></a>
-              <a href='../index.php?controller=categorie&action=viewCategorie&idCategorie=<?= $lscat["idCategorie"] ?>' title="d&eacute;sactiv&eacute;" class="fa-solid fa-toggle-off"></a>
+              <a href='../index.php?controller=categorie&action=<?= ($lscat['actif'] == 1) ? 'desactivatedCategorie' : 'activatedCategorie' ?>&idCategorie=<?= $lscat["idCategorie"] ?>&actif=<?= $lscat["actif"] ?>' title="<?= ($lscat['actif'] == 1) ? 'd&eacute;sactiv&eacute;' : 'activ&eacute;' ?>" class="fa-solid <?= ($lscat['actif'] == 1) ? 'fa-toggle-off' : 'fa-toggle-on' ?> <?= ($lscat['actif'] == 1) ? 'desactivatedCategorie' : 'activatedCategorie' ?>"></a>
             </p>
           </td>
         </tr>

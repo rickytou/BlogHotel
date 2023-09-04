@@ -25,7 +25,7 @@
         <!-- Logo -->
         <div class="logo">
           <p>
-            <a href="#" class="fa-solid fa-blog"></a>
+            <a href="../index.php" class="fa-solid fa-blog"></a>
            </p>
         </div>
         <!-- Fin Logo -->

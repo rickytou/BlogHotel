@@ -428,15 +428,14 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
 }
 /* line 300, ../scss/stylesdashboard.scss */
 #article .ajouter, #categorie .ajouter, .form-updatecategorie .ajouter {
-  width: 90%;
-  min-width: 36rem;
+  width: 36rem;
   max-width: 54rem;
   background-color: #ffffff;
   border-radius: 0.5rem;
   padding: 3rem 2rem;
   position: relative;
 }
-/* line 309, ../scss/stylesdashboard.scss */
+/* line 308, ../scss/stylesdashboard.scss */
 #article .ajouter-article-input-control, #categorie .ajouter-article-input-control, .form-updatecategorie .ajouter-article-input-control {
   margin-bottom: 1rem;
   display: flex;
@@ -444,35 +443,35 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
   gap: 1rem;
   width: 100%;
 }
-/* line 316, ../scss/stylesdashboard.scss */
+/* line 315, ../scss/stylesdashboard.scss */
 #article legend, #categorie legend, .form-updatecategorie legend {
   margin-bottom: 3rem;
   font-size: 2.4rem;
   font-weight: bold;
   color: #011d26;
 }
-/* line 322, ../scss/stylesdashboard.scss */
+/* line 321, ../scss/stylesdashboard.scss */
 #article input[type="text"], #article select, #categorie input[type="text"], #categorie select, .form-updatecategorie input[type="text"], .form-updatecategorie select {
   width: 100%;
   padding: 1rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.2);
 }
-/* line 327, ../scss/stylesdashboard.scss */
+/* line 326, ../scss/stylesdashboard.scss */
 #article input[type="text"].error, #article select.error, #categorie input[type="text"].error, #categorie select.error, .form-updatecategorie input[type="text"].error, .form-updatecategorie select.error {
   border: 0.1rem solid #dc3545;
 }
-/* line 331, ../scss/stylesdashboard.scss */
+/* line 330, ../scss/stylesdashboard.scss */
 #article textarea, #categorie textarea, .form-updatecategorie textarea {
   width: 100%;
   padding: 1rem;
   height: 16rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.2);
 }
-/* line 337, ../scss/stylesdashboard.scss */
+/* line 336, ../scss/stylesdashboard.scss */
 #article textarea.error, #categorie textarea.error, .form-updatecategorie textarea.error {
   border: 0.1rem solid #dc3545;
 }
-/* line 342, ../scss/stylesdashboard.scss */
+/* line 341, ../scss/stylesdashboard.scss */
 #article input[type="submit"], #categorie input[type="submit"], .form-updatecategorie input[type="submit"] {
   width: 100%;
   padding: 1rem;
@@ -482,12 +481,12 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
-/* line 351, ../scss/stylesdashboard.scss */
+/* line 350, ../scss/stylesdashboard.scss */
 #article input[type="submit"]:hover, #categorie input[type="submit"]:hover, .form-updatecategorie input[type="submit"]:hover {
   background: #011d26;
   color: #ffffff;
 }
-/* line 356, ../scss/stylesdashboard.scss */
+/* line 355, ../scss/stylesdashboard.scss */
 #article .fa-close, #categorie .fa-close, .form-updatecategorie .fa-close {
   display: inline-block;
   width: 3rem;
@@ -506,8 +505,9 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
 
 /* Fin Article */
 /* Categorie */
-/* line 374, ../scss/stylesdashboard.scss */
-.viewListCategorie.active {
+/* line 373, ../scss/stylesdashboard.scss */
+.viewListCategorie.active,
+.viewListArticle.active {
   color: #ffffff;
 }
 

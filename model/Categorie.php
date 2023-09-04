@@ -43,7 +43,7 @@ class Categorie{
                   values(:nomCategorie, :descriptionCategorie, :actif)';
         $requete = $con->prepare($query);
         $requete->execute(array('nomCategorie' => $categorie->getNomCategorie(), 
-                                'descriptionCategorie' => $categorie->getDescriptionCategorie(),
+                                'descriptionCategorie' => trim($categorie->getDescriptionCategorie()),
                                  'actif' => 1));  
         if($requete){
           $message = $categorie->getNomCategorie().' ajout&eacute; avec succ&egrave;s';
@@ -130,8 +130,7 @@ class Categorie{
       return $viewCategorie;
     }
     /** Fonction permettant de modifier une categorie */
-    public static function updateCategorie(array $GET){
- 
+    public static function updateCategorie(array $GET){ 
       $con = self::establishedConnection();
       $message = '';
       try{
@@ -152,9 +151,43 @@ class Categorie{
       }
       return $message;
     }
+    /** Fonction permettant de desactiver une categorie */
+    public static function desactivatedCategorie(array $GET){
+      $con = self::establishedConnection();
+      $message = '';
+      try{
+        $query = 'update categories set actif = :actif where idCategorie = :id';
+        $requete = $con->prepare($query);
+        $requete->execute(array('actif' => 0,
+                                'id' =>  $GET["idCategorie"])
+                         );
+        if($requete){
+          $message = '<p class="message--succes">Cat&eacute;gorie d&eacute;sactiv&eacute;e avec succ&egrave;s</p>';
+        }
+      }
+      catch(PDOException $e){
+        echo $e->getMessage();
+      }
+      return $message;
+    }
+    /** Fonction permettant de desactiver une categorie */
+    public static function activatedCategorie(array $GET){
+      $con = self::establishedConnection();
+      $message = '';
+      try{
+        $query = 'update categories set actif = :actif where idCategorie = :id';
+        $requete = $con->prepare($query);
+        $requete->execute(array('actif' => 1,
+                                'id' =>  $GET["idCategorie"])
+                         );
+        if($requete){
+          $message = '<p class="message--succes">Cat&eacute;gorie activ&eacute;e avec succ&egrave;s</p>';
+        }
+      }
+      catch(PDOException $e){
+        echo $e->getMessage();
+      }
+      return $message;
+    }
 }
-
-
-
-
 ?>

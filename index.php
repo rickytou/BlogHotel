@@ -1,11 +1,13 @@
 <?php
 require_once('./controller/articleController.php');
 require_once('./controller/CategorieController.php');
+require_once('./controller/UserController.php');
 require_once('./model/Article.php');
 require_once('./model/Categorie.php');
 require_once('./model/dao/DataAccessObject.php');
 use Blog\Controller\Article\ArticleController;
 use Blog\Controller\Categorie\CategorieController;
+use Blog\Controller\User\UserController;
 use Blog\Model\Categorie\Categorie;
 
 /**
@@ -22,7 +24,7 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
       /** Nettoyage des donnees recues par le fomulaire d'ajout d'article */
       $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
       /** Envoie des donnees au controlleur */
-      ArticleController::addArticle($_GET);
+      ArticleController::addArticle($_GET, $_FILES);
     }
   }
   if($_GET['controller'] === 'categorie'){
@@ -52,6 +54,17 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
       $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
       CategorieController::updateCategorie($_GET);
     }
+    if($_GET['action'] === 'desactivatedCategorie'){
+      $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      CategorieController::desactivatedCategorie($_GET);
+    }
+    if($_GET['action'] === 'activatedCategorie'){
+      $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      CategorieController::activatedCategorie($_GET);
+    }
+  }
+  if($_GET['controller'] === 'user'){
+    UserController::index();
   }
 }
 else{

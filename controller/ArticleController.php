@@ -10,6 +10,8 @@
  */
 namespace Blog\Controller\Article;
 use Blog\Model\Article\Article;
+use Blog\Model\Categorie\Categorie;
+
 class ArticleController {
 
   /** Fonction faisant appel a la vue de la page d'accueil 
@@ -21,27 +23,28 @@ class ArticleController {
   /** Fonction faisant appel au model AddArticle pour ajouter un nouvel article
    * @param array $GETArticle : Les donnees de l'article envoyees par le formulaire 
     */
-    public static function addArticle($GETArticle){
+    public static function addArticle($GET, $arrayPhoto){
       $invalid = false;
-      $message = null;
-      foreach($GETArticle as $article){
-        if(empty($article)){
+      $message = '';
+      foreach($GET as $art){
+        if(empty($art)){
+          $invalid = true;
+        }
+      }
+      if(isset($arrayPhoto)){
+        if(!$arrayPhoto["uploadimage"]['name']){
           $invalid = true;
         }
       }
       if($invalid){
-        $message = '<p class="message--erreur">Tous les champs doivent &ecirc;tre renseign&eacute;s </p>';
+        $message = '<p class="message--erreur">obligatoire</p>';
       }
       else{
-        $titre = $GETArticle['titre'];
-        $tags = $GETArticle['tags'];
-        $description = $GETArticle['description'];
-        $article = new Article($titre, $tags, $description);
-       Article::addArticle($article);
+         Article::addArticle($GET, $arrayPhoto);
+        // echo $message;
       }
       echo $message;
-    }
 }
 
-
+}
 ?>

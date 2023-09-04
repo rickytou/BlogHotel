@@ -73,5 +73,19 @@ class CategorieController {
       }
       echo $message;
     }
+    /** Fonction permettant de desactiver une categorie */
+    public static function desactivatedCategorie(array $GET){
+      $update = '';
+      $update = Categorie::desactivatedCategorie($GET);
+      $listCategories = Categorie::listCategorie();
+      require_once('./view/categorie/listeCategorie.php');
+    } 
+    /** Fonction permettant d'activer une categorie */
+    public static function activatedCategorie(array $GET){
+      $update = '';
+      $update = Categorie::activatedCategorie($GET);
+      $listCategories = Categorie::listCategorie();
+      require_once('./view/categorie/listeCategorie.php');
+    } 
 }
 ?>
