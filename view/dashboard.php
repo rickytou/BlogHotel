@@ -101,6 +101,8 @@ $nombre_articles = count($listArticles);
           <td class="list-group-table-actions">
             <!-- Actions -->
             <p class="actions">
+              <a href='../index.php?controller=article&action=viewArticle&idArticle=<?= $article["idArticle"] ?>' class="fa-solid fa-pencil viewArticle" title="modifier"></a> 
+
               <a href='../index.php?controller=article&action=deleteArticle&idArticle=<?= $article["idArticle"] ?>' class="fa-regular fa-trash-can deleteArticle" title="supprim&eacute;"></a>
             <a href='../index.php?controller=article&action=<?= ($article['actif'] == 1) ? 'desactivatedArticle' : 'activatedArticle' ?>&idArticle=<?= $article["idArticle"] ?>&actif=<?= $article["actif"] ?>' title="<?= ($article['actif'] == 1) ? 'd&eacute;sactiv&eacute;' : 'activ&eacute;' ?>" class="fa-solid <?= ($article['actif'] == 1) ? 'fa-toggle-off' : 'fa-toggle-on' ?> <?= ($article['actif'] == 1) ? 'desactivatedArticle' : 'activatedArticle' ?>"></a>
             </p>
@@ -184,8 +186,9 @@ $nombre_articles = count($listArticles);
     </div>
   </div>
   <!-- Fin Ajouter Categorie -->
-  <div class="form-updatecategorie">
-  </div>
+  <div class="form-updatecategorie"></div>
+  <!-- Form Update Article -->
+  <div class="form-updatearticle"></div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>

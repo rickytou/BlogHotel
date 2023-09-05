@@ -1,13 +1,25 @@
 $(function(){
   /** Fonction loading */
-  let loadingfunc = (className,data) => {
+  // let loadingfunc = (className,data) => {
+  //   $('.loadingprofil').css({'opacity':'1','z-index':'1'});
+  //       /* Timer pour l'animation du gif loading */
+  //       setTimeout(function(){
+  //         $('.loadingprofil').css({'opacity':'0','z-index':'-1'});
+  //         $(className).html(data);
+  //       },500);
+  // }
+
+  let loadingfunc = (className,data, active = null) => {
     $('.loadingprofil').css({'opacity':'1','z-index':'1'});
         /* Timer pour l'animation du gif loading */
         setTimeout(function(){
           $('.loadingprofil').css({'opacity':'0','z-index':'-1'});
+          if(active){
+            $(className).addClass('active');
+          }
           $(className).html(data);
-        },500);
-  }
+        },500)    
+      }
   /** Fin */
   /** Evenement sur l'icon de l'utilisateur */
   $('.account .fa-circle-user').on('click', function(){
@@ -58,8 +70,7 @@ $(function(){
           contentType: false,
           processData: false
         });
-      }
-   
+      }   
   });
   
   /**  */
@@ -177,4 +188,47 @@ $('.activatedArticle').on('click', function(e){
     }
   });
 });
+
+
+/** Soumission du fomulaire de modification de la categorie */
+$('#updateModifierArticle').on('submit', function(e){ 
+  e.preventDefault();
+  alert('ok');  
+  // var nomCategorie = $('#updatenomCategorie');
+  // var descriptionCategorie = $('#updatedescriptionCategorie');
+  // var id = $('#updateidCategorie');
+  // var actif = $('#actif');
+  // var invalid = false;
+  // if(!nomCategorie.val()){
+  //   invalid = false;
+  // }
+  // if(invalid){
+  //   nomCategorie.addClass('error');
+  // }
+  // else{
+  //   var url = '../index.php?controller=categorie&action=updateCategorie&nomCategorie='+nomCategorie.val()+'&descriptionCategorie='+descriptionCategorie.val()+'&idCategorie='+id.val()+'&actif='+actif.val();
+  //   $.ajax({
+  //     url : url,
+  //     method : "GET",
+  //     success : function(data){
+  //         $('.updateModifierCategorie').html(data);
+  //       }
+  //   })
+  // }
+
+  });
+
+       /** Afficher une categorie */
+       $('.viewArticle').on('click', function(e){
+        e.preventDefault();
+        var url = $(this).attr("href"); 
+        $.ajax({
+          url : url,
+          method : "GET",
+          success : function(data){
+            loadingfunc('.form-updatearticle', data, 'active');
+          }
+        });
+       })
+       /** Fin */
 });

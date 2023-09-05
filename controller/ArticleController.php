@@ -18,7 +18,7 @@ class ArticleController {
    * @return void
   */
   public static function index(){
-    $listArticles = Article::listArticle();
+    $listArticles = Article::listArticleActivated();
     // echo "<pre>";
     // var_dump($listArticles);
     // echo "</pre>";
@@ -101,5 +101,11 @@ public static function convertDate($date, $format)
     $listArticles = Article::listArticle();
     require_once('./view/article/listeArticle.php');
   } 
+
+  /** Fonction permettant de modifier la liste des categories */
+  public static function viewArticle(int $idArticle){
+    $viewArticle = Article::viewArticle($idArticle);
+    require_once('./view/article/modifierArticle.php');
+  }
 }
 ?>

@@ -62,7 +62,7 @@ class Categorie{
       $listeCategories = array();
       $con = self::establishedConnection();
       try{
-        $query = 'select * from categories';
+        $query = 'select * from categories order by idCategorie desc';
         $listeCat = $con->query($query, PDO::FETCH_ASSOC);
        foreach($listeCat as $key => $lstCat){
         $listeCategories[$key] = $lstCat;

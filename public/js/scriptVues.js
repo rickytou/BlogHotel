@@ -96,10 +96,13 @@ $(function(){
       });
      })
      /** Fin */
-     /** Evenement quand on clique sur le bouton de fermeture d'affichage de categorie */
-       /** Evenement quand on clique sur l'icon de fermeture (close) */
+     /** Evenement quand on clique sur l'icon de fermeture (close) */
   $('.closeModifierCategorie').on('click', function(){
     $('.form-updatecategorie').removeClass('active');
+    // window.location.reload();
+  });
+  $('.closeModifierArticle').on('click', function(){
+    $('.form-updatearticle').removeClass('active');
     // window.location.reload();
   });
 /** Soumission du fomulaire de modification de la categorie */
@@ -195,8 +198,46 @@ $('.activatedArticle').on('click', function(e){
     }
   });
 });
+/** Soumission du fomulaire de modification de la categorie */
+$('#updateModifierArticle').on('submit', function(e){ 
+  e.preventDefault();
+  alert('ok');  
+  // var nomCategorie = $('#updatenomCategorie');
+  // var descriptionCategorie = $('#updatedescriptionCategorie');
+  // var id = $('#updateidCategorie');
+  // var actif = $('#actif');
+  // var invalid = false;
+  // if(!nomCategorie.val()){
+  //   invalid = false;
+  // }
+  // if(invalid){
+  //   nomCategorie.addClass('error');
+  // }
+  // else{
+  //   var url = '../index.php?controller=categorie&action=updateCategorie&nomCategorie='+nomCategorie.val()+'&descriptionCategorie='+descriptionCategorie.val()+'&idCategorie='+id.val()+'&actif='+actif.val();
+  //   $.ajax({
+  //     url : url,
+  //     method : "GET",
+  //     success : function(data){
+  //         $('.updateModifierCategorie').html(data);
+  //       }
+  //   })
+  // }
 
+  });
 
-
+ /** Afficher une categorie */
+ $('.viewArticle').on('click', function(e){
+  e.preventDefault();
+  var url = $(this).attr("href"); 
+  $.ajax({
+    url : url,
+    method : "GET",
+    success : function(data){
+      loadingfunc('.form-updatearticle', data, 'active');
+    }
+  });
+ })
+ /** Fin */
 
 });

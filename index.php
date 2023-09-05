@@ -45,6 +45,10 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
         $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
        ArticleController::activatedArticle($_GET);
       }
+      if($_GET['action'] === 'viewArticle'){
+        $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        ArticleController::viewArticle($_GET["idArticle"]);
+      }
   }
   if($_GET['controller'] === 'categorie'){
     if($_GET['action'] === 'addCategorie'){

@@ -153,7 +153,23 @@ return $messageUserUpdate;
     $con = self::establishedConnection();
     $listArticle = array();
     try{
-      $query = 'select * from article';
+      $query = 'select * from article order by idArticle desc';
+      $listeArt = $con->query($query, PDO::FETCH_ASSOC);
+     foreach($listeArt as $key => $article){
+      $listArticle[$key] = $article;
+     }                   
+    }
+    catch(PDOException $e){
+      echo $e->getMessage();
+    }
+    return $listArticle;
+  }
+  /** Fonction permettant de lister les articles */
+  public static function listArticleActivated() : array{
+    $con = self::establishedConnection();
+    $listArticle = array();
+    try{
+      $query = 'select * from article where actif = 1 order by idArticle desc';
       $listeArt = $con->query($query, PDO::FETCH_ASSOC);
      foreach($listeArt as $key => $article){
       $listArticle[$key] = $article;
@@ -219,6 +235,23 @@ return $messageUserUpdate;
       echo $e->getMessage();
     }
     return $message;
+  }
+
+  /** Rechercher les informations d'une Categorie */
+  public static function viewArticle(int $idArticle){
+    $con = self::establishedConnection();
+    $viewArticle = array();
+    try{
+      $query = 'select * from article where idArticle ='.$idArticle;
+      $requete = $con->query($query, PDO::FETCH_ASSOC);
+      foreach($requete as $key => $req){
+        $viewArticle[$key] = $req;
+      }
+      }
+    catch(PDOException $e){
+      echo $e->getMessage();
+    }
+    return $viewArticle;
   }
 }
 ?>

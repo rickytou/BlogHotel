@@ -33,6 +33,8 @@
           <td class="list-group-table-actions">
             <!-- Actions -->
             <p class="actions">
+            <a href='../index.php?controller=article&action=viewArticle&idArticle=<?= $article["idArticle"] ?>' class="fa-solid fa-pencil viewArticle" title="modifier"></a> 
+
             <a href='../index.php?controller=article&action=deleteArticle&idArticle=<?= $article["idArticle"] ?>' class="fa-regular fa-trash-can deleteArticle" title="supprim&eacute;"></a>
             <a href='../index.php?controller=article&action=<?= ($article['actif'] == 1) ? 'desactivatedArticle' : 'activatedArticle' ?>&idArticle=<?= $article["idArticle"] ?>&actif=<?= $article["actif"] ?>' title="<?= ($article['actif'] == 1) ? 'd&eacute;sactiv&eacute;' : 'activ&eacute;' ?>" class="fa-solid <?= ($article['actif'] == 1) ? 'fa-toggle-off' : 'fa-toggle-on' ?> <?= ($article['actif'] == 1) ? 'desactivatedArticle' : 'activatedArticle' ?>"></a>
             </p>

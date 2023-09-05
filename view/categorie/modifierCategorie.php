@@ -1,5 +1,5 @@
 <form action="#" id="updateModifierCategorie">
-  <legend>Modifier votre categorie</legend>
+  <legend>Modifier votre cat&eacute;gorie</legend>
   <div class="updateModifierCategorie"></div>
           <div class="ajouter-article-input-control">
             <label for="updatenomCategorie">Nom categorie</label>
