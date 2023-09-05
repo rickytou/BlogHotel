@@ -281,6 +281,7 @@ body{
     height: 20rem;
     background: $couleur--blanc;
     border-radius:0.5rem 0.5rem 0 0;
+    border-bottom: 0.1rem solid rgba(0,0,0,0.04);
 
     & img{
       width: 100%;
@@ -643,10 +644,10 @@ body{
     }
   } 
   .recent-posts-group{
-    gap: 2rem;
+    gap: 3rem;
   }
   .recent-posts-bloc{
-    width: calc(25% - 1.5rem);
+    width: calc(25% - 2.25rem);
   } 
   #nav .menulink li{
     width: 12rem;

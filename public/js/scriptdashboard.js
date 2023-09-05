@@ -32,17 +32,16 @@ $(function(){
     var allInputs = [titre, desc, image];
     var valid = true;
 
-  // $.each(allInputs, function (indexInArray, valueOfElement) { 
-  //    if(!$(valueOfElement).val()){
-  //     $(valueOfElement).addClass('error');
-  //     valid = false;
-  //    }
-  // });
-  // if(!valid){
-  //   $(".ajouter-article-message").html('<p class="message--erreur">Il faut remplir tous les champs</p>');
-  // }
-
-  // else{
+  $.each(allInputs, function (indexInArray, valueOfElement) { 
+     if(!$(valueOfElement).val()){
+      $(valueOfElement).addClass('error');
+      valid = false;
+     }
+  });
+  if(!valid){
+    $(".ajouter-article-message").html('<p class="message--erreur">Il faut remplir tous les champs</p>');
+  }
+  else{
      var url = '../index.php?controller=article&action=addArticle&titre='+titre.val()+'&description='+desc.val()+'&idCategories='+idCategories.val();
         var formData = new FormData(this);
         $.ajax({
@@ -59,7 +58,7 @@ $(function(){
           contentType: false,
           processData: false
         });
-      //}
+      }
    
   });
   
@@ -129,17 +128,53 @@ $('.viewListArticle').on('click', function(){
   $('.header-bloc-group').removeClass('active');
   $('.header-bloc-group-1').addClass('active');
     $(this).addClass('active');
-    // var url = '../index.php?controller=categorie&action=listArticle';
-    // $.ajax({
-    //   url: url,
-    //   method: "GET",
-    //   success: function(data){
-    //     loadingfunc('.list-group', data);
-    //   }
-    // });
+    var url = '../index.php?controller=article&action=listArticle';
+    $.ajax({
+      url: url,
+      method: "GET",
+      success: function(data){
+        loadingfunc('.list-group', data);
+      }
+    });
   })
   /** Fin */
-
-
   /* -------------------Fin Categorie -------------------------- */
+   /** Article */
+   /** Evenement lors du clic sur le bouton de suppression */
+   $('.deleteArticle').on('click', function(e){
+     e.preventDefault();
+      var url = $(this).attr("href");   
+      $.ajax({
+        url : url,
+        method : "GET",
+        success : function(data){
+          loadingfunc('.list-group', data);
+        }
+      });
+    });
+    /** Fin */
+    /** Desactive un article */
+$('.desactivatedArticle').on('click', function(e){
+  e.preventDefault();
+  var url = $(this).attr("href"); 
+  $.ajax({
+    url : url,
+    method : "GET",
+    success : function(data){
+      loadingfunc('.list-group', data);
+    }
+  });
+});
+/** Active une categorie */
+$('.activatedArticle').on('click', function(e){
+  e.preventDefault();
+  var url = $(this).attr("href"); 
+  $.ajax({
+    url : url,
+    method : "GET",
+    success : function(data){
+      loadingfunc('.list-group', data);
+    }
+  });
+});
 });

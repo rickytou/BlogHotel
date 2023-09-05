@@ -402,8 +402,9 @@ body {
   height: 20rem;
   background: #ffffff;
   border-radius: 0.5rem 0.5rem 0 0;
+  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.04);
 }
-/* line 285, ../scss/styles.scss */
+/* line 286, ../scss/styles.scss */
 .recent-posts-image img {
   width: 100%;
   height: 100%;
@@ -412,13 +413,13 @@ body {
   border-radius: 0.5rem 0.5rem 0 0;
 }
 
-/* line 293, ../scss/styles.scss */
+/* line 294, ../scss/styles.scss */
 .recent-posts-main {
   padding: 2rem 1rem;
   background: #ffffff;
 }
 
-/* line 297, ../scss/styles.scss */
+/* line 298, ../scss/styles.scss */
 .recent-posts-group {
   display: flex;
   flex-wrap: wrap;
@@ -426,12 +427,12 @@ body {
   gap: 3rem;
 }
 
-/* line 303, ../scss/styles.scss */
+/* line 304, ../scss/styles.scss */
 .recent-posts-bloc {
   width: 100%;
 }
 
-/* line 306, ../scss/styles.scss */
+/* line 307, ../scss/styles.scss */
 .recent-posts-title {
   margin-bottom: 1rem;
   color: #E55812;
@@ -440,7 +441,7 @@ body {
 
 /* Fin Main*/
 /** Temoignages */
-/* line 313, ../scss/styles.scss */
+/* line 314, ../scss/styles.scss */
 #temoignages {
   padding: 6rem 1rem;
   background-color: #011d26;
@@ -448,7 +449,7 @@ body {
   overflow: hidden;
 }
 
-/* line 319, ../scss/styles.scss */
+/* line 320, ../scss/styles.scss */
 .temoignages h2 {
   color: #3ffba6;
   font-family: 'lobster two';
@@ -458,31 +459,31 @@ body {
   text-align: center;
 }
 
-/* line 327, ../scss/styles.scss */
+/* line 328, ../scss/styles.scss */
 .temoignages h2 span {
   line-height: 1.5;
 }
 
-/* line 330, ../scss/styles.scss */
+/* line 331, ../scss/styles.scss */
 .temoignages__navigation__bloc {
   display: flex;
 }
 
-/* line 333, ../scss/styles.scss */
+/* line 334, ../scss/styles.scss */
 .temoignages__navigation__left {
   position: relative;
   top: 0;
   left: 0;
 }
 
-/* line 338, ../scss/styles.scss */
+/* line 339, ../scss/styles.scss */
 .temoignages__navigation__right {
   position: relative;
   top: 0;
   right: calc(-100% + 7rem);
 }
 
-/* line 343, ../scss/styles.scss */
+/* line 344, ../scss/styles.scss */
 .temoignages__navigation {
   width: 3rem;
   height: 3rem;
@@ -496,12 +497,12 @@ body {
   cursor: pointer;
 }
 
-/* line 355, ../scss/styles.scss */
+/* line 356, ../scss/styles.scss */
 .temoignages__navigation__left {
   display: none;
 }
 
-/* line 358, ../scss/styles.scss */
+/* line 359, ../scss/styles.scss */
 .temoignages__navigation__left.active,
 .temoignages__navigation__right.active {
   display: flex;
@@ -509,24 +510,24 @@ body {
   color: #011d26;
 }
 
-/* line 364, ../scss/styles.scss */
+/* line 365, ../scss/styles.scss */
 .temoignages__navigation__right {
   display: none;
 }
 
-/* line 367, ../scss/styles.scss */
+/* line 368, ../scss/styles.scss */
 .temoignages__bloc {
   min-width: 30rem;
   position: relative;
 }
 
-/* line 371, ../scss/styles.scss */
+/* line 372, ../scss/styles.scss */
 .temoignages__bloc__group {
   width: 96%;
   transition: transform 0.3s ease-in;
 }
 
-/* line 375, ../scss/styles.scss */
+/* line 376, ../scss/styles.scss */
 .temoignages__bloc__comments {
   background: #000000;
   color: #ffffff;
@@ -534,13 +535,13 @@ body {
   border-radius: 0.5rem;
 }
 
-/* line 381, ../scss/styles.scss */
+/* line 382, ../scss/styles.scss */
 .temoignages__bloc__comments_user {
   padding: 0 1rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.04);
 }
 
-/* line 385, ../scss/styles.scss */
+/* line 386, ../scss/styles.scss */
 .temoignages blockquote i {
   display: block;
   padding: 0.5rem 0;
@@ -549,37 +550,37 @@ body {
   cursor: pointer;
 }
 
-/* line 392, ../scss/styles.scss */
+/* line 393, ../scss/styles.scss */
 blockquote p {
   margin-bottom: 0;
   padding: 0 0 0 2rem;
 }
 
-/* line 396, ../scss/styles.scss */
+/* line 397, ../scss/styles.scss */
 blockquote p + i {
   text-align: right;
 }
 
-/* line 399, ../scss/styles.scss */
+/* line 400, ../scss/styles.scss */
 .temoignages cite {
   display: block;
   text-align: right;
 }
 
-/* line 403, ../scss/styles.scss */
+/* line 404, ../scss/styles.scss */
 .temoignages cite span::before {
   content: "_";
   font-size: 2rem;
 }
 
-/* line 407, ../scss/styles.scss */
+/* line 408, ../scss/styles.scss */
 .temoignages cite span {
   font-size: 1.2rem;
   font-style: italic;
   color: #E55812;
 }
 
-/* line 412, ../scss/styles.scss */
+/* line 413, ../scss/styles.scss */
 .temoignages__bloc__design {
   width: 3rem;
   height: 3rem;
@@ -593,7 +594,7 @@ blockquote p + i {
   display: none;
 }
 
-/* line 425, ../scss/styles.scss */
+/* line 426, ../scss/styles.scss */
 .temoignages__bloc__profil {
   width: 5rem;
   height: 5rem;
@@ -607,7 +608,7 @@ blockquote p + i {
   top: -6rem;
 }
 
-/* line 437, ../scss/styles.scss */
+/* line 438, ../scss/styles.scss */
 .temoignages__bloc__profil img {
   width: 100%;
   height: auto;
@@ -616,13 +617,13 @@ blockquote p + i {
   opacity: 0.75;
 }
 
-/* line 445, ../scss/styles.scss */
+/* line 446, ../scss/styles.scss */
 .temoignages__bloc {
   display: flex;
   gap: 1rem;
 }
 
-/* line 450, ../scss/styles.scss */
+/* line 451, ../scss/styles.scss */
 .temoignages__bloc__group {
   width: 96%;
   max-width: 30rem;
@@ -631,16 +632,16 @@ blockquote p + i {
 
 /* Fin Temoignages */
 /* Contact */
-/* line 457, ../scss/styles.scss */
+/* line 458, ../scss/styles.scss */
 #contact {
   width: 100%;
   color: #000000;
 }
-/* line 461, ../scss/styles.scss */
+/* line 462, ../scss/styles.scss */
 #contact .contact {
   padding: 6rem 1rem;
 }
-/* line 464, ../scss/styles.scss */
+/* line 465, ../scss/styles.scss */
 #contact h2 {
   font-size: 3.2rem;
   margin-bottom: 4rem;
@@ -649,18 +650,18 @@ blockquote p + i {
   font-family: 'lobster two';
   color: #011d26;
 }
-/* line 472, ../scss/styles.scss */
+/* line 473, ../scss/styles.scss */
 #contact .contact-social-media {
   display: flex;
   flex-direction: column;
   gap: 3rem;
 }
-/* line 477, ../scss/styles.scss */
+/* line 478, ../scss/styles.scss */
 #contact b {
   font-size: 2rem;
   color: #011d26;
 }
-/* line 481, ../scss/styles.scss */
+/* line 482, ../scss/styles.scss */
 #contact .contact-social-media-bloc {
   border: 0.1rem solid rgba(0, 0, 0, 0.04);
   background-color: rgba(0, 0, 0, 0.02);
@@ -673,26 +674,26 @@ blockquote p + i {
   gap: 1rem;
   align-items: center;
 }
-/* line 493, ../scss/styles.scss */
+/* line 494, ../scss/styles.scss */
 #contact .contact-social-media-bloc p {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   align-items: center;
 }
-/* line 499, ../scss/styles.scss */
+/* line 500, ../scss/styles.scss */
 #contact .contact-social-media-bloc span:nth-child(1) {
   font-size: 5.2rem;
   color: #E55812;
 }
 
 /* Footer */
-/* line 506, ../scss/styles.scss */
+/* line 507, ../scss/styles.scss */
 #footer {
   background-color: #011d26;
 }
 
-/* line 509, ../scss/styles.scss */
+/* line 510, ../scss/styles.scss */
 .footer {
   padding: 2rem;
   display: flex;
@@ -700,7 +701,7 @@ blockquote p + i {
   justify-content: center;
 }
 
-/* line 515, ../scss/styles.scss */
+/* line 516, ../scss/styles.scss */
 .footer-copyright {
   display: flex;
   flex-direction: column;
@@ -708,85 +709,85 @@ blockquote p + i {
   gap: 1rem;
 }
 
-/* line 521, ../scss/styles.scss */
+/* line 522, ../scss/styles.scss */
 .footer-copyright .designer span {
   color: #3ffba6;
 }
 
 @media screen and (min-width: 540px) {
-  /* line 525, ../scss/styles.scss */
+  /* line 526, ../scss/styles.scss */
   .recent-posts, .footer, #temoignages, .contact {
     padding-left: 2rem;
     padding-right: 2rem;
   }
 
   /* Nos recentes publications */
-  /* line 531, ../scss/styles.scss */
+  /* line 532, ../scss/styles.scss */
   .recent-posts h2, .contact h2 {
     font-size: 3.2rem;
   }
 
-  /* line 535, ../scss/styles.scss */
+  /* line 536, ../scss/styles.scss */
   .recent-posts-group {
     flex-direction: row;
     gap: 2rem;
   }
 
-  /* line 539, ../scss/styles.scss */
+  /* line 540, ../scss/styles.scss */
   .recent-posts-bloc {
     margin-bottom: 2rem;
     width: calc(50% - 1rem);
   }
 
-  /* line 543, ../scss/styles.scss */
+  /* line 544, ../scss/styles.scss */
   .video h1 {
     font-size: 3.2rem;
   }
 
-  /* line 550, ../scss/styles.scss */
+  /* line 551, ../scss/styles.scss */
   .temoignages__bloc {
     gap: 2rem;
   }
 
-  /* line 553, ../scss/styles.scss */
+  /* line 554, ../scss/styles.scss */
   .temoignages__bloc__profil {
     top: 0;
   }
 
-  /* line 556, ../scss/styles.scss */
+  /* line 557, ../scss/styles.scss */
   .temoignages__bloc__design {
     display: block;
   }
 
-  /* line 560, ../scss/styles.scss */
+  /* line 561, ../scss/styles.scss */
   #contact .contact-social-media {
     flex-direction: row;
     width: 60%;
     margin: auto;
   }
-  /* line 565, ../scss/styles.scss */
+  /* line 566, ../scss/styles.scss */
   #contact .contact-social-media-bloc {
     width: calc(33% - 1rem);
   }
 }
 @media screen and (min-width: 780px) {
-  /* line 572, ../scss/styles.scss */
+  /* line 573, ../scss/styles.scss */
   #header {
     height: auto;
     border-bottom: 0.2rem solid #3ffba6;
   }
 
-  /* line 576, ../scss/styles.scss */
+  /* line 577, ../scss/styles.scss */
   .menu {
     display: none;
   }
 
-  /* line 579, ../scss/styles.scss */
+  /* line 580, ../scss/styles.scss */
   #nav {
     order: 2;
     height: 100%;
   }
-  /* line 583, ../scss/styles.scss */
+  /* line 584, ../scss/styles.scss */
   #nav .menulink {
     border: 0 none;
     width: auto;
@@ -798,91 +799,91 @@ blockquote p + i {
     font-size: 1.6rem;
     background-color: transparent;
   }
-  /* line 594, ../scss/styles.scss */
+  /* line 595, ../scss/styles.scss */
   #nav .menulink li {
     padding: 0 1rem;
     width: 11rem;
     padding: 1rem 2rem;
   }
-  /* line 599, ../scss/styles.scss */
+  /* line 600, ../scss/styles.scss */
   #nav .menulink a {
     flex-direction: column;
     gap: 0.5rem;
   }
-  /* line 603, ../scss/styles.scss */
+  /* line 604, ../scss/styles.scss */
   #nav .menulink span:nth-child(1) {
     font-size: 2rem;
   }
 
-  /* line 607, ../scss/styles.scss */
+  /* line 608, ../scss/styles.scss */
   .logo {
     order: 1;
   }
-  /* line 610, ../scss/styles.scss */
+  /* line 611, ../scss/styles.scss */
   .logo p {
     font-size: 3.2rem;
   }
-  /* line 613, ../scss/styles.scss */
+  /* line 614, ../scss/styles.scss */
   .logo a {
     font-size: 2.4rem;
   }
 
-  /* line 617, ../scss/styles.scss */
+  /* line 618, ../scss/styles.scss */
   .account {
     order: 3;
   }
 
-  /* line 620, ../scss/styles.scss */
+  /* line 621, ../scss/styles.scss */
   .video {
     min-height: 60rem;
   }
 
-  /* line 623, ../scss/styles.scss */
+  /* line 624, ../scss/styles.scss */
   .video h1 {
     font-size: 5.2rem;
   }
 
-  /* line 626, ../scss/styles.scss */
+  /* line 627, ../scss/styles.scss */
   .video > p {
     width: 50%;
   }
 
-  /* line 629, ../scss/styles.scss */
+  /* line 630, ../scss/styles.scss */
   .video .form-search {
     width: 60%;
     margin-top: 12rem;
     margin-bottom: 6rem;
   }
 
-  /* line 634, ../scss/styles.scss */
+  /* line 635, ../scss/styles.scss */
   .recent-posts-image {
     height: 24rem;
   }
 }
 @media screen and (min-width: 1024px) {
-  /* line 641, ../scss/styles.scss */
+  /* line 642, ../scss/styles.scss */
   .logo a {
     font-size: 3rem;
   }
 
-  /* line 645, ../scss/styles.scss */
+  /* line 646, ../scss/styles.scss */
   .recent-posts-group {
-    gap: 2rem;
+    gap: 3rem;
   }
 
-  /* line 648, ../scss/styles.scss */
+  /* line 649, ../scss/styles.scss */
   .recent-posts-bloc {
-    width: calc(25% - 1.5rem);
+    width: calc(25% - 2.25rem);
   }
 
-  /* line 651, ../scss/styles.scss */
+  /* line 652, ../scss/styles.scss */
   #nav .menulink li {
     width: 12rem;
     margin-left: 0.5rem;
   }
 }
 @media screen and (min-width: 1400px) {
-  /* line 660, ../scss/styles.scss */
+  /* line 661, ../scss/styles.scss */
   .header, .mainheader, .footer, .recent-posts, .temoignages {
     width: 140rem;
     margin: auto;

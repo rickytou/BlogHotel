@@ -34,65 +34,23 @@ require_once('./includes/head.php');
     <!-- Entete Posts Bloc --> 
     <div class="recent-posts-group">
     <!-- Bloc1 .-->
+    <?php foreach($listArticles as $articles): ?>
     <article class="recent-posts-bloc">
       <!-- Entete Posts Bloc Entete --> 
       <div class="recent-posts-image">
-        <img src="https://images.pexels.com/photos/518244/pexels-photo-518244.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+        <img src="<?= $articles["imageArticle"] ?>" alt='<= $articles["titreArticle"] ?>'>
       </div>
       <!-- Entete Posts Main -->
       <div class="recent-posts-main">
         <div class="recent-posts-title">
-          <strong>Hotel Berkshire</strong>
+          <strong><?= $articles["titreArticle"] ?></strong>
         </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt architecto libero sunt et, quod laborum voluptatibus quidem quo, dolorem accusamus sint, repellat rerum rem. Dolorem libero optio cupiditate earum similique.</p>
+        <p><?= $articles["descriptionArticle"] ?></p>
       </div> 
     </article>
+    <?php endforeach; ?>
     <!-- Fin Bloc1 -->
-    <!-- Bloc2 .-->
-    <article class="recent-posts-bloc">
-      <!-- Entete Posts Bloc Entete --> 
-      <div class="recent-posts-image">
-        <img src="https://images.pexels.com/photos/1755288/pexels-photo-1755288.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-      </div>
-      <!-- Entete Posts Main -->
-      <div class="recent-posts-main">
-        <div class="recent-posts-title">
-          <strong>Hotel Berkshire</strong>
-        </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt architecto libero sunt et, quod laborum voluptatibus quidem quo, dolorem accusamus sint, repellat rerum rem. Dolorem libero optio cupiditate earum similique.</p>
-      </div> 
-    </article>
-    <!-- Fin Bloc2 -->
-    <!-- Bloc3 .-->
-    <article class="recent-posts-bloc">
-      <!-- Entete Posts Bloc Entete --> 
-      <div class="recent-posts-image">
-        <img src="https://images.pexels.com/photos/756083/pexels-photo-756083.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-      </div>
-      <!-- Entete Posts Main -->
-      <div class="recent-posts-main">
-        <div class="recent-posts-title">
-          <strong>Hotel Berkshire</strong>
-        </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt architecto libero sunt et, quod laborum voluptatibus quidem quo, dolorem accusamus sint, repellat rerum rem. Dolorem libero optio cupiditate earum similique.</p>
-      </div> 
-    </article>
-    <!-- Fin Bloc3 -->
-    <!-- Bloc4 .-->
-    <article class="recent-posts-bloc">
-      <!-- Entete Posts Bloc Entete --> 
-      <div class="recent-posts-image">
-        <img src="https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-      </div>
-      <!-- Entete Posts Main -->
-      <div class="recent-posts-main">
-        <div class="recent-posts-title">
-          <strong>Hotel Berkshire</strong>
-        </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt architecto libero sunt et, quod laborum voluptatibus quidem quo, dolorem accusamus sint, repellat rerum rem. Dolorem libero optio cupiditate earum similique.</p>
-      </div> 
-    </article>
-    <!-- Fin Bloc4 -->
+
     </div>
    </div>
    <!-- Fin -->

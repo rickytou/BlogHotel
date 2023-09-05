@@ -3,11 +3,11 @@
   <div class="updateModifierCategorie"></div>
           <div class="ajouter-article-input-control">
             <label for="updatenomCategorie">Nom categorie</label>
-            <input type="text" id="updatenomCategorie" value=<?= $viewCategorie[0]['nomCategorie']; ?>>
+            <input type="text" id="updatenomCategorie" value="<?= $viewCategorie[0]['nomCategorie']; ?>">
           </div>
           <div class="ajouter-article-input-control">
             <label for="updatedescriptionCategorie">Description</label>
-            <input type="text" id="updatedescriptionCategorie" value=<?= trim($viewCategorie[0]['descriptionCategorie']); ?>>
+            <input type="text" id="updatedescriptionCategorie" value="<?= trim($viewCategorie[0]['descriptionCategorie']); ?>">
           </div>
           <div class="ajouter-article-input-control">
             <label for="actif">Statut</label>

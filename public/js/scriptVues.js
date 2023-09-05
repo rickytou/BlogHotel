@@ -100,7 +100,7 @@ $(function(){
        /** Evenement quand on clique sur l'icon de fermeture (close) */
   $('.closeModifierCategorie').on('click', function(){
     $('.form-updatecategorie').removeClass('active');
-    window.location.reload();
+    // window.location.reload();
   });
 /** Soumission du fomulaire de modification de la categorie */
 $('#updateModifierCategorie').on('submit', function(e){   
@@ -145,11 +145,10 @@ $('#updateModifierCategorie').on('submit', function(e){
     });
   });
   /** Fin */
-   /** Desactive une categorie */
+   /** Active une categorie */
    $('.activatedCategorie').on('click', function(e){
       e.preventDefault();
       var url = $(this).attr("href"); 
-      console.log(url);
       $.ajax({
         url : url,
         method : "GET",
@@ -158,4 +157,46 @@ $('#updateModifierCategorie').on('submit', function(e){
         }
       });
   });
+
+  $('.deleteArticle').on('click', function(e){
+    e.preventDefault();
+     var url = $(this).attr("href");   
+     $.ajax({
+       url : url,
+       method : "GET",
+       success : function(data){
+         loadingfunc('.list-group', data);
+       }
+     });
+   });
+
+/** Desactive un article */
+$('.desactivatedArticle').on('click', function(e){
+  e.preventDefault();
+  var url = $(this).attr("href"); 
+  $.ajax({
+    url : url,
+    method : "GET",
+    success : function(data){
+      loadingfunc('.list-group', data);
+    }
+  });
+});
+
+/** Active une categorie */
+$('.activatedArticle').on('click', function(e){
+  e.preventDefault();
+  var url = $(this).attr("href"); 
+  $.ajax({
+    url : url,
+    method : "GET",
+    success : function(data){
+      loadingfunc('.list-group', data);
+    }
+  });
+});
+
+
+
+
 });

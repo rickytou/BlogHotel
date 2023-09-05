@@ -1,6 +1,12 @@
 <?php declare(strict_types=1);
+
+use Blog\Controller\Article\ArticleController;
+use Blog\Controller\Categorie\CategorieController;
+use Blog\Model\Categorie\Categorie;
+
 require_once('./includes/headdashboard.php');
 $nombre_de_categories = count($allCategories);
+$nombre_articles = count($listArticles);
 ?>
   <main id="main">
     <div class="main">
@@ -9,15 +15,15 @@ $nombre_de_categories = count($allCategories);
         <h1>Tableau de board</h1>
         <div class="header-bloc">
           <!-- header-bloc-group-1 -->
-          <div class="header-bloc-group header-bloc-group-1">
+          <div class="header-bloc-group header-bloc-group-1 active">
             <span class="fa-regular fa-newspaper"></span>
             <strong>Article</strong>
             <p>
-              <b>20</b><span>views</span>
+              <b><?= $nombre_articles ?></b><span>posts</span>
             </p>
             
             <p class="header-bloc-group-actions">
-            <span class="fa-regular fa-eye viewListArticle" title="Liste article"></span>
+            <span class="fa-regular fa-eye viewListArticle active" title="Liste article"></span>
             <span class="fa-solid fa-circle-plus addArticleBlog" title="ajouter article"></span>
             </p>
           </div>
@@ -25,7 +31,7 @@ $nombre_de_categories = count($allCategories);
           <!-- header-bloc-group-2 -->
           <div class="header-bloc-group header-bloc-group-2">
           <span class="fa-solid fa-layer-group"></span>
-            <strong>Categories</strong>
+            <strong>Cat&eacute;gories</strong>
             <p>
               <b><?= $nombre_de_categories ?></b><span>cat&eacute;gories</span>
             </p>
@@ -74,23 +80,33 @@ $nombre_de_categories = count($allCategories);
             <tr>
               <th class="list-group-table-check">&nbsp;</th>
               <th class="list-group-table-img">&nbsp</th>
-              <th>ID</th>
+              <th class="list-group-table-img">Identifiant</th>
               <th>Titre</th>
-              <th>Tags</th>
-              <th>Categorie</th>
-              <th>Publi&eacute</th>
+              <th>Cat&eacute;gorie</th>
+              <th>Date Publication</th>
+              <th>Statut</th>
+              <th>&nbsp;</th>
             </tr>
         </thead>
         <tbody>
+          <?php foreach($listArticles as $article) : ?>
           <tr>
             <td class="list-group-table-check"><input type="checkbox" name="article[]"></td>
-            <td class="list-group-table-img">&nbsp;</td>
-            <td>01</td>
-            <td>Hotel berkshire</td>
-            <td>Quebec</td>
-            <td>Categorie</td>
-            <td>Publie</td>
+            <td class="list-group-table-img"><p><img src="<?= $article["imageArticle"]; ?>" /></p></td>
+            <td><?= $article["idArticle"] ?></td>
+            <td><?= $article["titreArticle"] ?></td>
+            <td><?php echo ArticleController::nomCategorie($article["idCategories"]); ?></td>
+            <td><?= ArticleController::convertDate($article["datepubArticle"], 'j F Y') ?></td>
+            <td class="list-group-table-check"><?= ($article['actif'] == 1) ? 'Activ&eacute;' : 'd&eacute;sactiv&eacute;' ?></td>
+          <td class="list-group-table-actions">
+            <!-- Actions -->
+            <p class="actions">
+              <a href='../index.php?controller=article&action=deleteArticle&idArticle=<?= $article["idArticle"] ?>' class="fa-regular fa-trash-can deleteArticle" title="supprim&eacute;"></a>
+            <a href='../index.php?controller=article&action=<?= ($article['actif'] == 1) ? 'desactivatedArticle' : 'activatedArticle' ?>&idArticle=<?= $article["idArticle"] ?>&actif=<?= $article["actif"] ?>' title="<?= ($article['actif'] == 1) ? 'd&eacute;sactiv&eacute;' : 'activ&eacute;' ?>" class="fa-solid <?= ($article['actif'] == 1) ? 'fa-toggle-off' : 'fa-toggle-on' ?> <?= ($article['actif'] == 1) ? 'desactivatedArticle' : 'activatedArticle' ?>"></a>
+            </p>
+          </td>
           </tr>
+          <?php endforeach; ?>
         </tbody>
         </table>
       </div>
@@ -117,7 +133,7 @@ $nombre_de_categories = count($allCategories);
    <!-- Ajouter Article -->
   <div id="article">
     <div class="article-popup">
-    <form action="#" class="ajouter" method="POST" id="form-ajouter-article">
+    <form action="#" class="ajouter" method="POST" id="form-ajouter-article" enctype="multipart/form-data">
       <legend>Ajouter un article</legend>
       <div class="ajouter-article-message"></div>
       <div class="ajouter-article-input-control">
@@ -147,10 +163,11 @@ $nombre_de_categories = count($allCategories);
     </form>
     </div>
   </div>
-  <!-- Fin Ajouter Categorie -->
+  <!-- Fin Ajouter Article -->
+  <!-- Ajouter Categorie -->
   <div id="categorie">
     <div class="categorie-popup">
-    <form action="#" class="ajouter" method="POST" id="form-ajouter-categorie" enctype="multipart/form-data">
+    <form action="#" class="ajouter" method="POST" id="form-ajouter-categorie">
       <legend>Ajouter une cat&eacute;gorie</legend>
       <div class="ajouter-categorie-message"></div>
       <div class="ajouter-article-input-control">
@@ -166,7 +183,7 @@ $nombre_de_categories = count($allCategories);
     </form>
     </div>
   </div>
-  <!-- Fin -->
+  <!-- Fin Ajouter Categorie -->
   <div class="form-updatecategorie">
   </div>
 </div>

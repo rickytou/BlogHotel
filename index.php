@@ -26,6 +26,25 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
       /** Envoie des donnees au controlleur */
       ArticleController::addArticle($_GET, $_FILES);
     }
+    if($_GET['action'] === 'listArticle'){
+        ArticleController::listArticle();
+      }
+      if($_GET['action'] === 'deleteArticle'){
+        if(isset($_GET['idArticle'])){
+          ArticleController::deleteArticle((int) $_GET['idArticle']);
+        }
+        // else{
+        //   CategorieController::deleteArticles();
+        // }
+      }
+      if($_GET['action'] === 'desactivatedArticle'){
+        $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        ArticleController::desactivatedArticle($_GET);
+      }
+      if($_GET['action'] === 'activatedArticle'){
+        $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+       ArticleController::activatedArticle($_GET);
+      }
   }
   if($_GET['controller'] === 'categorie'){
     if($_GET['action'] === 'addCategorie'){

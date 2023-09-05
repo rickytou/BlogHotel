@@ -280,7 +280,6 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 1.8rem;
-  border-radius: 0 0 0.5rem 0.5rem;
   gap: 1.5rem;
   color: #3ffba6;
   background-color: #011d26;
@@ -293,22 +292,19 @@ body {
 
 /* line 185, ../scss/stylesdashboard.scss */
 .header-bloc-group.active {
-  background-color: #011d26;
-  color: #ffffff;
+  background-color: transparent;
+  color: #E55812;
   transition: all 0.3s ease-in-out;
+  border: 0.3rem solid #011d26;
 }
-/* line 190, ../scss/stylesdashboard.scss */
-.header-bloc-group.active .header-bloc-group-actions {
-  border-top: 0.3rem solid #ffffff;
-}
-/* line 193, ../scss/stylesdashboard.scss */
+/* line 194, ../scss/stylesdashboard.scss */
 .header-bloc-group.active > span:first-of-type {
-  color: #ffffff;
+  color: #E55812;
   opacity: 1;
 }
 
 /* Section : list */
-/* line 200, ../scss/stylesdashboard.scss */
+/* line 201, ../scss/stylesdashboard.scss */
 #list {
   margin-top: 6rem;
   padding: 3rem;
@@ -316,87 +312,109 @@ body {
   background-color: #ffffff;
   border: 0.1rem solid rgba(0, 0, 0, 0.1);
 }
-/* line 207, ../scss/stylesdashboard.scss */
+/* line 208, ../scss/stylesdashboard.scss */
 #list h2 {
   font-size: 2.4rem;
   margin-bottom: 1rem;
   font-weight: bold;
   color: #011d26;
 }
-/* line 213, ../scss/stylesdashboard.scss */
+/* line 214, ../scss/stylesdashboard.scss */
 #list table {
   width: 100%;
   margin: 3rem 0;
   border: 0.1rem solid rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
 }
-/* line 218, ../scss/stylesdashboard.scss */
+/* line 219, ../scss/stylesdashboard.scss */
 #list table thead th {
   font-weight: bold;
 }
-/* line 222, ../scss/stylesdashboard.scss */
+/* line 223, ../scss/stylesdashboard.scss */
 #list thead {
   background-color: #011d26;
   color: #ffffff;
   border-radius: 0.5rem;
 }
-/* line 227, ../scss/stylesdashboard.scss */
+/* line 228, ../scss/stylesdashboard.scss */
 #list tr {
   width: 100%;
 }
-/* line 230, ../scss/stylesdashboard.scss */
+/* line 231, ../scss/stylesdashboard.scss */
 #list tr:nth-child(odd) {
   background-color: rgba(0, 0, 0, 0.02);
 }
-/* line 233, ../scss/stylesdashboard.scss */
+/* line 234, ../scss/stylesdashboard.scss */
 #list th, #list td {
   height: 5rem;
   padding: 0.5rem;
 }
-/* line 237, ../scss/stylesdashboard.scss */
+/* line 238, ../scss/stylesdashboard.scss */
 #list .list-group-table .list-group-table-check {
   width: 5%;
 }
-/* line 240, ../scss/stylesdashboard.scss */
-#list .list-group-table .list-group-table-image {
-  width: 15%;
+/* line 241, ../scss/stylesdashboard.scss */
+#list .list-group-table .list-group-table-img {
+  width: 7%;
+}
+/* line 244, ../scss/stylesdashboard.scss */
+#list .list-group-table-img p {
+  width: 6rem;
+  height: 6rem;
+  overflow: hidden;
+  padding: 0.2rem;
+  background-color: #ffffff;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  -moz-border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  border-radius: 0.5rem;
+}
+/* line 253, ../scss/stylesdashboard.scss */
+#list .list-group-table-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  -moz-border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  border-radius: 0.5rem;
 }
 
-/* line 244, ../scss/stylesdashboard.scss */
+/* line 261, ../scss/stylesdashboard.scss */
 tfoot tr {
   text-transform: capitalize;
 }
-/* line 246, ../scss/stylesdashboard.scss */
+/* line 263, ../scss/stylesdashboard.scss */
 tfoot tr td {
   background-color: #ffffff;
   color: #E55812;
 }
-/* line 249, ../scss/stylesdashboard.scss */
+/* line 266, ../scss/stylesdashboard.scss */
 tfoot tr td p {
   display: inline-block;
   margin-right: 2rem;
 }
-/* line 254, ../scss/stylesdashboard.scss */
+/* line 271, ../scss/stylesdashboard.scss */
 tfoot tr span {
   text-transform: capitalize;
 }
-/* line 257, ../scss/stylesdashboard.scss */
+/* line 274, ../scss/stylesdashboard.scss */
 tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
   cursor: pointer;
 }
 
 /* Actions */
-/* line 262, ../scss/stylesdashboard.scss */
+/* line 279, ../scss/stylesdashboard.scss */
 .list-group-table-actions {
   width: 10rem;
 }
 
-/* line 265, ../scss/stylesdashboard.scss */
+/* line 282, ../scss/stylesdashboard.scss */
 .actions {
   display: flex;
   gap: 1rem;
 }
-/* line 269, ../scss/stylesdashboard.scss */
+/* line 286, ../scss/stylesdashboard.scss */
 .actions a {
   padding: 0.25rem 0.75rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.1);
@@ -406,7 +424,7 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
 
 /* Fin Main */
 /* Article */
-/* line 279, ../scss/stylesdashboard.scss */
+/* line 296, ../scss/stylesdashboard.scss */
 #article, #categorie, .form-updatecategorie {
   position: absolute;
   top: 0;
@@ -421,12 +439,12 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
   opacity: 0;
   transition: opacity 0.3s ease-in-out, z-index 0.3s ease-in-out;
 }
-/* line 294, ../scss/stylesdashboard.scss */
+/* line 311, ../scss/stylesdashboard.scss */
 #article.active, #categorie.active, .form-updatecategorie.active {
   z-index: 1;
   opacity: 1;
 }
-/* line 300, ../scss/stylesdashboard.scss */
+/* line 317, ../scss/stylesdashboard.scss */
 #article .ajouter, #categorie .ajouter, .form-updatecategorie .ajouter {
   width: 36rem;
   max-width: 54rem;
@@ -435,7 +453,7 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
   padding: 3rem 2rem;
   position: relative;
 }
-/* line 308, ../scss/stylesdashboard.scss */
+/* line 325, ../scss/stylesdashboard.scss */
 #article .ajouter-article-input-control, #categorie .ajouter-article-input-control, .form-updatecategorie .ajouter-article-input-control {
   margin-bottom: 1rem;
   display: flex;
@@ -443,35 +461,35 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
   gap: 1rem;
   width: 100%;
 }
-/* line 315, ../scss/stylesdashboard.scss */
+/* line 332, ../scss/stylesdashboard.scss */
 #article legend, #categorie legend, .form-updatecategorie legend {
   margin-bottom: 3rem;
   font-size: 2.4rem;
   font-weight: bold;
   color: #011d26;
 }
-/* line 321, ../scss/stylesdashboard.scss */
+/* line 338, ../scss/stylesdashboard.scss */
 #article input[type="text"], #article select, #categorie input[type="text"], #categorie select, .form-updatecategorie input[type="text"], .form-updatecategorie select {
   width: 100%;
   padding: 1rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.2);
 }
-/* line 326, ../scss/stylesdashboard.scss */
+/* line 343, ../scss/stylesdashboard.scss */
 #article input[type="text"].error, #article select.error, #categorie input[type="text"].error, #categorie select.error, .form-updatecategorie input[type="text"].error, .form-updatecategorie select.error {
   border: 0.1rem solid #dc3545;
 }
-/* line 330, ../scss/stylesdashboard.scss */
+/* line 347, ../scss/stylesdashboard.scss */
 #article textarea, #categorie textarea, .form-updatecategorie textarea {
   width: 100%;
   padding: 1rem;
   height: 16rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.2);
 }
-/* line 336, ../scss/stylesdashboard.scss */
+/* line 353, ../scss/stylesdashboard.scss */
 #article textarea.error, #categorie textarea.error, .form-updatecategorie textarea.error {
   border: 0.1rem solid #dc3545;
 }
-/* line 341, ../scss/stylesdashboard.scss */
+/* line 358, ../scss/stylesdashboard.scss */
 #article input[type="submit"], #categorie input[type="submit"], .form-updatecategorie input[type="submit"] {
   width: 100%;
   padding: 1rem;
@@ -481,12 +499,12 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
-/* line 350, ../scss/stylesdashboard.scss */
+/* line 367, ../scss/stylesdashboard.scss */
 #article input[type="submit"]:hover, #categorie input[type="submit"]:hover, .form-updatecategorie input[type="submit"]:hover {
   background: #011d26;
   color: #ffffff;
 }
-/* line 355, ../scss/stylesdashboard.scss */
+/* line 372, ../scss/stylesdashboard.scss */
 #article .fa-close, #categorie .fa-close, .form-updatecategorie .fa-close {
   display: inline-block;
   width: 3rem;
@@ -505,13 +523,13 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
 
 /* Fin Article */
 /* Categorie */
-/* line 373, ../scss/stylesdashboard.scss */
+/* line 390, ../scss/stylesdashboard.scss */
 .viewListCategorie.active,
 .viewListArticle.active {
   color: #ffffff;
 }
 
-/* line 377, ../scss/stylesdashboard.scss */
+/* line 394, ../scss/stylesdashboard.scss */
 .form-updatecategorie {
   position: absolute;
   top: 0;
@@ -526,12 +544,12 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
   opacity: 0;
   transition: opacity 0.3s ease-in-out, z-index 0.3s ease-in-out;
 }
-/* line 392, ../scss/stylesdashboard.scss */
+/* line 409, ../scss/stylesdashboard.scss */
 .form-updatecategorie.active {
   z-index: 1;
   opacity: 1;
 }
-/* line 397, ../scss/stylesdashboard.scss */
+/* line 414, ../scss/stylesdashboard.scss */
 .form-updatecategorie form {
   min-width: 28rem;
   max-width: 54rem;
@@ -540,7 +558,7 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
   padding: 3rem 2rem;
   position: relative;
 }
-/* line 406, ../scss/stylesdashboard.scss */
+/* line 423, ../scss/stylesdashboard.scss */
 .form-updatecategorie .closeModifierCategorie {
   display: inline-block;
   width: 3rem;
@@ -559,11 +577,11 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
 
 /* Fin Categorie */
 /* Footer */
-/* line 425, ../scss/stylesdashboard.scss */
+/* line 442, ../scss/stylesdashboard.scss */
 #footer {
   margin-top: auto;
 }
-/* line 428, ../scss/stylesdashboard.scss */
+/* line 445, ../scss/stylesdashboard.scss */
 #footer .footer {
   padding: 2rem 0;
   text-align: center;
@@ -571,26 +589,26 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
 }
 
 @media screen and (min-width: 540px) {
-  /* line 438, ../scss/stylesdashboard.scss */
+  /* line 455, ../scss/stylesdashboard.scss */
   #main h1 {
     font-size: 3.2rem;
   }
 
-  /* line 443, ../scss/stylesdashboard.scss */
+  /* line 460, ../scss/stylesdashboard.scss */
   .header-bloc {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 4rem;
   }
 
-  /* line 448, ../scss/stylesdashboard.scss */
+  /* line 465, ../scss/stylesdashboard.scss */
   .header-bloc-group {
     width: calc(50% - 1rem);
     margin-bottom: 3rem;
   }
 }
 @media screen and (min-width: 1024px) {
-  /* line 454, ../scss/stylesdashboard.scss */
+  /* line 471, ../scss/stylesdashboard.scss */
   .header-bloc-group {
     width: calc(25% - 3rem);
     max-width: none;
