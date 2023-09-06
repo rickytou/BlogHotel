@@ -1,5 +1,5 @@
 <?php
-require_once('./controller/articleController.php');
+require_once('./controller/ArticleController.php');
 require_once('./controller/CategorieController.php');
 require_once('./controller/UserController.php');
 require_once('./model/Article.php');
@@ -33,9 +33,9 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
         if(isset($_GET['idArticle'])){
           ArticleController::deleteArticle((int) $_GET['idArticle']);
         }
-        // else{
-        //   CategorieController::deleteArticles();
-        // }
+        else{
+          ArticleController::deleteArticles();
+        }
       }
       if($_GET['action'] === 'desactivatedArticle'){
         $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -48,6 +48,19 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
       if($_GET['action'] === 'viewArticle'){
         $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         ArticleController::viewArticle($_GET["idArticle"]);
+      }
+      if($_GET['action'] === 'updateArticle'){
+        $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        ArticleController::updateArticle($_GET, $_FILES);
+      }
+      if($_GET['action'] === 'filter'){
+        $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        if(isset($_GET['idCategorie'])){
+          ArticleController::filter($_GET['idCategorie']);
+        }
+        else{
+          ArticleController::filter(null,5);
+        }
       }
   }
   if($_GET['controller'] === 'categorie'){

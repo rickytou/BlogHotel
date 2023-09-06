@@ -73,8 +73,9 @@ $nombre_articles = count($listArticles);
     <!-- Fin Entete -->
     <section id="list">
       <div class="list-group">
+        <?php if(count($listArticles) > 0) : ?>
         <h2>Liste d'articles</h2>
-        <!-- <div class="afficher--message"></div> -->
+        <div class="afficher--message"></div>
         <table class="list-group-table">
         <thead>
             <tr>
@@ -110,7 +111,24 @@ $nombre_articles = count($listArticles);
           </tr>
           <?php endforeach; ?>
         </tbody>
+        <tfoot class="list-group-table-foot">
+        <tr>
+          <td colspan="5">
+            <p>
+                <input type="checkbox" name="articles[]" id="allChecked">
+                <label for="allChecked">Tout cocher</label>            
+            </p>
+            <p>
+            <a href="#" class="fa-regular fa-trash-can"></a>
+            <a href="../index.php?controller=article&action=deleteArticle" class="deleteAllArticles">Tout supprimer</a>
+            </p>
+          </td>
+        </tr>
+       </tfoot>
         </table>
+        <?php else: ?>
+          <p class="message--erreur">Liste vide, veuillez en ajouter un article</p>
+        <?php endif; ?>
       </div>
     </section>
 
@@ -151,6 +169,7 @@ $nombre_articles = count($listArticles);
           </option>
           <?php endforeach; ?>
         </select>
+      <!-- </div> -->
         <div class="ajouter-article-input-control">
         <label for="uploadimage">Telecharger une image</label>
         <input type="file" name="uploadimage" id="uploadimage">

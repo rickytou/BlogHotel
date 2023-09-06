@@ -18,11 +18,8 @@ class ArticleController {
    * @return void
   */
   public static function index(){
-    $listArticles = Article::listArticleActivated();
-    // echo "<pre>";
-    // var_dump($listArticles);
-    // echo "</pre>";
-    // die;
+    $listArticles = Article::listArticleActivated(5);
+    $listCategories = Categorie::listCategorie();
     require_once('./view/homepage.php');
   }
   /** Fonction faisant appel au model AddArticle pour ajouter un nouvel article
@@ -63,6 +60,12 @@ public static function deleteArticle($idArticle){
   require_once('./view/article/listeArticle.php');
 }
 
+    /** Fonction permettant de supprimer tous les articles */
+    public static function deleteArticles(){
+      Article::deleteArticles();
+      $message = '<p class="message--succes">Les articles ont &eacute;t&eacute; supprim&eacute;es avec succ&egrave;s</p>';
+      echo $message;die;
+}
 
 /** Fonction permettant de lister les articles */
 public static function listArticle(){
@@ -105,7 +108,53 @@ public static function convertDate($date, $format)
   /** Fonction permettant de modifier la liste des categories */
   public static function viewArticle(int $idArticle){
     $viewArticle = Article::viewArticle($idArticle);
+    $allCategories = Categorie::listCategorie();
     require_once('./view/article/modifierArticle.php');
+  }
+  /** Fonction permettant de modifier un article */
+  public static function updateArticle(array $GET, $FILES){
+    $invalid = false;
+    $message = '';
+    foreach($GET as $article){
+      if($article == ""){
+        $invalid = true;
+      }
+    }
+    // if(isset($FILES["uploadimage"])){
+    //   if(!$FILES["uploadimage"]['name']){
+    //     $invalid = true;
+    //   }
+    // }
+    if($invalid){
+      $message = '<p class="message--erreur">Il faut remplir tous les champs</p>';
+    }
+    else{
+        $article = new Article(
+        trim($GET["nomArticle"]), 
+        trim($GET["descriptionArticle"]), 
+        (int) trim($GET["idCategorie"])
+      );
+      $article->setIdArticle((int) trim($GET['idArticle']));
+      $article->setActif((int) $GET['actif']);
+          if(isset($FILES["uploadimage"])){
+      
+            $message = Article::updateArticle($article, $FILES);
+    }
+    else{
+      $message = Article::updateArticle($article);
+    }
+    }  
+      echo $message;
+  }
+  /** Fonction permettant de compter le nombre d'articles dans une categorie */
+  public static function countArticle(int $idCategorie = null){
+    $count = Article::countArticle($idCategorie);
+    return $count;
+  } 
+  //Filter
+  public static function filter(int $idCategorie = null, int $limit = null){
+    $listArticles = Article::filter((int) $idCategorie, $limit);
+    require_once('./view/article/front/listeArticle.php');
   }
 }
 ?>

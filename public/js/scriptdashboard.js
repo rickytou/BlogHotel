@@ -231,4 +231,63 @@ $('#updateModifierArticle').on('submit', function(e){
         });
        })
        /** Fin */
+        /** Cocher tous les inputs */
+     CocherTout();
+     function CocherTout() {
+       const checkAll = document.querySelector("#allChecked");
+       const checkInput = document.querySelectorAll(".list-group-table input[type=checkbox]");
+       checkInput.forEach((inputcheck) => {
+         inputcheck.onclick = () => {
+           if (inputcheck.checked) {
+             inputcheck.setAttribute("checked", "checked");
+           } else {
+             inputcheck.removeAttribute("checked");
+           }
+         };
+       });
+       if (checkAll) {
+         checkAll.onclick = () => {
+           if (checkAll.checked) {
+             checkInput.forEach((inputcheck) => {
+               if (!inputcheck.checked) {
+                 //inputcheck.setAttribute("checked", "checked");
+                 inputcheck.checked = true;
+               }
+             });
+           } else {
+             checkInput.forEach((inputcheck) => {
+               if (inputcheck.checked) {
+                 inputcheck.checked = false;
+               }
+             });
+           }
+         };
+       }
+     }
+     /** Fin */
+     /** Evenement lors du clic sur le bouton de suppression */
+     $('.deleteAllArticles').on('click', function(e){
+      e.preventDefault();
+      var check = false;
+      if($('#allChecked').is(':checked')){
+        check = true;
+      }
+      if(!check){
+        setTimeout(function(){
+          $('.message--succes').hide()
+        },450)  
+        loadingfunc('.afficher--message','<p class="message--erreur"> IL faut cocher tous les champs</p>');
+      }
+      else{
+        var url = $(this).attr("href");   
+        $.ajax({
+          url : url,
+          method : "GET",
+          success : function(data){
+            loadingfunc('.list-group', data);
+          }
+        });
+      }
+     });
+     /** Fin */
 });

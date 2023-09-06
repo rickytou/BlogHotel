@@ -83,6 +83,34 @@ $(function(){
       }
      });
      /** Fin */
+
+      /** Evenement lors du clic sur le bouton de suppression */
+      $('.deleteAllArticles').on('click', function(e){
+        e.preventDefault();
+        alert('okey');exit;
+        var check = false;
+        if($('#allChecked').is(':checked')){
+          check = true;
+        }
+        if(!check){
+          setTimeout(function(){
+            $('.message--succes').hide()
+          },450)  
+          loadingfunc('.afficher--message','<p class="message--erreur"> IL faut cocher tous les champs</p>');
+        }
+        else{
+          var url = $(this).attr("href");   
+          $.ajax({
+            url : url,
+            method : "GET",
+            success : function(data){
+              loadingfunc('.list-group', data);
+            }
+          });
+        }
+       });
+       /** Fin */
+
      /** Afficher une categorie */
      $('.viewCategorie').on('click', function(e){
       e.preventDefault();
@@ -114,7 +142,7 @@ $('#updateModifierCategorie').on('submit', function(e){
   var actif = $('#actif');
   var invalid = false;
   if(!nomCategorie.val()){
-    invalid = false;
+    invalid = true;
   }
   if(invalid){
     nomCategorie.addClass('error');
@@ -201,31 +229,47 @@ $('.activatedArticle').on('click', function(e){
 /** Soumission du fomulaire de modification de la categorie */
 $('#updateModifierArticle').on('submit', function(e){ 
   e.preventDefault();
-  alert('ok');  
-  // var nomCategorie = $('#updatenomCategorie');
-  // var descriptionCategorie = $('#updatedescriptionCategorie');
-  // var id = $('#updateidCategorie');
-  // var actif = $('#actif');
-  // var invalid = false;
-  // if(!nomCategorie.val()){
-  //   invalid = false;
-  // }
-  // if(invalid){
-  //   nomCategorie.addClass('error');
-  // }
-  // else{
-  //   var url = '../index.php?controller=categorie&action=updateCategorie&nomCategorie='+nomCategorie.val()+'&descriptionCategorie='+descriptionCategorie.val()+'&idCategorie='+id.val()+'&actif='+actif.val();
-  //   $.ajax({
-  //     url : url,
-  //     method : "GET",
-  //     success : function(data){
-  //         $('.updateModifierCategorie').html(data);
-  //       }
-  //   })
-  // }
-
+  var nomArticle = $('#updatenomArticle');
+  var descriptionArticle = $('#updatedescriptionArticle');
+  var id = $('#updateidArticle');
+  var idCategorie = $('.idCategorieArticle');
+  var fileUploadImage = $('#uploadimage');
+  var actif = $('#actif');
+  var invalid = false;
+  var dataArticle = [nomArticle, descriptionArticle];
+  $.each(dataArticle, function(index, element){
+    if(!$(element).val()){
+      $(element).addClass('error');
+      invalid = true;
+    }
   });
-
+   if(!invalid){
+    var url = '../index.php?controller=article&action=updateArticle&nomArticle='+nomArticle.val()+'&descriptionArticle='+descriptionArticle.val()+'&idArticle='+id.val()+'&actif='+actif.val()+'&fileUploadImage='+fileUploadImage+'&idCategorie='+idCategorie.val();
+    var formData = new FormData(this);
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: formData,
+      success: function(data){
+        $('.updateModifierArticle').html(data);
+      },
+      error: function(err){
+        console.log('Erreur: '+err);
+      },
+      cache: false,
+      contentType: false,
+      processData: false
+    });
+   }
+  });
+ 
+  /**  */
+  $("#updatenomArticle").on('input', function(){
+    $(this).removeClass('error');
+  });
+  $("#updatedescriptionArticle").on('input', function(){
+    $(this).removeClass('error');
+  });
  /** Afficher une categorie */
  $('.viewArticle').on('click', function(e){
   e.preventDefault();
