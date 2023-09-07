@@ -279,7 +279,6 @@ class Article
     }
     return $message;
   }
-
   public static function activatedArticle(array $GET)
   {
     $con = self::establishedConnection();
@@ -318,7 +317,6 @@ class Article
     }
     return $viewArticle;
   }
-
   public static function updateArticle(Article $article, array $uploadImage = null)
   {
     $lstArticle = Article::listArticle();
@@ -408,7 +406,6 @@ class Article
     }
     return $messageUserUpdate;
   }
-
   public static function countArticle(int $idCategorie = null){
     $result = array();
     $con = self::establishedConnection();
@@ -455,4 +452,23 @@ class Article
     }
     return $result;
   }
+  
+  /** Fonction permettant d'afficher la desction */
+  public static function descriptionArticle(int $idArticle)
+  {
+    $lstArticle = array();
+    $con = self::establishedConnection();
+    try {
+      $query = "select * from article where idArticle = ".$idArticle;
+      $requete = $con->query($query, PDO::FETCH_ASSOC);
+      $trouve = false;
+      foreach ($requete as $key => $req) {
+        $lstArticle[$key] = $req;
+      }
+    } catch (PDOException $e) {
+      echo $e->getMessage();
+    }
+    return $lstArticle;
+  }
+  
 }

@@ -9,6 +9,8 @@
  *                            
  */
 namespace Blog\Controller\Article;
+
+use Blog\Controller\Categorie\CategorieController;
 use Blog\Model\Article\Article;
 use Blog\Model\Categorie\Categorie;
 
@@ -18,7 +20,7 @@ class ArticleController {
    * @return void
   */
   public static function index(){
-    $listArticles = Article::listArticleActivated(5);
+    $listArticles = Article::listArticleActivated(8);
     $listCategories = Categorie::listCategorie();
     require_once('./view/homepage.php');
   }
@@ -155,6 +157,13 @@ public static function convertDate($date, $format)
   public static function filter(int $idCategorie = null, int $limit = null){
     $listArticles = Article::filter((int) $idCategorie, $limit);
     require_once('./view/article/front/listeArticle.php');
+  }
+
+  /** Fonction permettant d'afficher la description d'un article */
+  public static function descriptionArticle(int $idArticle){
+    $listArticle = Article::descriptionArticle($idArticle);
+    $listCategories = Categorie::listCategorie();
+    require_once('./view/article/front/description-article.php');
   }
 }
 ?>

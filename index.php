@@ -59,8 +59,13 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
           ArticleController::filter($_GET['idCategorie']);
         }
         else{
-          ArticleController::filter(null,5);
+          ArticleController::filter(null,8);
         }
+      }
+      /** Description d'un article */
+      if($_GET['action'] === 'description'){
+        $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        ArticleController::descriptionArticle($_GET["idArticle"]);
       }
   }
   if($_GET['controller'] === 'categorie'){

@@ -69,13 +69,17 @@ require_once('./includes/head.php');
           <article class="recent-posts-bloc">
             <!-- Entete Posts Bloc Entete -->
             <div class="recent-posts-image">
-              <img src="<?= $articles["imageArticle"] ?>" alt='<= $articles["titreArticle"] ?>'>
+              <a href='./index.php?controller=article&action=description&idArticle=<?= $articles["idArticle"] ?>'>
+              <img src="<?= $articles["imageArticle"] ?>" alt='<?= $articles["titreArticle"] ?>'>
+              </a>
             </div>
             <!-- Entete Posts Main -->
             <div class="recent-posts-main">
               <div class="recent-posts-title">
                 <strong>
-                  <?= $articles["titreArticle"] ?>
+                <a href='./index.php?controller=article&action=description&idArticle=<?= $articles["idArticle"] ?>'>  
+                <?= $articles["titreArticle"] ?>
+                </a>
                 </strong>
               </div>
               <p>
@@ -90,7 +94,14 @@ require_once('./includes/head.php');
       <p class="loadingprofil">
       <img src="../public/images/load.gif" alt="loading">
     </p>
+    <div class="recent-posts-more">
+     <a href="#">
+        <span>Voir plus</span>
+        <span class="fa-solid fa-chevron-down"></span>
+     </a>
+     </div>
     </div>
+
     <!-- Fin -->
     <!-- Temoignages -->
     <!-- Section Temoignages Wrapper -->

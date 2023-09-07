@@ -70,7 +70,7 @@
     <div class="logo">
       <p>
         <span class="fa-solid fa-blog"></span>
-        <a href="#">
+        <a href="./index.php">
           <span>Blog</span><span>Hotel</span>
         </a>
       </p>
