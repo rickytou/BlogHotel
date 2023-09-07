@@ -78,12 +78,16 @@ require_once('./includes/head.php');
               <div class="recent-posts-title">
                 <strong>
                 <a href='./index.php?controller=article&action=description&idArticle=<?= $articles["idArticle"] ?>'>  
-                <?= $articles["titreArticle"] ?>
+                <?= self::substringName($articles["titreArticle"],40) ?>
                 </a>
                 </strong>
               </div>
               <p>
-                <?= $articles["descriptionArticle"] ?>
+                <?= self::substringName($articles["descriptionArticle"],160) ?>
+              </p>
+              <p class="recent-posts-article-categories">
+                <!-- <span class="recent-posts-article-nomcategories">Cat&eacute;gorie : </span> -->
+                <span>:: <?= self::nomCategorie($articles["idCategories"]) ?></span>
               </p>
             </div>
           </article>

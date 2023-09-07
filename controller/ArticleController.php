@@ -165,5 +165,13 @@ public static function convertDate($date, $format)
     $listCategories = Categorie::listCategorie();
     require_once('./view/article/front/description-article.php');
   }
+
+  /** Fonction permettant de couper la description d'un article si la longueur de la chaine description est superieure a 100
+ * @param string $nomplat : Chaine de caracteres a decouper
+ * @return string 
+ */
+public static function substringName($nomarticle, $length) : string{
+  return (ucfirst(strlen($nomarticle) < $length ? $nomarticle : substr($nomarticle,0,$length)."..."));
+}
 }
 ?>
