@@ -150,10 +150,7 @@ class Article
       $trouve = false;
       foreach ($requete as $key => $req) {
         $lstArticle[$key] = $req;
-        // if ($req) {
-        //   $trouve = true;
-        // }
-      }
+    }
     } catch (PDOException $e) {
       echo $e->getMessage();
     }

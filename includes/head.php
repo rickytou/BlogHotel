@@ -79,6 +79,7 @@
     <!-- Lien de connexion -->
     <div class="account">
       <a href="../index.php?controller=user&action=login" class="fa-solid fa-circle-user"></a>
+      <?php if(isset($_SESSION["nomutilisateur"])) : ?><span><?= ucfirst($_SESSION["nomutilisateur"]) ?></span><?php endif; ?>
     </div>
    </div>
   </header>  

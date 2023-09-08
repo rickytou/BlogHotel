@@ -1,4 +1,7 @@
 <?php declare(strict_types=1);
+if(isset($_SESSION["nomutilisateur"])){
+  header('Location:./index.php?controller=user&action=connectEstablished');
+} 
 require_once('./includes/headcustom.php');
 ?>
 <section id="connexion">

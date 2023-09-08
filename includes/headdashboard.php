@@ -1,3 +1,8 @@
+<?php declare(strict_types=1);
+if(!isset($_SESSION["nomutilisateur"])){
+  header('Location:./index.php');
+} 
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -34,7 +39,7 @@
           <a href="#" class="fa-solid fa-circle-user"></a>
           <div class="sous-menu">
             <span class="fa-solid fa-power-off"></span>
-            <a href="#">d&eacute;connexion</a>
+            <a href="./index.php?controller=user&action=disconnect">d&eacute;connexion</a>
             </div>        
         </div>
         <!-- Fin -->

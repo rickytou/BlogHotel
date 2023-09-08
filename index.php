@@ -1,14 +1,20 @@
-<?php
+<?php declare(strict_types=1);
+session_start();
+require_once('./controller/CommentController.php');
 require_once('./controller/ArticleController.php');
 require_once('./controller/CategorieController.php');
 require_once('./controller/UserController.php');
 require_once('./model/Article.php');
+require_once('./model/Comment.php');
 require_once('./model/Categorie.php');
+require_once('./model/User.php');
 require_once('./model/dao/DataAccessObject.php');
-use Blog\Controller\Article\ArticleController;
-use Blog\Controller\Categorie\CategorieController;
-use Blog\Controller\User\UserController;
+use Blog\Model\User\User;
 use Blog\Model\Categorie\Categorie;
+use Blog\Controller\User\UserController;
+use Blog\Controller\Article\ArticleController;
+use Blog\Controller\Comments\CommentController;
+use Blog\Controller\Categorie\CategorieController;
 
 /**
  * Index : Route
@@ -56,7 +62,7 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
       if($_GET['action'] === 'filter'){
         $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         if(isset($_GET['idCategorie'])){
-          ArticleController::filter($_GET['idCategorie']);
+          ArticleController::filter((int) $_GET['idCategorie']);
         }
         else{
           ArticleController::filter(null,8);
@@ -65,7 +71,7 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
       /** Description d'un article */
       if($_GET['action'] === 'description'){
         $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        ArticleController::descriptionArticle($_GET["idArticle"]);
+          ArticleController::descriptionArticle((int) $_GET["idArticle"]);
       }
   }
   if($_GET['controller'] === 'categorie'){
@@ -106,11 +112,23 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
   }
   if($_GET['controller'] === 'user'){
    if($_GET['action'] === 'connect'){
-    $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    UserController::connect($_GET);
+    $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    UserController::connect($_POST);
    }  
    if($_GET['action'] === 'login'){
     UserController::index();
+   }
+   if($_GET['action'] === 'connectEstablished'){
+    UserController::connectEstablished();
+   }
+   if($_GET['action'] === 'disconnect'){
+    UserController::disconnect();
+   }
+  }
+  if($_GET['controller'] === 'comment'){
+   if($_GET['action'] === 'addComment'){
+    $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    CommentController::addComment($_GET);
    }
   }
 }

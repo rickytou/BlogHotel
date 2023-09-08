@@ -87,21 +87,47 @@ $(function () {
   });
 
   /** Formulaire de connexion */
-  $('.form-connexion').on('click', function(e){
-    e.preventDefault();
+  $('.form-connexion').on('submit', function(e){
+    
     var nomutilisateur = $('#nomutilisateur');
     var motdepasse = $('#motdepasse');
-
-    var url = $('.form-connexion').attr('action') + '&nomutilisateur='+nomutilisateur.val()+'&motdepasse='+motdepasse.val();
-    $.ajax({
-      url : url,
-      method: "GET",
-      success : function(data){
-        loadingfunc('.connexion-message', data);
-      },
-      error : function(xhr, txt, error){
-        console.log(txt);
+    var data = [nomutilisateur, motdepasse];
+    var valid = false;
+    $.each(data, function(index,element){
+      if(!element.val()){
+        valid = true;
       }
-    })
+    });
+    if(valid){
+      $('.connexion-message').html('<p class="message--erreur">Il faut remplir tous les champs</p>');
+      e.preventDefault();
+    }
   })
+  /** Ajouter un commentaire */
+  $('.description-article-commentaires').on('submit', function(e){
+    e.preventDefault();
+    var pseudo = $('#pseudo');
+    var descriptioncommentaire = $('#descriptioncommentaire');
+    var idArticle = $('#idArticle');
+    var valid = false;
+    var data = [pseudo,descriptioncommentaire];
+    $.each(data, function(index,element){
+      if(!element.val()){
+       valid = false;
+      }
+    });
+    if(valid){
+      $('.description-article-commentaires-message').html('<p class="message--erreur">Il faut remplir tous les champs</p>');
+    }
+    else{
+      var url = $(this).attr("action")+'&pseudo='+pseudo.val()+'&descriptioncommentaire='+descriptioncommentaire.val()+'&idArticle='+idArticle.val();
+      $.ajax({
+        url : url,
+        method : "GET",
+        success : function(data){
+          loadingfunc('.description-article-commentaires-message', data);
+          }
+      })
+    }
+    });
 });

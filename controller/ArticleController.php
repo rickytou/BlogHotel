@@ -13,6 +13,7 @@ namespace Blog\Controller\Article;
 use Blog\Controller\Categorie\CategorieController;
 use Blog\Model\Article\Article;
 use Blog\Model\Categorie\Categorie;
+use Blog\Model\Comment\Comment;
 
 class ArticleController {
 
@@ -163,6 +164,7 @@ public static function convertDate($date, $format)
   public static function descriptionArticle(int $idArticle){
     $listArticle = Article::descriptionArticle($idArticle);
     $listCategories = Categorie::listCategorie();
+    $listeCommentaire = Comment::listCommentaireByArticle($idArticle);
     require_once('./view/article/front/description-article.php');
   }
 

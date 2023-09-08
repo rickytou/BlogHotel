@@ -1,5 +1,4 @@
-<?php declare(strict_types=1);
-
+<?php 
 use Blog\Controller\Article\ArticleController;
 use Blog\Controller\Categorie\CategorieController;
 use Blog\Model\Categorie\Categorie;
@@ -46,7 +45,7 @@ $nombre_articles = count($listArticles);
           <span class="fa-solid fa-comments"></span>
             <strong>Commentaires</strong>
             <p>
-              <b>30</b><span> comments</span>
+              <b><?php echo count($listCommentaire); ?></b><span> comments</span>
             </p>
             <p class="header-bloc-group-actions">
             <span class="fa-regular fa-eye"></span>
