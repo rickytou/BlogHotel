@@ -22,7 +22,6 @@ $(function () {
         },500)    
       }
 
-
   /**
    * Evenement sur la navigation a droite pour la section temoignages
    */
@@ -86,4 +85,23 @@ $(function () {
         }
     })
   });
+
+  /** Formulaire de connexion */
+  $('.form-connexion').on('click', function(e){
+    e.preventDefault();
+    var nomutilisateur = $('#nomutilisateur');
+    var motdepasse = $('#motdepasse');
+
+    var url = $('.form-connexion').attr('action') + '&nomutilisateur='+nomutilisateur.val()+'&motdepasse='+motdepasse.val();
+    $.ajax({
+      url : url,
+      method: "GET",
+      success : function(data){
+        loadingfunc('.connexion-message', data);
+      },
+      error : function(xhr, txt, error){
+        console.log(txt);
+      }
+    })
+  })
 });

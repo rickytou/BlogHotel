@@ -78,7 +78,7 @@
     <!-- Fin logo -->
     <!-- Lien de connexion -->
     <div class="account">
-      <a href="../index.php?controller=user&action=index" class="fa-solid fa-circle-user"></a>
+      <a href="../index.php?controller=user&action=login" class="fa-solid fa-circle-user"></a>
     </div>
    </div>
   </header>  

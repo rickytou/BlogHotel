@@ -2,6 +2,7 @@
 @import 'compass/css3';
 @import 'partials/variables';
 
+
 *,::after,::before{
   box-sizing: border-box;
   letter-spacing: 0.1rem;
@@ -18,11 +19,27 @@ body{
   font-size: 1.6rem;
   font-family: nunito, sans-serif;
 }
+textarea{
+  resize: none;
+}
+.message--erreur{
+  @include border-radius(0.4rem);
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: $couleur--message--erreur;
+}
+// .message--succes{
+//   @include messagesuccess;
+// }
 /* Wrapper */
 #wrapper{
   color: darken($color: $couleur--blanc, $amount: 2);
   position: relative;
   min-width: 36rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 
   &.active{
     height: 100vh;
@@ -599,6 +616,8 @@ margin-bottom: 3rem; color:$couleur--tertiaire; }
 /* Footer */
 #footer{
   background-color: $couleur--primaire;
+  margin-top: auto;
+  border-top:0.2rem solid $couleur--secondaire;
 }
 .footer{
    padding: 2rem;
@@ -623,6 +642,7 @@ margin-bottom: 3rem; color:$couleur--tertiaire; }
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-bottom: 0.4rem solid $couleur--secondaire;
   
 }
 .description-article-header-img p{
@@ -754,6 +774,92 @@ margin-bottom: 3rem; color:$couleur--tertiaire; }
   top: 0;
   animation: slipeupdown 1.2s alternate infinite;
 }
+/* Page de connexion */
+#connexion{
+  padding: 0 2rem;
+}
+.connexion-bloc{
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  min-width: 36rem;
+
+  & .connexion-bloc-app{
+    color: #000;
+
+    & p{
+      line-height:2;
+    }
+
+  }
+  & h2{
+    margin-bottom: 3rem;
+    font-family: 'lobster two';
+    font-size: 2.8rem;
+    font-weight: bold;
+    line-height: 1.5;
+  }
+  & .form-connexion{
+    width: 100%;
+    max-width: 32rem;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 32rem;
+    padding: 4rem 2rem;
+    background-color: $couleur--primaire;
+    color: $couleur--blanc;
+    border-radius:1rem;
+    position: relative;
+    overflow: hidden;
+  }
+  & legend{
+    background-color: $couleur--secondaire;
+    position: absolute;
+    bottom: -26rem;
+    padding: 2rem;
+    color: $couleur--primaire;
+    font-size: 2.2rem;
+    width: 64rem;
+    height: 32rem;
+    text-align: center;
+    padding: 2rem 0;
+    border-radius: 50%;
+    left: -50%;
+  }
+  & .connexion-input-control{
+    margin-bottom: 1.5rem;
+  }
+  & input{
+    padding: 1.25rem 1rem;
+    background-color: $couleur--blanc;
+    border-radius: 0.5rem;
+    width: 100%;
+    color: #000;
+  }
+  & input[type="submit"]{
+    color: $couleur--primaire;
+    font-weight: bold;
+    font-size: 1.4rem;
+    cursor: pointer;
+    background-color: transparent;
+    color: $couleur--blanc;
+    border: 0.1rem solid $couleur--blanc;
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover{
+      background-color: $couleur--secondaire;
+      color: $couleur--primaire;
+    }
+  }
+  & ::placeholder{
+    text-align: left;
+    font-weight: normal;
+    opacity:0.5;
+  }
+}
+
 @media screen and (min-width:#{$small-device * 1px }){
   .recent-posts,.footer, #temoignages, .contact{
     padding-left: 2rem;
@@ -803,7 +909,7 @@ margin-bottom: 3rem; color:$couleur--tertiaire; }
 @media screen and (min-width:#{$medium-device * 1px}){
   #header{
     height: auto;
-    border-bottom:0.2rem solid #3ffba6;
+    border-bottom:0.2rem solid $couleur--secondaire;
   }
   .menu{
     display: none;
@@ -863,9 +969,27 @@ margin-bottom: 3rem; color:$couleur--tertiaire; }
     margin-top: 12rem;
     margin-bottom: 6rem;
   }
-  // .recent-posts-image{
-  //   height: 24rem;
-  // }
+#connexion{
+  & .form-connexion{
+    margin-left: auto;
+    margin-right: 0;
+    flex-shrink: 0;
+  }
+  & .connexion-bloc{
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  & .connexion-bloc-app{
+    max-width: 80rem;
+  h2{
+    font-size: 4.2rem;
+  }
+}
+}
+
+
 }
 @media screen and (min-width:#{$large-device * 1px}) {
   .logo{
@@ -894,7 +1018,8 @@ margin-bottom: 3rem; color:$couleur--tertiaire; }
  }
 }
 @media screen and (min-width:#{$xx-large-device * 1px}){
-  .header, .mainheader, .footer, .recent-posts, .temoignages, .description-article-details{
+  .header, .mainheader, .footer, .recent-posts, .temoignages, .description-article-details,
+  .connexion-bloc{
     width: 120rem;
     margin: auto;
   }

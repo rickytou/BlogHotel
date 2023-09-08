@@ -105,7 +105,13 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
     }
   }
   if($_GET['controller'] === 'user'){
+   if($_GET['action'] === 'connect'){
+    $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    UserController::connect($_GET);
+   }  
+   if($_GET['action'] === 'login'){
     UserController::index();
+   }
   }
 }
 else{

@@ -18,7 +18,9 @@
   <!-- Inclusion du fichier JS apres le chargement complet de la page -->
   <script defer src="./public/js/script.js"></script>
   <!-- Generer dynamiquement le titre de la page -->
-  <title>BlogHotel | Bienvenue</title>
+  <title>
+    BlogHotel | <?php if(isset($listArticle)){ echo $listArticle[0]["titreArticle"]; }
+    else{ echo 'Connexion'; } ?></title>
 </head>
 <body>
   <div id="wrapper">
