@@ -42,6 +42,20 @@
           </tr>
           <?php endforeach; ?>
         </tbody>
+        <tfoot class="list-group-table-foot">
+        <tr>
+          <td colspan="5">
+            <p>
+                <input type="checkbox" name="articles[]" id="allChecked">
+                <label for="allChecked">Tout cocher</label>            
+            </p>
+            <p>
+            <a href="#" class="fa-regular fa-trash-can"></a>
+            <a href="../index.php?controller=article&action=deleteArticle" class="deleteAllArticles">Tout supprimer</a>
+            </p>
+          </td>
+        </tr>
+       </tfoot>
         </table>
         <?php } ?>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

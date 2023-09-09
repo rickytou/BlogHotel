@@ -6,6 +6,7 @@ use PDO;
 use Exception;
 use PDOException;
 use DataAccessObject;
+use Blog\Model\Comment\Comment;
 
 class Article
 {
@@ -159,7 +160,7 @@ class Article
   private static function uploadImage(array $uploadimage, string $titre)
   {
     $messageUserUpdate = '';
-    $taillemaxfile = 1000000;
+    $taillemaxfile = 2000000;
     $newName = "";
     $valid = true;
     /** ----------------------------------------------------------- */
@@ -200,12 +201,29 @@ class Article
     return $listArticle;
   }
   /** Fonction permettant de lister les articles */
-  public static function listArticleActivated(int $rowCount): array
+  // public static function listArticleActivated(int $rowCount): array
+  // {
+  //   $con = self::establishedConnection();
+  //   $listArticle = array();
+  //   try {
+  //     $query = 'SELECT * FROM article WHERE actif = 1 ORDER BY idArticle DESC LIMIT '.$rowCount;
+  //     $listeArt = $con->query($query, PDO::FETCH_ASSOC);
+  //     foreach ($listeArt as $key => $article) {
+  //       $listArticle[$key] = $article;
+  //     }
+  //   } catch (PDOException $e) {
+  //     echo $e->getMessage();
+  //   }
+  //   return $listArticle;
+  // }
+
+
+   public static function listArticleActivated(): array
   {
     $con = self::establishedConnection();
     $listArticle = array();
     try {
-      $query = 'SELECT * FROM article WHERE actif = 1 ORDER BY idArticle DESC LIMIT '.$rowCount;
+      $query = 'SELECT * FROM article WHERE actif = 1 ORDER BY idArticle DESC';
       $listeArt = $con->query($query, PDO::FETCH_ASSOC);
       foreach ($listeArt as $key => $article) {
         $listArticle[$key] = $article;
@@ -228,7 +246,9 @@ class Article
       $requete->execute(array('id' => $idArticle));
       if ($requete) {
         $message = '<p class="message--succes">Article supprim&eacute; avec succ&egrave;s</p>';
+        Comment::deleteCommentByArticle((int) $idArticle);
         unlink($articleimagepath);
+ 
       }
     } catch (PDOException $e) {
       echo $e->getMessage();
@@ -248,6 +268,7 @@ class Article
         foreach ($listArticles as $article) {
           unlink($article['imageArticle']);
         }
+        Comment::deleteComments();
       }
     } catch (PDOException $e) {
       echo $e->getMessage();
@@ -467,5 +488,22 @@ class Article
     }
     return $lstArticle;
   }
+
+   /** Fonction permettant de supprimer toutes les categories */
+  //  public static function moreArticle($nbArticleParPage, $perPage)
+  //  {
+  //   $con = self::establishedConnection();
+  //   $listArticle = array();
+  //   try {
+  //     $query = 'SELECT * FROM article WHERE actif = 1 ORDER BY idArticle DESC LIMIT '.$nbArticleParPage.','.$perPage;
+  //     $listeArt = $con->query($query, PDO::FETCH_ASSOC);
+  //     foreach ($listeArt as $key => $article) {
+  //       $listArticle[$key] = $article;
+  //     }
+  //   } catch (PDOException $e) {
+  //     echo $e->getMessage();
+  //   }
+  //   return $listArticle;
+  //  }
   
 }

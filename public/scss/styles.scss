@@ -25,10 +25,10 @@ textarea{
       /* loadingprofil */
 .loadingprofil{
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 50%;
   z-index: -1;
-  transform: translate(-50%);
+  transform: translate(-50%, -50%);
   opacity: 0;
 }
 .message--erreur{
@@ -391,7 +391,8 @@ margin-bottom: 3rem; color:$couleur--tertiaire; }
     padding: 2rem 1rem;
     background: $couleur--blanc;
   }
-  .recent-posts-group{
+  .recent-posts-group,
+  .moreArticles{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -942,7 +943,8 @@ margin-bottom: 3rem; color:$couleur--tertiaire; }
           font-size: 3.2rem;
         }
       }
-      .recent-posts-group{
+      .recent-posts-group,
+      .moreArticles{
         flex-direction: row;
         gap: 2rem;
       }
@@ -1068,7 +1070,8 @@ margin-bottom: 3rem; color:$couleur--tertiaire; }
       font-size: 3rem;
     }
   } 
-  .recent-posts-group{
+  .recent-posts-group,
+  .moreArticles{
     gap: 3rem;
   }
   .recent-posts-bloc{

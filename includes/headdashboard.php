@@ -9,7 +9,8 @@ if(!isset($_SESSION["nomutilisateur"])){
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Tableau de bord du blog hotel">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <!-- Shortcut Icon -->
+  <link rel="shortcut icon" href="./public/images/favicon.ico" type="image/x-icon">
   <!-- Inclusion du fichier css -->
   <link rel="stylesheet" href="../public/css/stylesdashboard.css">
   <!-- Lien vers le CDN Font Awesome -->

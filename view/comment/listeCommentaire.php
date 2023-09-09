@@ -45,7 +45,7 @@
             </p>
             <p>
             <a href="#" class="fa-regular fa-trash-can"></a>
-            <a href="../index.php?controller=categorie&action=deleteCategorie" class="deleteAllCategories">Tout supprimer</a>
+            <a href="../index.php?controller=comment&action=deleteComment" class="deleteAllComments">Tout supprimer</a>
             </p>
           </td>
         </tr>

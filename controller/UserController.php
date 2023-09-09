@@ -14,6 +14,7 @@ class UserController{
   /** Fonction permettant de faire la redirection vers la page d'administration */
   public static function connectEstablished(){
     $allCategories = Categorie::listCategorie();
+    $allCategoriesActived = Categorie::listCategorie(1);
     $listArticles = Article::listArticle();
     $listCommentaire = Comment::listCommentaire();
     require_once('./view/dashboard.php');

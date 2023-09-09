@@ -130,4 +130,20 @@ $(function () {
       })
     }
     });
+
+    /** More Article */
+    $('.viewMoreArticles').on('click', function(e){
+      e.preventDefault();
+      var nombre = $('.recent-posts-bloc').length;
+      var perPage = 4;
+      var url = './index.php?controller=article&action=moreArticles&nbArticleParPage='+nombre+'&perPage='+perPage;
+      //alert(url);
+      $.ajax({
+        url : url,
+        method : "GET",
+        success : function(data){
+          loadingfunc('.moreArticles', data);
+          }
+      })
+    });
 });

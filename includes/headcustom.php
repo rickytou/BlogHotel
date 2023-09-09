@@ -6,7 +6,7 @@
   <meta name="description" content="Blog">
   <meta name="author" content="Ricardo Samedi">
   <!-- Shortcut Icon -->
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="./public/images/favicon.ico" type="image/x-icon">
   <!-- Inclusion du fichier css -->
   <link rel="stylesheet" href="./public/css/styles.css">
   <!-- Lien vers le CDN Font Awesome -->

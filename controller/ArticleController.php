@@ -21,8 +21,10 @@ class ArticleController {
    * @return void
   */
   public static function index(){
-    $listArticles = Article::listArticleActivated(8);
+    //$listArticles = Article::listArticleActivated(4);
+    $listArticles = Article::listArticleActivated();
     $listCategories = Categorie::listCategorie();
+    $listCategoriesActived = Categorie::listCategorie(1);
     require_once('./view/homepage.php');
   }
   /** Fonction faisant appel au model AddArticle pour ajouter un nouvel article
@@ -175,5 +177,10 @@ public static function convertDate($date, $format)
 public static function substringName($nomarticle, $length) : string{
   return (ucfirst(strlen($nomarticle) < $length ? $nomarticle : substr($nomarticle,0,$length)."..."));
 }
+/** Fonction permettant d'afficher plus d'articles */
+// public static function moreArticles($nbArticleParPage, $perPage){
+//   $listArticles = Article::moreArticle($nbArticleParPage, $perPage);
+//   require_once('./view/article/front/moreArticle.php');
+// }
 }
 ?>

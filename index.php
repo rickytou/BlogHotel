@@ -74,6 +74,15 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
         $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
           ArticleController::descriptionArticle((int) $_GET["idArticle"]);
       }
+      if($_GET['action'] === 'moreArticles'){
+        $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        ArticleController::moreArticles($_GET["nbArticleParPage"], $_GET["perPage"]);
+        // echo "<pre>";
+        // var_dump($_GET);
+        // echo "</pre>";
+        // die;
+        //ArticleController::moreArticle($_GET['nbArticleParPage']);
+      }
   }
   if($_GET['controller'] === 'categorie'){
     if($_GET['action'] === 'addCategorie'){
@@ -147,9 +156,9 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
     if(isset($_GET['idCommentaire'])){
       CommentController::deleteComment((int) $_GET['idCommentaire']);
     }
-    // else{
-    //   CommentController::deleteComment();
-    // }
+    else{
+      CommentController::deleteComments();
+    }
   }
   }
 }

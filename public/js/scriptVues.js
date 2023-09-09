@@ -87,7 +87,6 @@ $(function(){
       /** Evenement lors du clic sur le bouton de suppression */
       $('.deleteAllArticles').on('click', function(e){
         e.preventDefault();
-        alert('okey');exit;
         var check = false;
         if($('#allChecked').is(':checked')){
           check = true;
@@ -309,8 +308,6 @@ $('.desactivatedComment').on('click', function(e){
   });
 });
 
-
-
 $('.deleteComment').on('click', function(e){
   e.preventDefault();
    var url = $(this).attr("href");   
@@ -323,6 +320,29 @@ $('.deleteComment').on('click', function(e){
    });
  });
 
-
-
+/** Evenement lors du clic sur le bouton de suppression */
+$('.deleteAllComments').on('click', function(e){
+  e.preventDefault();
+  var check = false;
+  if($('#allChecked').is(':checked')){
+    check = true;
+  }
+  if(!check){
+    setTimeout(function(){
+      $('.message--succes').hide()
+    },450)  
+    loadingfunc('.afficher--message','<p class="message--erreur"> IL faut cocher tous les champs</p>');
+  }
+  else{
+    var url = $(this).attr("href");   
+    $.ajax({
+      url : url,
+      method : "GET",
+      success : function(data){
+        loadingfunc('.list-group', data);
+      }
+    });
+  }
+ });
+ 
 });

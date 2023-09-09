@@ -1,7 +1,9 @@
 <?php declare(strict_types=1);
 
 use Blog\Controller\Article\ArticleController;
-
+if(!isset($listArticle[0])){
+  header('Location: ./index.php');
+}
 require_once('./includes/headcustom.php');
 ?>
 <section class="description-article">

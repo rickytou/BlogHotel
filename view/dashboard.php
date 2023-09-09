@@ -162,7 +162,7 @@ $nombre_articles = count($listArticles);
       <div class="ajouter-article-input-control">
         <label for="idCategorieArticle">Cat&eacute;gorie</label>
         <select name="idCategorieArticle" id="idCategorieArticle">
-          <?php foreach($allCategories as $categorie) : ?>
+          <?php foreach($allCategoriesActived as $categorie) : ?>
           <option value="<?= $categorie['idCategorie'] ?>">
             <?= $categorie['nomCategorie'] ?>
           </option>

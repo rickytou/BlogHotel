@@ -172,4 +172,37 @@ private static function findPseudo($pseudo)
     return $message;
   }
 
+  /** Fonction permettant de supprimer toutes les categories */
+  public static function deleteComments(){
+    $con = self::establishedConnection();
+    $message = '';
+    try{
+      $query = 'delete from commentaires';
+      $requete = $con->exec($query);
+      if($requete > 0){
+        $message = '<p class="message--succes">Les commentaires ont &eacute;t&eacute; supprim&eacute;es avec succ&egrave;s</p>';
+      }
+    }
+    catch(PDOException $e){
+      echo $e->getMessage();
+    }
+    return $message;
+  }
+  /** Fonction permettant de supprimer tous les commentaires d'un article donne */
+  public static function deleteCommentByArticle(int $idArticle){
+    $con = self::establishedConnection();
+    $execute = false;
+    try{
+      $query = 'delete from commentaires where idArticle = :id';
+      $requete = $con->prepare($query);
+      $requete->execute(array('id'=>$idArticle));
+      if($requete){
+        $execute = true;
+      }
+    }
+    catch(PDOException $e){
+      echo $e->getMessage();
+    }
+    return $execute;
+  }
 }

@@ -72,5 +72,10 @@ public static function listCommentaire(){
     $listeCommentaires = Comment::listCommentaire();
     require_once('./view/comment/listeCommentaire.php');
   }
+    /** Fonction permettant de supprimer tous les commentaires */
+    public static function deleteComments(){
+      $message = Comment::deleteComments();
+      echo $message;
+ }
 }
 ?>

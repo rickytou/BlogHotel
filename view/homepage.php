@@ -38,12 +38,12 @@ require_once('./includes/head.php');
         </p>
         <div class="recent-posts-filtre-categorie-group">
           <p class="recent-posts-filtre-categorie active">
-            <span class="recent-posts-filtre-categorie-name">Toutes les cat&eacute;gories (
+            <span class="recent-posts-filtre-categorie-name">Toutes les articles (
               <?php echo self::countArticle() ?>)
             </span>
             <a href="index.php?controller=article&action=filter" class="fa-solid fa-toggle-on filter-categorie"></a>
           </p>
-          <?php foreach ($listCategories as $categorie): ?>
+          <?php foreach ($listCategoriesActived as $categorie): ?>
             <p class="recent-posts-filtre-categorie">
               <span class="recent-posts-filtre-categorie-name">
                 <?= $categorie["nomCategorie"] ?>
@@ -64,7 +64,7 @@ require_once('./includes/head.php');
 
       <!-- Entete Posts Bloc -->
       <div class="recent-posts-group">
-        <!-- Bloc1 .-->
+        <!-- Bloc .-->
         <?php foreach ($listArticles as $articles): ?>
           <article class="recent-posts-bloc">
             <!-- Entete Posts Bloc Entete -->
@@ -92,18 +92,20 @@ require_once('./includes/head.php');
             </div>
           </article>
         <?php endforeach; ?>
-        <!-- Fin Bloc1 -->
-
+        <!-- Fin Bloc -->
+        <div class="moreArticles"></div>
       </div>
       <p class="loadingprofil">
       <img src="../public/images/load.gif" alt="loading">
     </p>
+    <?php if(count($listArticles) < self::countArticle()) : ?>
     <div class="recent-posts-more">
      <a href="#">
         <span>Voir plus</span>
-        <span class="fa-solid fa-chevron-down"></span>
+        <span class="fa-solid fa-chevron-down viewMoreArticles"></span>
      </a>
      </div>
+     <?php endif; ?>
     </div>
 
     <!-- Fin -->
