@@ -394,7 +394,8 @@ tfoot tr{
 /* Fin Article */
 /* Categorie */
   .viewListCategorie.active,
-  .viewListArticle.active{
+  .viewListArticle.active,
+  .viewListCommentaire.active{
     color: $couleur--blanc;
 }
 .form-updatecategorie,

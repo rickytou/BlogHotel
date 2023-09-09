@@ -48,7 +48,7 @@ $nombre_articles = count($listArticles);
               <b><?php echo count($listCommentaire); ?></b><span> comments</span>
             </p>
             <p class="header-bloc-group-actions">
-            <span class="fa-regular fa-eye"></span>
+            <span class="fa-regular fa-eye viewListCommentaire" title="List commentaire"></span>
             <span class="fa-solid fa-circle-plus"></span>
             </p>
           </div>

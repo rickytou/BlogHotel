@@ -283,5 +283,46 @@ $('#updateModifierArticle').on('submit', function(e){
   });
  })
  /** Fin */
+ /** Active un commentaire */
+$('.activatedComment').on('click', function(e){
+ e.preventDefault();
+ var url = $(this).attr("href"); 
+ $.ajax({
+   url : url,
+   method : "GET",
+   success : function(data){
+     loadingfunc('.list-group', data);
+   }
+ });
+});
+/** Desactiver un commentaire */
+/** Desactive un article */
+$('.desactivatedComment').on('click', function(e){
+  e.preventDefault();
+  var url = $(this).attr("href"); 
+  $.ajax({
+    url : url,
+    method : "GET",
+    success : function(data){
+      loadingfunc('.list-group', data);
+    }
+  });
+});
+
+
+
+$('.deleteComment').on('click', function(e){
+  e.preventDefault();
+   var url = $(this).attr("href");   
+   $.ajax({
+     url : url,
+     method : "GET",
+     success : function(data){
+       loadingfunc('.list-group', data);
+     }
+   });
+ });
+
+
 
 });

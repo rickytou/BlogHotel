@@ -111,4 +111,65 @@ private static function findPseudo($pseudo)
   }
     return $message;
   }
+
+   /** Fonction permettant de d'activer un commentaire */
+   public static function activatedComment(array $GET){
+    $con = self::establishedConnection();
+    $message = '';
+    try{
+      $query = 'update commentaires set statut = :statut where idCommentaire = :id';
+      $requete = $con->prepare($query);
+      $requete->execute(array('statut' => 1,
+                              'id' =>  $GET["idCommentaire"])
+                       );
+      if($requete){
+        $message = '<p class="message--succes">Commentaire activ&eacute;e avec succ&egrave;s</p>';
+      }
+    }
+    catch(PDOException $e){
+      echo $e->getMessage();
+    }
+    return $message;
+  }
+
+  /** Fonction permettant de desactiver un commentaire */
+  public static function desactivatedComment(array $GET)
+  {
+    $con = self::establishedConnection();
+    $message = '';
+    try {
+      $query = 'update commentaires set statut = :statut where idCommentaire = :id';
+      $requete = $con->prepare($query);
+      $requete->execute(
+        array(
+          'statut' => 0,
+          'id' => $GET["idCommentaire"]
+        )
+      );
+      if ($requete) {
+        $message = '<p class="message--succes">Commentaire d&eacute;sactiv&eacute; avec succ&egrave;s</p>';
+      }
+    } catch (PDOException $e) {
+      echo $e->getMessage();
+    }
+    return $message;
+  }
+
+  public static function deleteComment(int $idCommentaire){
+    $con = self::establishedConnection();
+    $message = '';
+    try{
+      $query = 'delete from commentaires where idCommentaire = :id';
+      $requete = $con->prepare($query);
+      $requete->execute(array('id'=>$idCommentaire));
+      if($requete){
+        $message = '<p class="message--succes">Commentaire supprim&eacute; avec succ&egrave;s</p>';
+      }
+    }
+    catch(PDOException $e){
+      echo $e->getMessage();
+    }
+    return $message;
+  }
+
 }

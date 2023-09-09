@@ -191,32 +191,10 @@ $('.activatedArticle').on('click', function(e){
 
 
 /** Soumission du fomulaire de modification de la categorie */
-$('#updateModifierArticle').on('submit', function(e){ 
-  e.preventDefault();
-  alert('ok');  
-  // var nomCategorie = $('#updatenomCategorie');
-  // var descriptionCategorie = $('#updatedescriptionCategorie');
-  // var id = $('#updateidCategorie');
-  // var actif = $('#actif');
-  // var invalid = false;
-  // if(!nomCategorie.val()){
-  //   invalid = false;
-  // }
-  // if(invalid){
-  //   nomCategorie.addClass('error');
-  // }
-  // else{
-  //   var url = '../index.php?controller=categorie&action=updateCategorie&nomCategorie='+nomCategorie.val()+'&descriptionCategorie='+descriptionCategorie.val()+'&idCategorie='+id.val()+'&actif='+actif.val();
-  //   $.ajax({
-  //     url : url,
-  //     method : "GET",
-  //     success : function(data){
-  //         $('.updateModifierCategorie').html(data);
-  //       }
-  //   })
-  // }
-
-  });
+// $('#updateModifierArticle').on('submit', function(e){ 
+//   e.preventDefault();
+//   alert('ok'); 
+//   });
 
        /** Afficher une categorie */
        $('.viewArticle').on('click', function(e){
@@ -290,4 +268,20 @@ $('#updateModifierArticle').on('submit', function(e){
       }
      });
      /** Fin */
+       /** Evenement lors du clic sur le bouton liste Categorie */
+$('.viewListCommentaire').on('click', function(){
+  $('.fa-eye').removeClass('active');
+  $('.header-bloc-group').removeClass('active');
+  $('.header-bloc-group-3').addClass('active');
+    $(this).addClass('active');
+    var url = '../index.php?controller=comment&action=listCommentaire';
+    $.ajax({
+      url: url,
+      method: "GET",
+      success: function(data){
+        loadingfunc('.list-group', data);
+      }
+    });
+  })
+  /** Fin */
 });

@@ -29,8 +29,9 @@ require_once('./includes/headcustom.php');
     </div>
     <div class="descriptionArticle-liste-commentaire">
       <!-- Commentaire -->
-      <?php if(isset($listCommentaire) && (count($listCommentaire) > 0)) : ?>        
-      <?php foreach($listCommentaire as $comment) : ?>
+      <?php
+      if(isset($listeCommentaires) && (count($listeCommentaires) > 0)) : ?>        
+      <?php foreach($listeCommentaires as $comment) : ?>
       <div class="descriptionArticle-liste-commentaire-group">
         <div class="descriptionArticle-liste-commentaire-description">
           <?= $comment["descriptionCommentaire"] ?>
@@ -44,18 +45,6 @@ require_once('./includes/headcustom.php');
       </div>
       <?php endforeach; ?>
       <?php endif; ?>
-      <!-- <div class="descriptionArticle-liste-commentaire-group">
-        <div class="descriptionArticle-liste-commentaire-description">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quam sint, cum quod amet quo pariatur doloribus itaque. Obcaecati, quas!
-        </div>
-        <div class="descriptionArticle-liste-commentaire-title">
-          <p>
-            <img src="./public/images/avatar.png" alt="icon user commentaires">
-          </p>
-          <span>Rickyto</span>
-        </div>
-      </div> -->
-      
       <!-- Fin Commentaire -->
     </div>
     <form action="./index.php?controller=comment&action=addComment" class="description-article-commentaires">
@@ -67,7 +56,7 @@ require_once('./includes/headcustom.php');
       <div class="description-article-commentaires-input-control">
         <textarea name="descriptioncommentaire" id="descriptioncommentaire"></textarea>
         <p>
-          <label class="message--erreur">Max.: 500 caracteres</label>
+          <label class="message--erreur">Max.: 300 caracteres</label>
         </p>
       </div>
       <div class="description-article-commentaires-input-control">

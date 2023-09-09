@@ -11,6 +11,7 @@ require_once('./model/User.php');
 require_once('./model/dao/DataAccessObject.php');
 use Blog\Model\User\User;
 use Blog\Model\Categorie\Categorie;
+// use Blog\Model\Comment\Comment;
 use Blog\Controller\User\UserController;
 use Blog\Controller\Article\ArticleController;
 use Blog\Controller\Comments\CommentController;
@@ -53,7 +54,7 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
       }
       if($_GET['action'] === 'viewArticle'){
         $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        ArticleController::viewArticle($_GET["idArticle"]);
+        ArticleController::viewArticle((int) $_GET["idArticle"]);
       }
       if($_GET['action'] === 'updateArticle'){
         $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -130,6 +131,26 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
     $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     CommentController::addComment($_GET);
    }
+   if($_GET['action'] === 'listCommentaire'){
+    CommentController::listCommentaire();
+  }
+  if($_GET['action'] === 'activatedComment'){
+    $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    CommentController::activatedComment($_GET);
+  }
+  if($_GET['action'] === 'desactivatedComment'){
+    $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    CommentController::desactivatedComment($_GET);
+  }
+  if($_GET['action'] === 'deleteComment'){
+    $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    if(isset($_GET['idCommentaire'])){
+      CommentController::deleteComment((int) $_GET['idCommentaire']);
+    }
+    // else{
+    //   CommentController::deleteComment();
+    // }
+  }
   }
 }
 else{

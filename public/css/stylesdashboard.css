@@ -532,11 +532,12 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
 /* Categorie */
 /* line 396, ../scss/stylesdashboard.scss */
 .viewListCategorie.active,
-.viewListArticle.active {
+.viewListArticle.active,
+.viewListCommentaire.active {
   color: #ffffff;
 }
 
-/* line 400, ../scss/stylesdashboard.scss */
+/* line 401, ../scss/stylesdashboard.scss */
 .form-updatecategorie,
 .form-updatearticle {
   position: absolute;
@@ -552,13 +553,13 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
   opacity: 0;
   transition: opacity 0.3s ease-in-out, z-index 0.3s ease-in-out;
 }
-/* line 416, ../scss/stylesdashboard.scss */
+/* line 417, ../scss/stylesdashboard.scss */
 .form-updatecategorie.active,
 .form-updatearticle.active {
   z-index: 1;
   opacity: 1;
 }
-/* line 421, ../scss/stylesdashboard.scss */
+/* line 422, ../scss/stylesdashboard.scss */
 .form-updatecategorie form,
 .form-updatearticle form {
   min-width: 28rem;
@@ -568,7 +569,7 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
   padding: 3rem 2rem;
   position: relative;
 }
-/* line 430, ../scss/stylesdashboard.scss */
+/* line 431, ../scss/stylesdashboard.scss */
 .form-updatecategorie .closeModifierCategorie,
 .form-updatecategorie .closeModifierArticle,
 .form-updatearticle .closeModifierCategorie,
@@ -590,11 +591,11 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
 
 /* Fin Categorie */
 /* Footer */
-/* line 450, ../scss/stylesdashboard.scss */
+/* line 451, ../scss/stylesdashboard.scss */
 #footer {
   margin-top: auto;
 }
-/* line 453, ../scss/stylesdashboard.scss */
+/* line 454, ../scss/stylesdashboard.scss */
 #footer .footer {
   padding: 2rem 0;
   text-align: center;
@@ -602,26 +603,26 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
 }
 
 @media screen and (min-width: 540px) {
-  /* line 463, ../scss/stylesdashboard.scss */
+  /* line 464, ../scss/stylesdashboard.scss */
   #main h1 {
     font-size: 3.2rem;
   }
 
-  /* line 468, ../scss/stylesdashboard.scss */
+  /* line 469, ../scss/stylesdashboard.scss */
   .header-bloc {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 4rem;
   }
 
-  /* line 473, ../scss/stylesdashboard.scss */
+  /* line 474, ../scss/stylesdashboard.scss */
   .header-bloc-group {
     width: calc(50% - 1rem);
     margin-bottom: 3rem;
   }
 }
 @media screen and (min-width: 1024px) {
-  /* line 479, ../scss/stylesdashboard.scss */
+  /* line 480, ../scss/stylesdashboard.scss */
   .header-bloc-group {
     width: calc(25% - 3rem);
     max-width: none;
