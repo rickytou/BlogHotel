@@ -21,8 +21,8 @@ class ArticleController {
    * @return void
   */
   public static function index(){
-    //$listArticles = Article::listArticleActivated(4);
-    $listArticles = Article::listArticleActivated();
+    $listArticles = Article::listArticleActivated(4);
+    //$listArticles = Article::listArticleActivated();
     $listCategories = Categorie::listCategorie();
     $listCategoriesActived = Categorie::listCategorie(1);
     require_once('./view/homepage.php');
@@ -178,9 +178,11 @@ public static function substringName($nomarticle, $length) : string{
   return (ucfirst(strlen($nomarticle) < $length ? $nomarticle : substr($nomarticle,0,$length)."..."));
 }
 /** Fonction permettant d'afficher plus d'articles */
-// public static function moreArticles($nbArticleParPage, $perPage){
-//   $listArticles = Article::moreArticle($nbArticleParPage, $perPage);
-//   require_once('./view/article/front/moreArticle.php');
-// }
+public static function moreArticles($nbArticleParPage, $perPage){
+  $listArticles = Article::moreArticle($nbArticleParPage, $perPage);
+  $data = json_encode($listArticles);
+  echo $data;
+  //require_once('./view/article/front/moreArticle.php');
+}
 }
 ?>

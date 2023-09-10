@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+use Blog\Controller\Article\ArticleController;
 require_once('./includes/head.php');
 ?>
 <main id="main">
@@ -41,7 +42,7 @@ require_once('./includes/head.php');
             <span class="recent-posts-filtre-categorie-name">Toutes les articles (
               <?php echo self::countArticle() ?>)
             </span>
-            <a href="index.php?controller=article&action=filter" class="fa-solid fa-toggle-on filter-categorie"></a>
+            <a href="index.php?controller=article&action=filter" class="fa-solid fa-toggle-on filter-categorie filter-all"></a>
           </p>
           <?php foreach ($listCategoriesActived as $categorie): ?>
             <p class="recent-posts-filtre-categorie">
@@ -59,7 +60,7 @@ require_once('./includes/head.php');
       <!-- Fin Filtre -->
       <!-- Affichage de 8 article s au maximum -->
       <div class="recent-posts-info">
-        <p>Affichage de 8 articles au maximum</p>
+        <p>Affichage de 4 articles</p>
       </div>
 
       <!-- Entete Posts Bloc -->
@@ -85,27 +86,22 @@ require_once('./includes/head.php');
               <p>
                 <?= self::substringName($articles["descriptionArticle"],160) ?>
               </p>
-              <p class="recent-posts-article-categories">
-                <!-- <span class="recent-posts-article-nomcategories">Cat&eacute;gorie : </span> -->
-                <span>:: <?= self::nomCategorie($articles["idCategories"]) ?></span>
-              </p>
+
             </div>
           </article>
         <?php endforeach; ?>
         <!-- Fin Bloc -->
-        <div class="moreArticles"></div>
+        <!-- <div class="moreArticles"></div> -->
       </div>
       <p class="loadingprofil">
       <img src="../public/images/load.gif" alt="loading">
     </p>
-    <?php if(count($listArticles) < self::countArticle()) : ?>
     <div class="recent-posts-more">
      <a href="#">
         <span>Voir plus</span>
         <span class="fa-solid fa-chevron-down viewMoreArticles"></span>
      </a>
      </div>
-     <?php endif; ?>
     </div>
 
     <!-- Fin -->
@@ -352,5 +348,4 @@ require_once('./includes/head.php');
       </div>
     </section>
 </main>
-<?php require_once('./includes/footer.php');
-use Blog\Controller\Article\ArticleController;
+<?php require_once('./includes/footer.php'); ?>

@@ -201,29 +201,12 @@ class Article
     return $listArticle;
   }
   /** Fonction permettant de lister les articles */
-  // public static function listArticleActivated(int $rowCount): array
-  // {
-  //   $con = self::establishedConnection();
-  //   $listArticle = array();
-  //   try {
-  //     $query = 'SELECT * FROM article WHERE actif = 1 ORDER BY idArticle DESC LIMIT '.$rowCount;
-  //     $listeArt = $con->query($query, PDO::FETCH_ASSOC);
-  //     foreach ($listeArt as $key => $article) {
-  //       $listArticle[$key] = $article;
-  //     }
-  //   } catch (PDOException $e) {
-  //     echo $e->getMessage();
-  //   }
-  //   return $listArticle;
-  // }
-
-
-   public static function listArticleActivated(): array
+  public static function listArticleActivated(int $rowCount): array
   {
     $con = self::establishedConnection();
     $listArticle = array();
     try {
-      $query = 'SELECT * FROM article WHERE actif = 1 ORDER BY idArticle DESC';
+      $query = 'SELECT * FROM article WHERE actif = 1 ORDER BY idArticle DESC LIMIT '.$rowCount;
       $listeArt = $con->query($query, PDO::FETCH_ASSOC);
       foreach ($listeArt as $key => $article) {
         $listArticle[$key] = $article;
@@ -233,6 +216,23 @@ class Article
     }
     return $listArticle;
   }
+
+
+  //  public static function listArticleActivated(): array
+  // {
+  //   $con = self::establishedConnection();
+  //   $listArticle = array();
+  //   try {
+  //     $query = 'SELECT * FROM article WHERE actif = 1 ORDER BY idArticle DESC';
+  //     $listeArt = $con->query($query, PDO::FETCH_ASSOC);
+  //     foreach ($listeArt as $key => $article) {
+  //       $listArticle[$key] = $article;
+  //     }
+  //   } catch (PDOException $e) {
+  //     echo $e->getMessage();
+  //   }
+  //   return $listArticle;
+  // }
   /** Fonction permettant de supprimer un article */
   public static function deleteArticle(int $idArticle)
   {
@@ -455,10 +455,10 @@ class Article
     $con = self::establishedConnection();
     try{
       if($idCategorie){
-        $query ="SELECT * FROM article WHERE idCategories =".$idCategorie." AND actif = 1";
+        $query ="SELECT * FROM article WHERE idCategories =".$idCategorie." AND actif = 1 ORDER BY idArticle DESC";
       }
       else{
-        $query ="SELECT * FROM article WHERE actif = 1 LIMIT ".$limit;
+        $query ="SELECT * FROM article WHERE actif = 1 ORDER BY idArticle DESC LIMIT ".$limit;
       }
       $rows = $con->query($query);     
       foreach($rows as $key => $row){
@@ -490,20 +490,20 @@ class Article
   }
 
    /** Fonction permettant de supprimer toutes les categories */
-  //  public static function moreArticle($nbArticleParPage, $perPage)
-  //  {
-  //   $con = self::establishedConnection();
-  //   $listArticle = array();
-  //   try {
-  //     $query = 'SELECT * FROM article WHERE actif = 1 ORDER BY idArticle DESC LIMIT '.$nbArticleParPage.','.$perPage;
-  //     $listeArt = $con->query($query, PDO::FETCH_ASSOC);
-  //     foreach ($listeArt as $key => $article) {
-  //       $listArticle[$key] = $article;
-  //     }
-  //   } catch (PDOException $e) {
-  //     echo $e->getMessage();
-  //   }
-  //   return $listArticle;
-  //  }
+   public static function moreArticle($nbArticleParPage, $perPage)
+   {
+    $con = self::establishedConnection();
+    $listArticle = array();
+    try {
+      $query = 'SELECT * FROM article WHERE actif = 1 ORDER BY idArticle DESC LIMIT '.$nbArticleParPage.','.$perPage;
+      $listeArt = $con->query($query, PDO::FETCH_ASSOC);
+      foreach ($listeArt as $key => $article) {
+        $listArticle[$key] = $article;
+      }
+    } catch (PDOException $e) {
+      echo $e->getMessage();
+    }
+    return $listArticle;
+   }
   
 }

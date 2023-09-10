@@ -1,4 +1,18 @@
 $(function () {
+  
+  if(!localStorage.getItem("activeJS")){
+    $(".activejavascript").addClass("active");
+   }
+   $(".wrapperclose").on("click", function(){
+     $(".activejavascript").removeClass("active");
+     localStorage.setItem("activeJS","active");
+   });
+   /** Click en dehors de la boite */
+   $(".activejavascript").on("click", function(){
+     $(".activejavascript").removeClass("active");
+     localStorage.setItem("activeJS","active");
+   });
+  
   /** Evenement sur le menuburger */
   $(".menu").on("click", () => {
     $(".menulink").toggleClass("active");
@@ -76,6 +90,7 @@ $(function () {
     $(this).parent().addClass('active');
     $(this).removeClass('fa-toggle-off');
     $(this).addClass('fa-toggle-on');
+    $('.recent-posts-more').hide();
     var url = $(this).attr("href");
     $.ajax({
       url : url,
@@ -85,7 +100,9 @@ $(function () {
         }
     })
   });
-
+$('.filter-all').on('click', function(){
+  $('.recent-posts-more').show();
+});
   /** Formulaire de connexion */
   $('.form-connexion').on('submit', function(e){
     
@@ -106,11 +123,11 @@ $(function () {
   /** Ajouter un commentaire */
   $('.description-article-commentaires').on('submit', function(e){
     e.preventDefault();
-    var pseudo = $('#pseudo');
+    // var pseudo = $('#pseudo');
     var descriptioncommentaire = $('#descriptioncommentaire');
     var idArticle = $('#idArticle');
     var valid = false;
-    var data = [pseudo,descriptioncommentaire];
+    var data = [descriptioncommentaire];
     $.each(data, function(index,element){
       if(!element.val()){
        valid = false;
@@ -120,7 +137,7 @@ $(function () {
       $('.description-article-commentaires-message').html('<p class="message--erreur">Il faut remplir tous les champs</p>');
     }
     else{
-      var url = $(this).attr("action")+'&pseudo='+pseudo.val()+'&descriptioncommentaire='+descriptioncommentaire.val()+'&idArticle='+idArticle.val();
+      var url = $(this).attr("action")+'&descriptioncommentaire='+descriptioncommentaire.val()+'&idArticle='+idArticle.val();
       $.ajax({
         url : url,
         method : "GET",
@@ -133,16 +150,68 @@ $(function () {
 
     /** More Article */
     $('.viewMoreArticles').on('click', function(e){
+      function substringName(desc, taille){
+        return (desc.length < taille ? desc : desc.substring(0,taille)+"...");
+
+      }
       e.preventDefault();
       var nombre = $('.recent-posts-bloc').length;
-      var perPage = 4;
+      var perPage = 2;
       var url = './index.php?controller=article&action=moreArticles&nbArticleParPage='+nombre+'&perPage='+perPage;
-      //alert(url);
       $.ajax({
         url : url,
         method : "GET",
         success : function(data){
-          loadingfunc('.moreArticles', data);
+          $('.loadingprofil').css({'opacity':'1','z-index':'1'});
+        /* Timer pour l'animation du gif loading */
+        setTimeout(function(){
+          $('.loadingprofil').css({'opacity':'0','z-index':'-1'});
+          let arrayMoreArticles = JSON.parse(data); 
+          let recent_posts_group = document.querySelector(".recent-posts-group");
+          
+          arrayMoreArticles.forEach(element => {
+            let article = document.createElement("article");
+            article.setAttribute('class','recent-posts-bloc');
+          
+            let div_recent_posts_image = document.createElement("div");
+            div_recent_posts_image.setAttribute('class','recent-posts-image');
+          
+            let aLinkImage = document.createElement("a");
+            aLinkImage.setAttribute('href','./index.php?controller=article&action=description&idArticle='+element.idArticle);
+
+            let image = document.createElement("img");
+            image.setAttribute('src', element.imageArticle);
+
+            aLinkImage.appendChild(image)
+            div_recent_posts_image.appendChild(aLinkImage);
+
+             /** recent-posts-main */ 
+            let div_recent_posts_main = document.createElement("div");
+            div_recent_posts_main.setAttribute('class','recent-posts-main')
+
+            let div_recent_posts_title = document.createElement("div");
+            div_recent_posts_title.setAttribute('class','recent-posts-title')
+            
+            let strongTitreArticle = document.createElement("strong");
+            let aTitreArticle = document.createElement("a");
+            aTitreArticle.setAttribute('href','./index.php?controller=article&action=description&idArticle='+element.idArticle);
+            aTitreArticle.text = element.titreArticle;
+
+            let pDescArticle = document.createElement("p");
+            pDescArticle.innerHTML = substringName(element.descriptionArticle,160);
+
+            
+            strongTitreArticle.appendChild(aTitreArticle);
+            div_recent_posts_title.appendChild(strongTitreArticle);
+            div_recent_posts_main.appendChild(div_recent_posts_title);
+            div_recent_posts_main.appendChild(pDescArticle);
+
+
+            article.appendChild(div_recent_posts_image);
+            article.appendChild(div_recent_posts_main);
+            recent_posts_group.appendChild(article);
+          });
+        },300) 
           }
       })
     });

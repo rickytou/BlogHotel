@@ -10,9 +10,8 @@ class Comment{
   private int $idCommentaire;
   private int $idComment;
 
-  public function __construct(private int $idArticle, private string $pseudo, private string $descriptioncommentaire){
+  public function __construct(private int $idArticle, private string $descriptioncommentaire){
     $this->idArticle = $idArticle;
-    $this->pseudo;
     $this->descriptioncommentaire = $descriptioncommentaire;
   }
   public function getIdCommentaire() { return $this->idArticle; }
@@ -63,40 +62,34 @@ class Comment{
     return $listCommentaire;
   }
 /** Fonction permettant de rechercher si le pseudo existe deja */
-private static function findPseudo($pseudo)
-  {
-    $lstComment = array();
-    $con = self::establishedConnection();
-    try {
-      $query = "select * from commentaires where pseudo = '" . strtolower(trim($pseudo)) . "'";
-      $requete = $con->query($query, PDO::FETCH_ASSOC);
-      $trouve = false;
-      foreach ($requete as $key => $req) {
-        $lstComment[$key] = $req;
-      }
-    } catch (PDOException $e) {
-      echo $e->getMessage();
-    }
-    return $lstComment;
-  }
+// private static function findPseudo($pseudo)
+//   {
+//     $lstComment = array();
+//     $con = self::establishedConnection();
+//     try {
+//       $query = "select * from commentaires where pseudo = '" . strtolower(trim($pseudo)) . "'";
+//       $requete = $con->query($query, PDO::FETCH_ASSOC);
+//       $trouve = false;
+//       foreach ($requete as $key => $req) {
+//         $lstComment[$key] = $req;
+//       }
+//     } catch (PDOException $e) {
+//       echo $e->getMessage();
+//     }
+//     return $lstComment;
+//   }
 
   /** Fonction permettant de soumettre un commentaire */
   public static function addComment(Comment $comment){
     $con = self::establishedConnection();
     $message = '';
-    $lstCommentPseudo = self::findPseudo(strtolower($comment->getPseudo()));
-    if(count($lstCommentPseudo) > 0){
-      $message = '<p class="message--erreur">Le pseudo existe d&eacute;j&agrave;</p>';
-    }
-    else{
     try{
-      $query = 'INSERT INTO commentaires (idArticle, pseudo, descriptionCommentaire, statut)
-                VALUES(:idArticle, :pseudo, :descriptionCommentaire, :statut)';
+      $query = 'INSERT INTO commentaires (idArticle, descriptionCommentaire, statut)
+                VALUES(:idArticle, :descriptionCommentaire, :statut)';
       $requete = $con->prepare($query);
       $requete->execute(
                         array(
                               "idArticle" => $comment->getIdArticle(),
-                              "pseudo" => $comment->getPseudo(),
                               "descriptionCommentaire" => $comment->getDescriptionCommentaire(),
                               "statut" => $comment->getStatut()
                               )
@@ -108,7 +101,6 @@ private static function findPseudo($pseudo)
     catch(PDOException $e){
       echo 'Erreur : '.$e->getMessage();
     }
-  }
     return $message;
   }
 

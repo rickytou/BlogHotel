@@ -19,7 +19,6 @@ public static function listCommentaire(){
   $message = '';
   $valid = false;
   $Datas = [
-            "pseudo" => $GETData["pseudo"],
             "descriptioncommentaire" => $GETData["descriptioncommentaire"]
           ]; 
   foreach($Datas as $data){
@@ -35,11 +34,10 @@ public static function listCommentaire(){
       $message = '<p class="message--erreur">Maximum de 300 caracteres pour le commentaire</p>';
     }
     else{
-    $comment = new Comment(
-                            (int) $GETData["idArticle"],
-                            $GETData["pseudo"],
-                            $GETData["descriptioncommentaire"]
-                          );
+      $comment = new Comment(
+        (int) $GETData["idArticle"],
+        $GETData["descriptioncommentaire"]
+      );
     $message = Comment::addComment($comment);
     //$message = '<p class="message--succes">ok</p>';
   }

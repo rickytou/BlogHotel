@@ -22,6 +22,26 @@ body{
 textarea{
   resize: none;
 }
+/* Works on Firefox */
+* {
+  scrollbar-width: thin; /* "auto" or "thin" */
+  scrollbar-color: $couleur--secondaire $couleur--primaire; 
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: $couleur--primaire;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $couleur--secondaire;
+  border-radius: 20px;
+  border: 2px solid rgba(255,255,255,0.2);
+}
       /* loadingprofil */
 .loadingprofil{
   position: absolute;
@@ -695,7 +715,10 @@ margin-bottom: 3rem; color:$couleur--tertiaire; }
 }
 .description-article-commentaires-input-control{
   margin-bottom: 1rem;
-
+& ::placeholder{
+  text-align: left;
+  font-weight: normal;
+}
   & p{
     text-align: right;
   }
@@ -930,7 +953,117 @@ margin-bottom: 3rem; color:$couleur--tertiaire; }
     }
   }
 }
+/** -- Active Javascript -- */
+.activejavascript{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.95);
+  padding: 6rem 0;
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.3s ease-in;
+}
+.activejavascript.active{
+  opacity: 1;
+  z-index: 1;
 
+}
+.activejavascript .activejavascript__popup{
+  width: 90%;
+  max-width: 40rem;
+  max-height: 40rem;  
+  background-color: $couleur--blanc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  border-radius: 1rem;
+  padding: 6rem 0;
+}
+.jsmessage h1{
+  font-size: 4.8rem;
+  color: $couleur--primaire;
+  font-family: 'lobster two';
+}
+.jsmessage a{
+  color: $couleur--primaire;
+  text-decoration: underline;
+}
+.jsmessage h1 span{
+  color: $couleur--secondaire;
+}
+.jsmessage .wrapperclose{
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: $couleur--secondaire;
+  color: $couleur--primaire;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: -1.5rem;
+  top: -1.5rem;
+  cursor: pointer;
+}
+.jsmessage b{
+  font-size: 8rem;
+  color: $couleur--primaire;
+  font-family: 'lobster two';
+  display: inline-block;
+  margin-bottom:2rem;
+}
+.jsmessage p{
+  color: $couleur--primaire;
+  margin-top: 2rem;
+}
+/*
+* ------------------------------------------------------------------------
+*                      Page 404 - NOT FOUND 
+* ------------------------------------------------------------------------
+*/
+.page__not__found__404{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+.page__not__found__404 h1{
+  font-size: 4.8rem;
+  color: $couleur--primaire;
+  font-family: 'lobster two';
+}
+.not__found__404{
+  display: flex;
+  gap: 1rem;
+  font-size: 16rem;
+  font-weight: bold;
+}
+.not__found__404 span:nth-child(2n+1){
+  color: $couleur--secondaire;
+}
+.not__found__404 span:nth-child(2){
+  color: $couleur--primaire;
+}
+.page__not__found__404 p:nth-child(3){
+  color: $couleur--primaire;
+}
+.page__not__found__404 a{
+  margin-top: 2rem;
+  text-decoration: underline;
+}
 
 @media screen and (min-width:#{$small-device * 1px }){
   .recent-posts,.footer, #temoignages, .contact{
@@ -978,6 +1111,13 @@ margin-bottom: 3rem; color:$couleur--tertiaire; }
         font-size: 4.2rem;
         width: auto;
       }
+      /* Page 404 - NOT FOUND */
+.page__not__found__404 h1{
+  font-size: 6.4rem;
+}
+.not__found__404{
+  font-size: 20rem;
+}
 }
 @media screen and (min-width:#{$medium-device * 1px}){
   #header{

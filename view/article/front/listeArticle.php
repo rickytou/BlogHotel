@@ -1,6 +1,6 @@
- <!-- Entete Posts Bloc -->
- <div class="recent-posts-group">
-        <!-- Bloc1 .-->
+      <!-- Entete Posts Bloc -->
+      <div class="recent-posts-group">
+        <!-- Bloc .-->
         <?php foreach ($listArticles as $articles): ?>
           <article class="recent-posts-bloc">
             <!-- Entete Posts Bloc Entete -->
@@ -21,13 +21,10 @@
               <p>
                 <?= self::substringName($articles["descriptionArticle"],160) ?>
               </p>
-              <p class="recent-posts-article-categories">
-                <!-- <span class="recent-posts-article-nomcategories">Cat&eacute;gorie : </span> -->
-                <span>:: <?= self::nomCategorie($articles["idCategories"]) ?></span>
-              </p>
+
             </div>
           </article>
         <?php endforeach; ?>
-        <!-- Fin Bloc1 -->
-
+        <!-- Fin Bloc -->
+        <!-- <div class="moreArticles"></div> -->
       </div>

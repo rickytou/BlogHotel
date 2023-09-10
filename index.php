@@ -66,7 +66,7 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
           ArticleController::filter((int) $_GET['idCategorie']);
         }
         else{
-          ArticleController::filter(null,8);
+          ArticleController::filter(null,4);
         }
       }
       /** Description d'un article */

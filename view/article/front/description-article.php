@@ -42,7 +42,7 @@ require_once('./includes/headcustom.php');
           <p>
             <img src="./public/images/avatar.png" alt="icon user commentaires">
           </p>
-          <span><?= $comment["pseudo"] ?></span>
+          <span>Anonyme</span>
         </div>
       </div>
       <?php endforeach; ?>
@@ -53,12 +53,9 @@ require_once('./includes/headcustom.php');
       <div class="description-article-commentaires-message"></div>
       <legend>Qu'en pensez-vous ?</legend>
       <div class="description-article-commentaires-input-control">
-       <input type="text" placeholder="pseudo" name="pseudo" id="pseudo">
-      </div>
-      <div class="description-article-commentaires-input-control">
-        <textarea name="descriptioncommentaire" id="descriptioncommentaire"></textarea>
+        <textarea name="descriptioncommentaire" id="descriptioncommentaire" placeholder="Entrez votre commentaire"></textarea>
         <p>
-          <label class="message--erreur">Max.: 300 caracteres</label>
+          <label>Max.: 300 caract&egrave;res</label>
         </p>
       </div>
       <div class="description-article-commentaires-input-control">

@@ -11,7 +11,6 @@
           <tr>
             <th class="list-group-table-check">&nbsp;</th>
             <th>Identifiant</th>
-            <th>Pseudo</th>
             <th>Description</th>
             <th>Statut</th>
             <th></th>
@@ -22,7 +21,6 @@
         <tr>
           <td class="list-group-table-check"><input type="checkbox" name="Commentaire[]"></td>
           <td class="list-group-table-actions"><?= $lscomment['idCommentaire'] ?></td>
-          <td><?= ucfirst($lscomment['pseudo']) ?></td>
           <td><?= $lscomment['descriptionCommentaire'] ?></td>
           <td class="list-group-table-check"><?= ($lscomment['statut'] == 1) ? 'Activ&eacute;' : 'd&eacute;sactiv&eacute;' ?></td>
           <td class="list-group-table-actions">
