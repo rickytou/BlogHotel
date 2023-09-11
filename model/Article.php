@@ -218,21 +218,21 @@ class Article
   }
 
 
-  //  public static function listArticleActivated(): array
-  // {
-  //   $con = self::establishedConnection();
-  //   $listArticle = array();
-  //   try {
-  //     $query = 'SELECT * FROM article WHERE actif = 1 ORDER BY idArticle DESC';
-  //     $listeArt = $con->query($query, PDO::FETCH_ASSOC);
-  //     foreach ($listeArt as $key => $article) {
-  //       $listArticle[$key] = $article;
-  //     }
-  //   } catch (PDOException $e) {
-  //     echo $e->getMessage();
-  //   }
-  //   return $listArticle;
-  // }
+   public static function listArticleActivatedAll(): array
+  {
+    $con = self::establishedConnection();
+    $listArticle = array();
+    try {
+      $query = 'SELECT * FROM article WHERE actif = 1 ORDER BY idArticle DESC';
+      $listeArt = $con->query($query, PDO::FETCH_ASSOC);
+      foreach ($listeArt as $key => $article) {
+        $listArticle[$key] = $article;
+      }
+    } catch (PDOException $e) {
+      echo $e->getMessage();
+    }
+    return $listArticle;
+  }
   /** Fonction permettant de supprimer un article */
   public static function deleteArticle(int $idArticle)
   {
@@ -504,6 +504,31 @@ class Article
       echo $e->getMessage();
     }
     return $listArticle;
+   }
+
+   /** Fonction permettant de recherche un article */
+   public static function searchArticle(string $query){
+    $lstArticles = self::listArticleActivatedAll();
+    $articletrouve = [];
+    $trouve = false;
+    $critere = trim($query);
+    foreach ($lstArticles as $article) {
+      if (strtolower($article["titreArticle"]) === strtolower(trim($critere))) {
+        $articletrouve[] = $article;
+        $trouve = true;
+      }
+    }
+      /** Si on ne trouve pas le critere exact, on effectue la recherche a partir 'une sous-chaine  */
+  if (!$trouve) {
+    foreach ($lstArticles as $article) {
+      $pos = stripos($article["titreArticle"], $critere);
+      if (strlen($critere) > 3 && $pos !== false) {
+        /** Il faut que la sous-chaine contient au mininum 4 caracteres */
+        $articletrouve[] = $article;
+      }
+    }
+  }
+ return $articletrouve;
    }
   
 }

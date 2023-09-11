@@ -184,5 +184,12 @@ public static function moreArticles($nbArticleParPage, $perPage){
   echo $data;
   //require_once('./view/article/front/moreArticle.php');
 }
+
+/** Fonction permettant de rechercher un critere */
+public static function searchArticle(string $query){
+  $articletrouve = Article::searchArticle($query);
+  $articleFileJSON = json_encode($articletrouve);
+  echo $articleFileJSON;
+}
 }
 ?>

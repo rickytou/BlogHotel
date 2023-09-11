@@ -10,10 +10,11 @@ require_once('./includes/head.php');
       <div class="mainheader">
         <form action="#" class="form-search">
           <div class="input-control">
-            <input type="search" name="" id="" placeholder="Trouver un h&ocirc;tel...">
+            <input type="text" name="search" id="search" placeholder="Trouver un h&ocirc;tel...">
             <p>
               <span class="fa-solid fa-magnifying-glass"></span>
             </p>
+            <div class="searchmessage"></div>
           </div>
 
         </form>

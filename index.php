@@ -78,6 +78,12 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
         $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         ArticleController::moreArticles((int) $_GET["nbArticleParPage"], (int) $_GET["perPage"]);
        }
+       /** Rechercher un article a partir d'un critere */
+       if($_GET['action'] === 'search'){
+        $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        /** Envoie des donnees au controlleur */
+        ArticleController::searchArticle($_GET["query"]);
+       }
   }
   if($_GET['controller'] === 'categorie'){
     if($_GET['action'] === 'addCategorie'){

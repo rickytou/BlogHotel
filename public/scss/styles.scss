@@ -57,6 +57,12 @@ textarea{
   font-weight: bold;
   color: $couleur--message--erreur;
 }
+.message--erreur--custom{
+  font-weight: bold;
+  color: $couleur--message--erreur;
+  text-align: center;
+  padding: 0.5rem 0;
+}
 .message--succes{
   @include border-radius(0.4rem);
   padding: 1rem;
@@ -64,6 +70,31 @@ textarea{
   font-weight: bold;
   color: $couleur--message--success;
 }
+#search + p {
+  cursor: pointer;
+}
+#search.active{
+  border-radius: 0;
+  transition: 0.1s border-radius ease-in-out;
+}
+.searchmessage .result{
+  border: 0.1rem solid rgba(255,255,255,0.5);
+  background-color: $couleur--primaire;
+  padding: 1.25rem 1rem;
+  color: $couleur--blanc;
+  
+  transition: all 0.3s ease-in-out;
+   a{
+    display: block;
+    cursor: pointer;
+   }
+}
+.searchmessage .result:hover{
+  color: $couleur--secondaire;
+}
+// .input-control.active ::placeholder{
+//   color: $couleur--message--erreur;
+// }
 /* Wrapper */
 #wrapper{
   color: darken($color: $couleur--blanc, $amount: 2);

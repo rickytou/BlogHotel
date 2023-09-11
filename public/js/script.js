@@ -214,4 +214,69 @@ $('.filter-all').on('click', function(){
           }
       })
     });
+
+    /** Barre de recherche dynamique avec Ajax */
+    $('#search').on('input', function(){
+      var search = $('#search');
+        $(".searchmessage").removeClass("message--erreur--custom");
+          var url = './index.php?controller=article&action=search&query='+search.val();
+          $.ajax({
+            url : url,
+            method : "GET",
+            success : function(data){
+              let articles = JSON.parse(data);
+              var viewArticle = document.querySelector('.searchmessage');
+              viewArticle.innerHTML = "";
+             
+             articles.forEach(element => {
+              $(search).addClass('active');
+              var div = document.createElement("div");
+              div.setAttribute('class','result');
+              var aTitle = document.createElement("a");
+              aTitle.setAttribute('href','./index.php?controller=article&action=description&idArticle='+element.idArticle);
+              aTitle.innerHTML = element.titreArticle;
+              div.appendChild(aTitle);
+              viewArticle.appendChild(div);
+             });
+              }
+          })
+         
+        //}
+     
+      
+    });
+    /** Barre de recherche avec clic sur le bouton de recherche du formulaire */
+    $('.fa-magnifying-glass').parent().on('click', function(){
+      var search = $('#search');
+        if(!$(search).val()){
+          $('.searchmessage').text('Vous recherchez quoi ?').addClass('message--erreur--custom');
+        }
+        else{
+          var url = './index.php?controller=article&action=search&query='+search.val();
+          $.ajax({
+            url : url,
+            method : "GET",
+            success : function(data){
+              let articles = JSON.parse(data);
+              var viewArticle = document.querySelector('.searchmessage');
+              viewArticle.innerHTML = "";
+             if(articles.length > 0){
+             articles.forEach(element => {
+              $(search).addClass('active');
+              var div = document.createElement("div");
+              div.setAttribute('class','result');
+              var aTitle = document.createElement("a");
+              aTitle.setAttribute('href','./index.php?controller=article&action=description&idArticle='+element.idArticle);
+              aTitle.innerHTML = element.titreArticle;
+              div.appendChild(aTitle);
+              viewArticle.appendChild(div);
+             });
+              }
+              else{
+                $('.searchmessage').text('Aucun article disponible').addClass('message--erreur--custom');
+              }
+            }
+          })         
+        }      
+    });
 });
