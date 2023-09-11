@@ -55,7 +55,7 @@
             </li>
           <!-- Contact -->  
           <li>
-            <a href="#">
+            <a href="#contact">
               <span class="fa-solid fa-envelope"></span>
               <span>Contact</span></a>
           </li>

@@ -41,8 +41,7 @@ require_once('./includes/head.php');
         </p>
         <div class="recent-posts-filtre-categorie-group">
           <p class="recent-posts-filtre-categorie active">
-            <span class="recent-posts-filtre-categorie-name">Toutes les articles (
-              <?php echo self::countArticle() ?>)
+            <span class="recent-posts-filtre-categorie-name">Tous (<?php echo self::countArticle()?>)
             </span>
             <a href="index.php?controller=article&action=filter" class="fa-solid fa-toggle-on filter-categorie filter-all"></a>
           </p>
@@ -50,8 +49,7 @@ require_once('./includes/head.php');
             <p class="recent-posts-filtre-categorie">
               <span class="recent-posts-filtre-categorie-name">
                 <?= $categorie["nomCategorie"] ?>
-                (
-                <?php echo self::countArticle((int) $categorie['idCategorie']) ?>)
+                (<?php echo self::countArticle((int) $categorie['idCategorie'])?>)
               </span>
               <a href="index.php?controller=article&action=filter&idCategorie=<?= $categorie['idCategorie'] ?>"
                 class="fa-solid fa-toggle-off filter-categorie"></a>
@@ -163,7 +161,7 @@ require_once('./includes/head.php');
           <div class="contact-social-media-bloc">
             <span class="fa-solid fa-phone"></span>
             <p>
-              <b>Telephone</b>
+              <b>T&eacute;l&eacute;phone</b>
               <span>Appelez:+00-11-22-33-44</span>
             </p>
           </div>

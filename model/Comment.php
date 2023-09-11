@@ -33,7 +33,7 @@ class Comment{
     $con = self::establishedConnection();
     $listCommentaire = array();
     try{
-     $query = "SELECT * FROM commentaires WHERE idArticle = :idArticle and statut = 1";
+     $query = "SELECT * FROM commentaires WHERE idArticle = :idArticle and statut = 1 order by idCommentaire desc";
      $requete = $con->prepare($query);
      $requete->execute(array("idArticle" => $idArticle));
      foreach($requete as $key => $req){
@@ -50,7 +50,7 @@ class Comment{
     $con = self::establishedConnection();
     $listCommentaire = array();
     try{
-     $query = "SELECT * FROM commentaires";
+     $query = "SELECT * FROM commentaires order by idCommentaire desc ";
      $requete = $con->query($query);
      foreach($requete as $key => $req){
       $listCommentaire[$key] = $req;
@@ -61,23 +61,6 @@ class Comment{
     }
     return $listCommentaire;
   }
-/** Fonction permettant de rechercher si le pseudo existe deja */
-// private static function findPseudo($pseudo)
-//   {
-//     $lstComment = array();
-//     $con = self::establishedConnection();
-//     try {
-//       $query = "select * from commentaires where pseudo = '" . strtolower(trim($pseudo)) . "'";
-//       $requete = $con->query($query, PDO::FETCH_ASSOC);
-//       $trouve = false;
-//       foreach ($requete as $key => $req) {
-//         $lstComment[$key] = $req;
-//       }
-//     } catch (PDOException $e) {
-//       echo $e->getMessage();
-//     }
-//     return $lstComment;
-//   }
 
   /** Fonction permettant de soumettre un commentaire */
   public static function addComment(Comment $comment){
