@@ -3,8 +3,10 @@ session_start();
 require_once('./controller/CommentController.php');
 require_once('./controller/ArticleController.php');
 require_once('./controller/CategorieController.php');
+require_once('./controller/TemoignageController.php');
 require_once('./controller/UserController.php');
 require_once('./model/Article.php');
+require_once('./model/Temoignage.php');
 require_once('./model/Comment.php');
 require_once('./model/Categorie.php');
 require_once('./model/User.php');
@@ -16,6 +18,7 @@ use Blog\Controller\User\UserController;
 use Blog\Controller\Article\ArticleController;
 use Blog\Controller\Comments\CommentController;
 use Blog\Controller\Categorie\CategorieController;
+use Blog\Controller\Temoignage\TemoignageController;
 
 /**
  * Index : Route
@@ -161,6 +164,17 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
       CommentController::deleteComments();
     }
   }
+  }
+  if($_GET['controller'] === 'temoignage'){
+    if($_GET['action'] === 'addTemoignage'){
+      /** Nettoyage des donnees recues par le fomulaire d'ajout de temoignage */
+      $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      /** Envoie des donnees au controlleur */
+       TemoignageController::addTemoignage($_GET, $_FILES);
+    }
+    if($_GET['action'] === 'listTemoignage'){
+      TemoignageController::listTemoignage();
+    }
   }
 }
 else{

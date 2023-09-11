@@ -294,7 +294,7 @@ tfoot tr{
 }
 /* Fin Main */
 /* Article */
-#article, #categorie, .form-updatecategorie, .form-updatearticle{
+#article, #categorie, #temoignage, .form-updatecategorie, .form-updatearticle{
   position: absolute;
   top: 0;
   left: 0;
@@ -355,6 +355,11 @@ tfoot tr{
     height: 16rem;
     border: 0.1rem solid rgba(0, 0, 0, 0.2);
     resize: none;
+
+    & + label{
+      text-align: right;
+      font-weight: normal;
+    }
 
     &.error{
       border: 0.1rem solid $couleur--message--erreur;

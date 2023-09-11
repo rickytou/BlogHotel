@@ -485,7 +485,7 @@ margin-bottom: 3rem; color:$couleur--tertiaire; }
  .temoignages h2{
    color: $couleur--secondaire;
    font-family: 'lobster two';
-   font-size: 3.2rem;
+   font-size: 3rem;
    min-width: 30rem;
    margin-bottom: 3rem;
    text-align: center;  
@@ -547,10 +547,12 @@ margin-bottom: 3rem; color:$couleur--tertiaire; }
  .temoignages__bloc__comments_user{
    padding: 0 1rem;
    border:0.1rem solid rgba(0,0,0,0.04);
+   max-height: 25.6rem;
+   min-height: 25.6rem;
  }
  .temoignages blockquote i{
    display: block;
-   padding: 0.5rem 0;
+   padding: 0.2rem 0;
    font-size: 2.8rem;
    color: $couleur--secondaire;
    cursor: pointer;
@@ -558,13 +560,23 @@ margin-bottom: 3rem; color:$couleur--tertiaire; }
  blockquote p{
    margin-bottom: 0;
    padding: 0 0 0 2rem;
+   overflow: hidden;
+   min-height: 12rem;
+   max-height: 12rem;
  }
  blockquote p + i{
    text-align: right;
  }
  .temoignages cite{
-   display: block;
-   text-align: right;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+
+   & b{
+    font-size: 1.2rem;
+    font-weight: bold;
+   }
+
  }
  .temoignages cite span::before{
    content: "_";
@@ -598,14 +610,14 @@ margin-bottom: 3rem; color:$couleur--tertiaire; }
    border-radius: 50%;
    overflow: hidden;
    position: relative;
-   top: -6rem;
+   top: -9rem;
  }
  .temoignages__bloc__profil img{
    width: 100%;
    height: auto;
    border-radius: 50%;
-   filter: grayscale(100%);
-   opacity: 0.75;
+  //  filter: grayscale(100%);
+  //  opacity: 0.75;
  }
  
  .temoignages__bloc{
@@ -1128,16 +1140,7 @@ margin-bottom: 3rem; color:$couleur--tertiaire; }
       .temoignages__bloc__design{
         display: block;
       }
-      #contact{
-        & .contact-social-media{
-          flex-direction: row;
-          width: 60%;
-          margin: auto;
-        }
-        & .contact-social-media-bloc{
-          width: calc(33% - 1rem);
-         }
-      }
+    
       .description-article-header-titre{
         font-size: 4.2rem;
         width: auto;
@@ -1231,8 +1234,18 @@ margin-bottom: 3rem; color:$couleur--tertiaire; }
     font-size: 4.2rem;
   }
 }
-}
 
+}
+#contact{
+  & .contact-social-media{
+    flex-direction: row;
+    width: 96%;
+    margin: auto;
+  }
+  & .contact-social-media-bloc{
+    width: calc(33% - 1rem);
+   }
+}
 
 }
 @media screen and (min-width:#{$large-device * 1px}) {
@@ -1261,6 +1274,11 @@ margin-bottom: 3rem; color:$couleur--tertiaire; }
   align-items: center;
   justify-content: center;
  }
+ #contact{
+  & .contact-social-media{
+    width: 70%;
+  }
+  }
 }
 @media screen and (min-width:#{$xx-large-device * 1px}){
   .header, .mainheader, .footer, .recent-posts, .temoignages, .description-article-details,

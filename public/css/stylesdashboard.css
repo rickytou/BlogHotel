@@ -426,7 +426,7 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
 /* Fin Main */
 /* Article */
 /* line 297, ../scss/stylesdashboard.scss */
-#article, #categorie, .form-updatecategorie, .form-updatearticle {
+#article, #categorie, #temoignage, .form-updatecategorie, .form-updatearticle {
   position: absolute;
   top: 0;
   left: 0;
@@ -441,12 +441,12 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
   transition: opacity 0.3s ease-in-out, z-index 0.3s ease-in-out;
 }
 /* line 312, ../scss/stylesdashboard.scss */
-#article.active, #categorie.active, .form-updatecategorie.active, .form-updatearticle.active {
+#article.active, #categorie.active, #temoignage.active, .form-updatecategorie.active, .form-updatearticle.active {
   z-index: 1;
   opacity: 1;
 }
 /* line 318, ../scss/stylesdashboard.scss */
-#article .ajouter, #categorie .ajouter, .form-updatecategorie .ajouter, .form-updatearticle .ajouter {
+#article .ajouter, #categorie .ajouter, #temoignage .ajouter, .form-updatecategorie .ajouter, .form-updatearticle .ajouter {
   width: 36rem;
   max-width: 54rem;
   background-color: #ffffff;
@@ -455,7 +455,7 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
   position: relative;
 }
 /* line 326, ../scss/stylesdashboard.scss */
-#article .ajouter-article-input-control, #categorie .ajouter-article-input-control, .form-updatecategorie .ajouter-article-input-control, .form-updatearticle .ajouter-article-input-control {
+#article .ajouter-article-input-control, #categorie .ajouter-article-input-control, #temoignage .ajouter-article-input-control, .form-updatecategorie .ajouter-article-input-control, .form-updatearticle .ajouter-article-input-control {
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
@@ -463,29 +463,29 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
   width: 100%;
 }
 /* line 333, ../scss/stylesdashboard.scss */
-#article label, #categorie label, .form-updatecategorie label, .form-updatearticle label {
+#article label, #categorie label, #temoignage label, .form-updatecategorie label, .form-updatearticle label {
   font-weight: bold;
   color: #011d26;
 }
 /* line 337, ../scss/stylesdashboard.scss */
-#article legend, #categorie legend, .form-updatecategorie legend, .form-updatearticle legend {
+#article legend, #categorie legend, #temoignage legend, .form-updatecategorie legend, .form-updatearticle legend {
   margin-bottom: 3rem;
   font-size: 2.4rem;
   font-weight: bold;
   color: #011d26;
 }
 /* line 343, ../scss/stylesdashboard.scss */
-#article input[type="text"], #article select, #categorie input[type="text"], #categorie select, .form-updatecategorie input[type="text"], .form-updatecategorie select, .form-updatearticle input[type="text"], .form-updatearticle select {
+#article input[type="text"], #article select, #categorie input[type="text"], #categorie select, #temoignage input[type="text"], #temoignage select, .form-updatecategorie input[type="text"], .form-updatecategorie select, .form-updatearticle input[type="text"], .form-updatearticle select {
   width: 100%;
   padding: 1rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.2);
 }
 /* line 348, ../scss/stylesdashboard.scss */
-#article input[type="text"].error, #article select.error, #categorie input[type="text"].error, #categorie select.error, .form-updatecategorie input[type="text"].error, .form-updatecategorie select.error, .form-updatearticle input[type="text"].error, .form-updatearticle select.error {
+#article input[type="text"].error, #article select.error, #categorie input[type="text"].error, #categorie select.error, #temoignage input[type="text"].error, #temoignage select.error, .form-updatecategorie input[type="text"].error, .form-updatecategorie select.error, .form-updatearticle input[type="text"].error, .form-updatearticle select.error {
   border: 0.1rem solid #dc3545;
 }
 /* line 352, ../scss/stylesdashboard.scss */
-#article textarea, #categorie textarea, .form-updatecategorie textarea, .form-updatearticle textarea {
+#article textarea, #categorie textarea, #temoignage textarea, .form-updatecategorie textarea, .form-updatearticle textarea {
   width: 100%;
   padding: 1rem;
   height: 16rem;
@@ -493,11 +493,16 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
   resize: none;
 }
 /* line 359, ../scss/stylesdashboard.scss */
-#article textarea.error, #categorie textarea.error, .form-updatecategorie textarea.error, .form-updatearticle textarea.error {
-  border: 0.1rem solid #dc3545;
+#article textarea + label, #categorie textarea + label, #temoignage textarea + label, .form-updatecategorie textarea + label, .form-updatearticle textarea + label {
+  text-align: right;
+  font-weight: normal;
 }
 /* line 364, ../scss/stylesdashboard.scss */
-#article input[type="submit"], #categorie input[type="submit"], .form-updatecategorie input[type="submit"], .form-updatearticle input[type="submit"] {
+#article textarea.error, #categorie textarea.error, #temoignage textarea.error, .form-updatecategorie textarea.error, .form-updatearticle textarea.error {
+  border: 0.1rem solid #dc3545;
+}
+/* line 369, ../scss/stylesdashboard.scss */
+#article input[type="submit"], #categorie input[type="submit"], #temoignage input[type="submit"], .form-updatecategorie input[type="submit"], .form-updatearticle input[type="submit"] {
   width: 100%;
   padding: 1rem;
   background-color: #3ffba6;
@@ -506,13 +511,13 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
-/* line 373, ../scss/stylesdashboard.scss */
-#article input[type="submit"]:hover, #categorie input[type="submit"]:hover, .form-updatecategorie input[type="submit"]:hover, .form-updatearticle input[type="submit"]:hover {
+/* line 378, ../scss/stylesdashboard.scss */
+#article input[type="submit"]:hover, #categorie input[type="submit"]:hover, #temoignage input[type="submit"]:hover, .form-updatecategorie input[type="submit"]:hover, .form-updatearticle input[type="submit"]:hover {
   background: #011d26;
   color: #ffffff;
 }
-/* line 378, ../scss/stylesdashboard.scss */
-#article .fa-close, #categorie .fa-close, .form-updatecategorie .fa-close, .form-updatearticle .fa-close {
+/* line 383, ../scss/stylesdashboard.scss */
+#article .fa-close, #categorie .fa-close, #temoignage .fa-close, .form-updatecategorie .fa-close, .form-updatearticle .fa-close {
   display: inline-block;
   width: 3rem;
   height: 3rem;
@@ -530,14 +535,14 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
 
 /* Fin Article */
 /* Categorie */
-/* line 396, ../scss/stylesdashboard.scss */
+/* line 401, ../scss/stylesdashboard.scss */
 .viewListCategorie.active,
 .viewListArticle.active,
 .viewListCommentaire.active {
   color: #ffffff;
 }
 
-/* line 401, ../scss/stylesdashboard.scss */
+/* line 406, ../scss/stylesdashboard.scss */
 .form-updatecategorie,
 .form-updatearticle {
   position: absolute;
@@ -553,13 +558,13 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
   opacity: 0;
   transition: opacity 0.3s ease-in-out, z-index 0.3s ease-in-out;
 }
-/* line 417, ../scss/stylesdashboard.scss */
+/* line 422, ../scss/stylesdashboard.scss */
 .form-updatecategorie.active,
 .form-updatearticle.active {
   z-index: 1;
   opacity: 1;
 }
-/* line 422, ../scss/stylesdashboard.scss */
+/* line 427, ../scss/stylesdashboard.scss */
 .form-updatecategorie form,
 .form-updatearticle form {
   min-width: 28rem;
@@ -569,7 +574,7 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
   padding: 3rem 2rem;
   position: relative;
 }
-/* line 431, ../scss/stylesdashboard.scss */
+/* line 436, ../scss/stylesdashboard.scss */
 .form-updatecategorie .closeModifierCategorie,
 .form-updatecategorie .closeModifierArticle,
 .form-updatearticle .closeModifierCategorie,
@@ -591,11 +596,11 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
 
 /* Fin Categorie */
 /* Footer */
-/* line 451, ../scss/stylesdashboard.scss */
+/* line 456, ../scss/stylesdashboard.scss */
 #footer {
   margin-top: auto;
 }
-/* line 454, ../scss/stylesdashboard.scss */
+/* line 459, ../scss/stylesdashboard.scss */
 #footer .footer {
   padding: 2rem 0;
   text-align: center;
@@ -603,26 +608,26 @@ tfoot tr label[for="allChecked"], tfoot tr input[type="checkbox"] {
 }
 
 @media screen and (min-width: 540px) {
-  /* line 464, ../scss/stylesdashboard.scss */
+  /* line 469, ../scss/stylesdashboard.scss */
   #main h1 {
     font-size: 3.2rem;
   }
 
-  /* line 469, ../scss/stylesdashboard.scss */
+  /* line 474, ../scss/stylesdashboard.scss */
   .header-bloc {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 4rem;
   }
 
-  /* line 474, ../scss/stylesdashboard.scss */
+  /* line 479, ../scss/stylesdashboard.scss */
   .header-bloc-group {
     width: calc(50% - 1rem);
     margin-bottom: 3rem;
   }
 }
 @media screen and (min-width: 1024px) {
-  /* line 480, ../scss/stylesdashboard.scss */
+  /* line 485, ../scss/stylesdashboard.scss */
   .header-bloc-group {
     width: calc(25% - 3rem);
     max-width: none;

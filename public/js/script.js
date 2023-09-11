@@ -41,6 +41,7 @@ $(function () {
    */
   $(".temoignages__navigation__right").on("click", function () {
     var temoignages = $(".temoignages__bloc__group");
+    $(temoignages).first().addClass('active');
     var tem;
     var compteur;
     $.each(temoignages, function (index, temoignage) {

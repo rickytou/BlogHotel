@@ -6,6 +6,7 @@ use Blog\Model\Categorie\Categorie;
 require_once('./includes/headdashboard.php');
 $nombre_de_categories = count($allCategories);
 $nombre_articles = count($listArticles);
+$nombre_temoignages = count($listTemoignage);
 ?>
   <main id="main">
     <div class="main">
@@ -58,11 +59,11 @@ $nombre_articles = count($listArticles);
           <span class="fa-solid fa-message"></span>
             <strong>T&eacute;moignages</strong>
             <p>
-              <b>15</b><span> avis</span>  
+              <b><?= $nombre_temoignages; ?></b><span> avis</span>  
             </p>
             <p class="header-bloc-group-actions">
-            <span class="fa-regular fa-eye"></span>
-            <span class="fa-solid fa-circle-plus"></span>
+            <span class="fa-regular fa-eye viewListTemoignage"></span>
+            <span class="fa-solid fa-circle-plus addTemoignageBlog"></span>
             </p>
           </div>
           <!-- Fin -->
@@ -204,6 +205,32 @@ $nombre_articles = count($listArticles);
     </div>
   </div>
   <!-- Fin Ajouter Categorie -->
+  <!-- Ajouter Temoignage -->
+  <div id="temoignage">
+    <div class="temoignage-popup">
+    <form action="#" class="ajouter" method="POST" id="form-ajouter-temoignage">
+      <legend>Ajouter un t&eacute;moignage</legend>
+      <div class="ajouter-temoignage-message"></div>
+      <div class="ajouter-article-input-control">
+        <label for="nomTemoin">Nom du t&eacute;moin</label>
+        <input type="text" name="nomTemoin" id="nomTemoin">
+      </div>
+      <div class="ajouter-article-input-control">
+        <label for="avatar">Avatar</label>
+        <input type="file" name="avatar" id="avatar">
+      </div>
+      <div class="ajouter-article-input-control">
+        <label for="avis">Avis</label>
+        <textarea name="avis" id="avis"></textarea>
+        <label>Max.: 300 caract&egrave;res</label>
+      </div>
+      <input type="submit" value="Ajouter">
+      <span class="fa-solid fa-close closeTemoignage"></span>
+    </form>
+    </div>
+  </div>
+
+  <!-- Fin Temoignage -->
   <div class="form-updatecategorie"></div>
   <!-- Form Update Article -->
   <div class="form-updatearticle"></div>

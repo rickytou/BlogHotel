@@ -13,6 +13,7 @@ namespace Blog\Controller\Article;
 use Blog\Controller\Categorie\CategorieController;
 use Blog\Model\Article\Article;
 use Blog\Model\Categorie\Categorie;
+use Blog\Model\Temoignages\Temoignages;
 use Blog\Model\Comment\Comment;
 
 class ArticleController {
@@ -25,6 +26,7 @@ class ArticleController {
     //$listArticles = Article::listArticleActivated();
     $listCategories = Categorie::listCategorie();
     $listCategoriesActived = Categorie::listCategorie(1);
+    $listTemoignage = Temoignages::listTemoignage();
     require_once('./view/homepage.php');
   }
   /** Fonction faisant appel au model AddArticle pour ajouter un nouvel article

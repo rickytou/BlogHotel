@@ -2,9 +2,10 @@
 namespace Blog\Controller\User;
 use Blog\Model\User\User;
 use Blog\Model\Article\Article;
-use Blog\Model\Categorie\Categorie;
-use Blog\Controller\Article\ArticleController;
 use Blog\Model\Comment\Comment;
+use Blog\Model\Categorie\Categorie;
+use Blog\Model\Temoignages\Temoignages;
+use Blog\Controller\Article\ArticleController;
 
 class UserController{
   public static function index(){
@@ -17,6 +18,7 @@ class UserController{
     $allCategoriesActived = Categorie::listCategorie(1);
     $listArticles = Article::listArticle();
     $listCommentaire = Comment::listCommentaire();
+    $listTemoignage = Temoignages::listTemoignage();
     require_once('./view/dashboard.php');
   }
 

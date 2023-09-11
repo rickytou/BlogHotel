@@ -90,6 +90,17 @@ $(function(){
   $('.closeCategorie').on('click', function(){
     $('#categorie').removeClass('active');
   });
+
+
+  /** Categories */
+  /** Evenement quand on clique sur le bouton plus  */
+  $('.addTemoignageBlog').on('click', function(){
+    $('#temoignage').addClass('active');
+  });
+  /** Evenement quand on clique sur l'icon de fermeture (close) */
+  $('.closeTemoignage').on('click', function(){
+    $('#temoignage').removeClass('active');
+  });
   /* Evenement pour le formulaire d'ajout d'une categorie */
   $("#form-ajouter-categorie").on('submit',function(e){
     e.preventDefault();
@@ -117,6 +128,57 @@ $(function(){
   $("#nomCategorie").on('input', function(){
     $(this).removeClass('error');
   });
+
+/** Formulaire d'ajout d'un nnouveau temoignage */
+$("#form-ajouter-temoignage").on('submit',function(e){
+  e.preventDefault();
+  var temoin = $('#nomTemoin');
+  var invalid = false;
+  var avis = $('#avis');
+  var avatar = $("#avatar");
+  var dataTemoignage = [temoin, avis];
+  $.each(dataTemoignage, function(index, element){
+    if(!$(element).val()){
+      element.addClass('error');
+      invalid = true;
+    }
+  });
+  if(invalid){
+    $(".ajouter-temoignage-message").html('<p class="message--erreur">Il faut remplir tous les champs</p>');
+  }
+  else{
+    if($(avis).val().length > 300){
+      $(".ajouter-temoignage-message").html('<p class="message--erreur">Taille maximum 300 caract&egrave;res</p>');
+    }
+    else{
+    var url = './index.php?controller=temoignage&action=addTemoignage&temoin='+temoin.val()+'&avis='+avis.val();    
+    var formData = new FormData(this);
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: formData,
+      success: function(data){
+        $('.ajouter-temoignage-message').html(data);
+      },
+      error: function(err){
+        console.log('Erreur: '+err);
+      },
+      cache: false,
+      contentType: false,
+      processData: false
+    });
+    }
+  }
+});
+ /** Pour enlever la bordure quand on edite l'input' */
+ $("#nomTemoin").on('input', function(){
+  $(this).removeClass('error');
+});
+$("#avis").on('input', function(){
+  $(this).removeClass('error');
+});
+
+
   /** Evenement lors du clic sur le bouton liste Categorie */
 $('.viewListCategorie').on('click', function(){
   $('.fa-eye').removeClass('active');
@@ -133,6 +195,23 @@ $('.viewListCategorie').on('click', function(){
     });
   })
   /** Fin */
+
+  $('.viewListTemoignage').on('click', function(){
+    $('.fa-eye').removeClass('active');
+    $('.header-bloc-group').removeClass('active');
+    $('.header-bloc-group-4').addClass('active');
+      $(this).addClass('active');
+      var url = './index.php?controller=temoignage&action=listTemoignage';
+      $.ajax({
+        url: url,
+        method: "GET",
+        success: function(data){
+          loadingfunc('.list-group', data);
+        }
+      });
+    })
+    /** Fin */
+
     /** Evenement lors du clic sur le bouton liste Article */
 $('.viewListArticle').on('click', function(){
   $('.fa-eye').removeClass('active');

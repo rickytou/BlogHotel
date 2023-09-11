@@ -127,41 +127,19 @@ require_once('./includes/head.php');
         </div>
         <!-- Bloc de temoignages -->
         <div class="temoignages__bloc">
-          <!-- Temoignages comments [Temoignages1] -->
-          <div class="temoignages__bloc__group active">
-            <div class="temoignages__bloc__comments">
-              <div class="temoignages__bloc__comments_user">
-                <blockquote>
-                  <i class="fa-solid fa-quote-left"></i>
-                  <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries.
-                  </p>
-                  <i class="fa-solid fa-quote-right"></i>
-                  <cite>
-                    <span>John Doe</span>
-                  </cite>
-                </blockquote>
-              </div>
-            </div>
-            <!-- Temoignages bloc design -->
-            <div class="temoignages__bloc__design"></div>
-            <!-- Temoignages profil de l'utilisateur -->
-            <div class="temoignages__bloc__profil">
-              <img src="./public/images/avatar.png" alt="avatar" />
-            </div>
-          </div>
-          <!-- Fin -->
-
-          <!-- Temoignages comments [Temoignages2] -->
+          <?php foreach($listTemoignage as $temoignages) : ?>
+          <!-- Temoignages comments [Temoignages] -->
           <div class="temoignages__bloc__group">
             <div class="temoignages__bloc__comments">
               <div class="temoignages__bloc__comments_user">
                 <blockquote>
                   <i class="fa-solid fa-quote-left"></i>
-                  <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries.
+                  <p><?= $temoignages["avis"] ?>
                   </p>
                   <i class="fa-solid fa-quote-right"></i>
                   <cite>
-                    <span>Johnny Doe</span>
+                    <b><?= date('d/m/Y',$temoignages["datepubTemoignage"]) ?></b>
+                    <span><?= $temoignages["temoin"] ?></span>
                   </cite>
                 </blockquote>
               </div>
@@ -170,154 +148,11 @@ require_once('./includes/head.php');
             <div class="temoignages__bloc__design"></div>
             <!-- Temoignages profil de l'utilisateur -->
             <div class="temoignages__bloc__profil">
-              <img src="./public/images/avatar.png" alt="avatar" />
+              <img src="<?= $temoignages["image"] ?>" alt="<?php $temoignages["temoin"] ?>" />
             </div>
           </div>
           <!-- Fin -->
-
-          <!-- Temoignages comments [Temoignages3] -->
-          <div class="temoignages__bloc__group">
-            <div class="temoignages__bloc__comments">
-              <div class="temoignages__bloc__comments_user">
-                <blockquote>
-                  <i class="fa-solid fa-quote-left"></i>
-                  <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries.
-                  </p>
-                  <i class="fa-solid fa-quote-right"></i>
-                  <cite>
-                    <span>Jane Doe</span>
-                  </cite>
-                </blockquote>
-              </div>
-            </div>
-            <!-- Temoignages bloc design -->
-            <div class="temoignages__bloc__design"></div>
-            <!-- Temoignages profil de l'utilisateur -->
-            <div class="temoignages__bloc__profil">
-              <img src="./public/images/avatar.png" alt="avatar" />
-            </div>
-          </div>
-          <!-- Fin -->
-
-          <!-- Temoignages comments [Temoignages4] -->
-          <div class="temoignages__bloc__group">
-            <div class="temoignages__bloc__comments">
-              <div class="temoignages__bloc__comments_user">
-                <blockquote>
-                  <i class="fa-solid fa-quote-left"></i>
-                  <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries.
-                  </p>
-                  <i class="fa-solid fa-quote-right"></i>
-                  <cite>
-                    <span>Spence Doe</span>
-                  </cite>
-                </blockquote>
-              </div>
-            </div>
-            <!-- Temoignages bloc design -->
-            <div class="temoignages__bloc__design"></div>
-            <!-- Temoignages profil de l'utilisateur -->
-            <div class="temoignages__bloc__profil">
-              <img src="./public/images/avatar.png" alt="avatar" />
-            </div>
-          </div>
-          <!-- Fin -->
-
-          <!-- Temoignages comments [Temoignages5] -->
-          <div class="temoignages__bloc__group">
-            <div class="temoignages__bloc__comments">
-              <div class="temoignages__bloc__comments_user">
-                <blockquote>
-                  <i class="fa-solid fa-quote-left"></i>
-                  <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries.
-                  </p>
-                  <i class="fa-solid fa-quote-right"></i>
-                  <cite>
-                    <span>Steeve Doe</span>
-                  </cite>
-                </blockquote>
-              </div>
-            </div>
-            <!-- Temoignages bloc design -->
-            <div class="temoignages__bloc__design"></div>
-            <!-- Temoignages profil de l'utilisateur -->
-            <div class="temoignages__bloc__profil">
-              <img src="./public/images/avatar.png" alt="avatar" />
-            </div>
-          </div>
-          <!-- Fin -->
-
-          <!-- Temoignages comments [Temoignages6] -->
-          <div class="temoignages__bloc__group">
-            <div class="temoignages__bloc__comments">
-              <div class="temoignages__bloc__comments_user">
-                <blockquote>
-                  <i class="fa-solid fa-quote-left"></i>
-                  <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries.
-                  </p>
-                  <i class="fa-solid fa-quote-right"></i>
-                  <cite>
-                    <span>Bryan Doe</span>
-                  </cite>
-                </blockquote>
-              </div>
-            </div>
-            <!-- Temoignages bloc design -->
-            <div class="temoignages__bloc__design"></div>
-            <!-- Temoignages profil de l'utilisateur -->
-            <div class="temoignages__bloc__profil">
-              <img src="./public/images/avatar.png" alt="avatar" />
-            </div>
-          </div>
-          <!-- Fin -->
-
-          <!-- Temoignages comments [Temoignages7] -->
-          <div class="temoignages__bloc__group">
-            <div class="temoignages__bloc__comments">
-              <div class="temoignages__bloc__comments_user">
-                <blockquote>
-                  <i class="fa-solid fa-quote-left"></i>
-                  <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries.
-                  </p>
-                  <i class="fa-solid fa-quote-right"></i>
-                  <cite>
-                    <span>Jack Doe</span>
-                  </cite>
-                </blockquote>
-              </div>
-            </div>
-            <!-- Temoignages bloc design -->
-            <div class="temoignages__bloc__design"></div>
-            <!-- Temoignages profil de l'utilisateur -->
-            <div class="temoignages__bloc__profil">
-              <img src="./public/images/avatar.png" alt="avatar" />
-            </div>
-          </div>
-          <!-- Fin -->
-
-          <!-- Temoignages comments [Temoignages8] -->
-          <div class="temoignages__bloc__group">
-            <div class="temoignages__bloc__comments">
-              <div class="temoignages__bloc__comments_user">
-                <blockquote>
-                  <i class="fa-solid fa-quote-left"></i>
-                  <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries.
-                  </p>
-                  <i class="fa-solid fa-quote-right"></i>
-                  <cite>
-                    <span>Pitt Doe</span>
-                  </cite>
-                </blockquote>
-              </div>
-            </div>
-            <!-- Temoignages bloc design -->
-            <div class="temoignages__bloc__design"></div>
-            <!-- Temoignages profil de l'utilisateur -->
-            <div class="temoignages__bloc__profil">
-              <img src="./public/images/avatar.png" alt="avatar" />
-            </div>
-          </div>
-          <!-- Fin -->
+          <?php endforeach; ?>
           <!-- Fin Temoignages -->
         </div>
     </section>
