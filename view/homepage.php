@@ -31,6 +31,7 @@ require_once('./includes/head.php');
     </div>
     <!-- Fin Header -->
     <!-- Nos recentes publications -->
+    <?php if(isset($listArticles) && count($listArticles)) : ?>
     <div class="recent-posts" id="blog">
       <h2>Nos r&eacute;centes publications</h2>
       <div class="recent-posts-filtre">
@@ -103,7 +104,7 @@ require_once('./includes/head.php');
      </a>
      </div>
     </div>
-
+    <?php endif; ?>
     <!-- Fin -->
     <!-- Temoignages -->
     <!-- Section Temoignages Wrapper -->

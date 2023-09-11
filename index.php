@@ -76,13 +76,8 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
       }
       if($_GET['action'] === 'moreArticles'){
         $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        ArticleController::moreArticles($_GET["nbArticleParPage"], $_GET["perPage"]);
-        // echo "<pre>";
-        // var_dump($_GET);
-        // echo "</pre>";
-        // die;
-        //ArticleController::moreArticle($_GET['nbArticleParPage']);
-      }
+        ArticleController::moreArticles((int) $_GET["nbArticleParPage"], (int) $_GET["perPage"]);
+       }
   }
   if($_GET['controller'] === 'categorie'){
     if($_GET['action'] === 'addCategorie'){
@@ -97,7 +92,7 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
     if($_GET['action'] === 'deleteCategorie'){
       $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
       if(isset($_GET['idCategorie'])){
-        CategorieController::deleteCategorie($_GET['idCategorie']);
+        CategorieController::deleteCategorie((int) $_GET['idCategorie']);
       }
       else{
         CategorieController::deleteCategories();
@@ -105,7 +100,7 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
     }
     if($_GET['action'] === 'viewCategorie'){
       $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-      CategorieController::viewCategorie($_GET["idCategorie"]);
+      CategorieController::viewCategorie((int) $_GET["idCategorie"]);
     }
     if($_GET['action'] === 'updateCategorie'){
       $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
