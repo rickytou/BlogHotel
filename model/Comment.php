@@ -33,7 +33,7 @@ class Comment{
     $con = self::establishedConnection();
     $listCommentaire = array();
     try{
-     $query = "SELECT * FROM COMMENTAIRES WHERE idArticle = :idArticle and statut = 1";
+     $query = "SELECT * FROM commentaires WHERE idArticle = :idArticle and statut = 1";
      $requete = $con->prepare($query);
      $requete->execute(array("idArticle" => $idArticle));
      foreach($requete as $key => $req){
@@ -50,7 +50,7 @@ class Comment{
     $con = self::establishedConnection();
     $listCommentaire = array();
     try{
-     $query = "SELECT * FROM COMMENTAIRES";
+     $query = "SELECT * FROM commentaires";
      $requete = $con->query($query);
      foreach($requete as $key => $req){
       $listCommentaire[$key] = $req;

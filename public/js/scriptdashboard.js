@@ -54,7 +54,7 @@ $(function(){
     $(".ajouter-article-message").html('<p class="message--erreur">Il faut remplir tous les champs</p>');
   }
   else{
-     var url = '../index.php?controller=article&action=addArticle&titre='+titre.val()+'&description='+desc.val()+'&idCategories='+idCategories.val();
+     var url = './index.php?controller=article&action=addArticle&titre='+titre.val()+'&description='+desc.val()+'&idCategories='+idCategories.val();
         var formData = new FormData(this);
         $.ajax({
           type: "POST",
@@ -103,7 +103,7 @@ $(function(){
       nomCategorie.addClass('error');
     }
     else{
-      var url = '../index.php?controller=categorie&action=addCategorie&nomCategorie='+nomCategorie.val()+'&descriptionCategorie='+descriptionCategorie.val();
+      var url = './index.php?controller=categorie&action=addCategorie&nomCategorie='+nomCategorie.val()+'&descriptionCategorie='+descriptionCategorie.val();
       $.ajax({
         url : url,
         method : "GET",
@@ -123,7 +123,7 @@ $('.viewListCategorie').on('click', function(){
   $('.header-bloc-group').removeClass('active');
   $('.header-bloc-group-2').addClass('active');
     $(this).addClass('active');
-    var url = '../index.php?controller=categorie&action=listCategorie';
+    var url = './index.php?controller=categorie&action=listCategorie';
     $.ajax({
       url: url,
       method: "GET",
@@ -139,7 +139,7 @@ $('.viewListArticle').on('click', function(){
   $('.header-bloc-group').removeClass('active');
   $('.header-bloc-group-1').addClass('active');
     $(this).addClass('active');
-    var url = '../index.php?controller=article&action=listArticle';
+    var url = './index.php?controller=article&action=listArticle';
     $.ajax({
       url: url,
       method: "GET",
@@ -274,7 +274,7 @@ $('.viewListCommentaire').on('click', function(){
   $('.header-bloc-group').removeClass('active');
   $('.header-bloc-group-3').addClass('active');
     $(this).addClass('active');
-    var url = '../index.php?controller=comment&action=listCommentaire';
+    var url = './index.php?controller=comment&action=listCommentaire';
     $.ajax({
       url: url,
       method: "GET",

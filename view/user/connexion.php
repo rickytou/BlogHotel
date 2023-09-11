@@ -11,7 +11,9 @@ require_once('./includes/headcustom.php');
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae aspernatur minus quis molestiae accusantium libero fugit officia nobis quia culpa, dolores dolorum dicta iure aliquid nemo expedita doloribus a et ratione sint repellendus! Ipsam accusamus quidem eos nemo adipisci nesciunt incidunt accusantium magni? Earum dignissimos quis porro quam ipsa aliquid!</p>
     </div>
     <form action="./index.php?controller=user&action=connect" method="POST" class="form-connexion">
-    <div class="connexion-input-control connexion-message"></div>
+    <?php if(isset($_GET['wrong'])): ?><div class="connexion-input-control connexion-message">
+      <p class="message--erreur">Utilisateur ou mot de passe incorrect </p>
+    </div><?php endif; ?>
       <div class="connexion-input-control">
         <input type="text" placeholder="nom utilisateur" id="nomutilisateur" name="nomutilisateur">
       </div>

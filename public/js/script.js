@@ -105,7 +105,6 @@ $('.filter-all').on('click', function(){
 });
   /** Formulaire de connexion */
   $('.form-connexion').on('submit', function(e){
-    
     var nomutilisateur = $('#nomutilisateur');
     var motdepasse = $('#motdepasse');
     var data = [nomutilisateur, motdepasse];

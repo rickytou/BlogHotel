@@ -12,7 +12,7 @@ if(!isset($_SESSION["nomutilisateur"])){
   <!-- Shortcut Icon -->
   <link rel="shortcut icon" href="./public/images/favicon.ico" type="image/x-icon">
   <!-- Inclusion du fichier css -->
-  <link rel="stylesheet" href="../public/css/stylesdashboard.css">
+  <link rel="stylesheet" href="./public/css/stylesdashboard.css">
   <!-- Lien vers le CDN Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Inclusion de Google Fonts -->
@@ -20,7 +20,7 @@ if(!isset($_SESSION["nomutilisateur"])){
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&family=Nunito:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- Inclusion du fichier JS apres le chargement complet de la page -->
-  <script defer src="../public/js/scriptdashboard.js"></script>
+  <script defer src="./public/js/scriptdashboard.js"></script>
   <title>BlogHotel | Dashboard</title>
 </head>
 <body>
@@ -31,7 +31,7 @@ if(!isset($_SESSION["nomutilisateur"])){
         <!-- Logo -->
         <div class="logo">
           <p>
-            <a href="../index.php" class="fa-solid fa-blog"></a>
+            <a href="./index.php" class="fa-solid fa-blog"></a>
            </p>
         </div>
         <!-- Fin Logo -->

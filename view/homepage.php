@@ -94,7 +94,7 @@ require_once('./includes/head.php');
         <!-- <div class="moreArticles"></div> -->
       </div>
       <p class="loadingprofil">
-      <img src="../public/images/load.gif" alt="loading">
+      <img src="./public/images/load.gif" alt="loading">
     </p>
     <div class="recent-posts-more">
      <a href="#">

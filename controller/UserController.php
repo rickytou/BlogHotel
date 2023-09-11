@@ -40,7 +40,7 @@ class UserController{
       $user = new User(trim($donneesPostees["nomutilisateur"]), trim($donneesPostees["motdepasse"]));
       $userconnect = User::connect($user);
       if(!$userconnect){
-        $message = '<p class="message--erreur">Nom utilisateur ou mot de passe incorrect';
+        header('Location:index.php?controller=user&action=login&wrong');
       }
       else{
         $_SESSION["nomutilisateur"] = $user->getNomUtilisateur();

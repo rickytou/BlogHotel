@@ -63,7 +63,7 @@ require_once('./includes/headcustom.php');
         <input type="submit" value="Envoyer">
       </div>
       <p class="loadingprofil">
-      <img src="../public/images/load.gif" alt="loading">
+      <img src="./public/images/load.gif" alt="loading">
     </p>
     </form>
   </div>

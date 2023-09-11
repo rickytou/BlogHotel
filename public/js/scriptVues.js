@@ -147,7 +147,7 @@ $('#updateModifierCategorie').on('submit', function(e){
     nomCategorie.addClass('error');
   }
   else{
-    var url = '../index.php?controller=categorie&action=updateCategorie&nomCategorie='+nomCategorie.val()+'&descriptionCategorie='+descriptionCategorie.val()+'&idCategorie='+id.val()+'&actif='+actif.val();
+    var url = './index.php?controller=categorie&action=updateCategorie&nomCategorie='+nomCategorie.val()+'&descriptionCategorie='+descriptionCategorie.val()+'&idCategorie='+id.val()+'&actif='+actif.val();
     $.ajax({
       url : url,
       method : "GET",
@@ -243,7 +243,7 @@ $('#updateModifierArticle').on('submit', function(e){
     }
   });
    if(!invalid){
-    var url = '../index.php?controller=article&action=updateArticle&nomArticle='+nomArticle.val()+'&descriptionArticle='+descriptionArticle.val()+'&idArticle='+id.val()+'&actif='+actif.val()+'&fileUploadImage='+fileUploadImage+'&idCategorie='+idCategorie.val();
+    var url = './index.php?controller=article&action=updateArticle&nomArticle='+nomArticle.val()+'&descriptionArticle='+descriptionArticle.val()+'&idArticle='+id.val()+'&actif='+actif.val()+'&fileUploadImage='+fileUploadImage+'&idCategorie='+idCategorie.val();
     var formData = new FormData(this);
     $.ajax({
       type: "POST",
