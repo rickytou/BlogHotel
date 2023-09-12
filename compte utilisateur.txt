@@ -1,0 +1,2 @@
+Nom utilisateur : admin
+Mot de passe : 1234
